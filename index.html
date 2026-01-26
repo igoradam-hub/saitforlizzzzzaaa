@@ -2431,7 +2431,122 @@
                     span.style.transform = 'translateY(0)';
                 }, 100);
             });
+
+            // Загрузка динамического контента из админки
+            loadDynamicContent();
         });
+
+        // Функция загрузки контента
+        async function loadDynamicContent() {
+            try {
+                const res = await fetch('/api/content');
+                if (!res.ok) return;
+
+                const content = await res.json();
+
+                // Hero section
+                if (content.hero) {
+                    const badge = document.querySelector('.t-cover__badge');
+                    const title = document.querySelector('.t-cover__title');
+                    const subtitle = document.querySelector('.t-cover__subtitle');
+                    const name = document.querySelector('.t-cover__name');
+                    const bg = document.querySelector('.t-cover__bg');
+                    const dateValue = document.querySelector('.t-cover__date-item:first-child .t-cover__date-value');
+                    const locationValue = document.querySelector('.t-cover__date-item:last-child .t-cover__date-value');
+
+                    if (badge && content.hero.badge) badge.textContent = content.hero.badge;
+                    if (title && content.hero.title) title.innerHTML = content.hero.title;
+                    if (subtitle && content.hero.subtitle) subtitle.textContent = content.hero.subtitle;
+                    if (name && content.hero.name) name.textContent = content.hero.name;
+                    if (bg && content.hero.backgroundImage) bg.style.backgroundImage = `url('${content.hero.backgroundImage}')`;
+                    if (dateValue && content.hero.date) dateValue.textContent = content.hero.date;
+                    if (locationValue && content.hero.location) locationValue.textContent = content.hero.location;
+                }
+
+                // About section
+                if (content.about) {
+                    const aboutTitle = document.querySelector('#about h3');
+                    const aboutTexts = document.querySelectorAll('.t-about__content p');
+                    const aboutImg = document.querySelector('.t-about__image img');
+
+                    if (aboutTitle && content.about.title) aboutTitle.textContent = content.about.title;
+                    if (aboutTexts[0] && content.about.text1) aboutTexts[0].innerHTML = content.about.text1;
+                    if (aboutTexts[1] && content.about.text2) aboutTexts[1].textContent = content.about.text2;
+                    if (aboutImg && content.about.image) aboutImg.src = content.about.image;
+                }
+
+                // Stats section
+                if (content.stats) {
+                    const statItems = document.querySelectorAll('.t-stat-item');
+                    content.stats.forEach((stat, i) => {
+                        if (statItems[i]) {
+                            const num = statItems[i].querySelector('.t-stat-item__number');
+                            const label = statItems[i].querySelector('.t-stat-item__label');
+                            if (num) num.textContent = stat.number;
+                            if (label) label.textContent = stat.label;
+                        }
+                    });
+                }
+
+                // Quote section
+                if (content.quote) {
+                    const quoteText = document.querySelector('.t-quote__text');
+                    const quoteName = document.querySelector('.t-quote__author-name');
+                    const quotePos = document.querySelector('.t-quote__author-position');
+
+                    if (quoteText && content.quote.text) quoteText.textContent = content.quote.text;
+                    if (quoteName && content.quote.author) quoteName.textContent = content.quote.author;
+                    if (quotePos && content.quote.position) quotePos.textContent = content.quote.position;
+                }
+
+                // Finals section
+                if (content.finals) {
+                    const finalsItems = document.querySelectorAll('.t-finals__item-content');
+                    if (finalsItems[0] && content.finals.date) finalsItems[0].querySelector('p').textContent = content.finals.date;
+                    if (finalsItems[1] && content.finals.location) finalsItems[1].querySelector('p').textContent = content.finals.location;
+                    if (finalsItems[2] && content.finals.format) finalsItems[2].querySelector('p').textContent = content.finals.format;
+                    if (finalsItems[3] && content.finals.jury) finalsItems[3].querySelector('p').textContent = content.finals.jury;
+
+                    const finalsImg = document.querySelector('.t-finals__image img');
+                    if (finalsImg && content.finals.image) finalsImg.src = content.finals.image;
+                }
+
+                // Contacts section
+                if (content.contacts) {
+                    const contactCards = document.querySelectorAll('.t-contact-card');
+                    if (contactCards[0] && content.contacts.address) {
+                        contactCards[0].querySelector('p').innerHTML = content.contacts.address.replace(/\n/g, '<br>');
+                    }
+                    if (contactCards[1] && content.contacts.email) {
+                        const emailLink = contactCards[1].querySelector('a');
+                        if (emailLink) {
+                            emailLink.href = `mailto:${content.contacts.email}`;
+                            emailLink.textContent = content.contacts.email;
+                        }
+                    }
+                    if (contactCards[2] && content.contacts.phone) {
+                        const phoneLink = contactCards[2].querySelector('a');
+                        if (phoneLink) {
+                            phoneLink.href = `tel:${content.contacts.phone.replace(/\s/g, '')}`;
+                            phoneLink.textContent = content.contacts.phone;
+                        }
+                    }
+                }
+
+                // CTA section
+                if (content.cta) {
+                    const ctaTitle = document.querySelector('.t-cta__title');
+                    const ctaText = document.querySelector('.t-cta__text');
+
+                    if (ctaTitle && content.cta.title) ctaTitle.textContent = content.cta.title;
+                    if (ctaText && content.cta.text) ctaText.textContent = content.cta.text;
+                }
+
+                console.log('Dynamic content loaded successfully');
+            } catch (error) {
+                console.log('Using default content (API not available)');
+            }
+        }
     </script>
 
 </body>
