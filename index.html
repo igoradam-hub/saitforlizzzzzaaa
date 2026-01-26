@@ -1,80 +1,56 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSU Urban Law Cup</title>
-    <meta name="description" content="Конкурс по земельному законодательству и законодательству о градостроительной деятельности">
-    <meta property="og:url" content="http://urbanlawcup-msu.ru">
-    <meta property="og:title" content="MSU Urban Law Cup">
-    <meta property="og:description" content="Конкурс по земельному законодательству и законодательству о градостроительной деятельности">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://static.tildacdn.com/tild3031-3837-4930-b530-343164393138/DSC_6417.jpg">
-    <link rel="shortcut icon" href="https://static.tildacdn.com/tild3165-6334-4431-b638-383162643131/image_164.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <title>II Открытый Кубок МГУ по земельному и градостроительному праву</title>
+    <meta name="description" content="Командное соревнование студентов по разработке решений спорных правовых ситуаций в области земельного и градостроительного права">
+    <meta property="og:title" content="MSU Urban Law Cup 2025">
+    <meta property="og:description" content="II Открытый студенческий Кубок МГУ по земельному и градостроительному праву имени О.И. Крассова">
+    <meta property="og:image" content="images/photos/0450.jpg">
+    <link rel="shortcut icon" href="images/logos/msu-law-logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!--
     ==========================================
-    СТРУКТУРА ДЛЯ TILDA:
+    TILDA IMPORT GUIDE / ГАЙД ДЛЯ ПЕРЕНОСА В TILDA
     ==========================================
-    Каждая секция соответствует блоку Tilda:
-    - .t-cover = Cover/Обложка (ME601, ME602, ME603)
-    - .t-section = Текстовый блок (TX16, TX17)
-    - .t-cards = Карточки (CR01, CR02)
-    - .t-icontext = Иконки с текстом (FT01)
-    - .t-logos = Логотипы партнеров (PA01, PA02)
-    - .t-gallery = Галерея (GL01, GL11)
-    - .t-team = Команда/Эксперты (TE01)
-    - .t-testimonials = Отзывы (TM01)
-    - .t-faq = FAQ (FQ01)
-    - .t-contacts = Контакты (CO01)
+
+    Каждая секция = отдельный Zero Block в Tilda
+    Все классы начинаются с "t-" для совместимости
+
+    БЛОКИ TILDA:
+    - Header: ME301 или ME401
+    - Hero/Cover: CR01H или CR02H
+    - About: AB101 или AB104
+    - Features/Goals: FT301 или FT302
+    - Team/Winners: TE501 или TE502
+    - Stats: ST301 или ST302
+    - Quote: QT01 или QT02
+    - Gallery: GL01 или GL03
+    - Partners: PT01 или PT02
+    - CTA: CTA01 или CTA02
+    - Contacts: CN01 или CN02
+    - Footer: BF301 или BF401
+
+    ЦВЕТОВАЯ СХЕМА:
+    - Primary Green: #b2c2ac
+    - Dark Green: #8fa585
+    - Accent Orange: #ff6600
+    - Text Dark: #1a1a1a
+    - Text Gray: #666666
+    - Background Light: #f8f8f8
+
     ==========================================
     -->
 
     <style>
         /* ============================================
-           CSS ПЕРЕМЕННЫЕ - легко менять в Tilda
+           TILDA-OPTIMIZED CSS
+           Легкий перенос в Tilda Zero Block
            ============================================ */
-        :root {
-            /* Основные цвета */
-            --color-primary: #1a5f3c;
-            --color-primary-dark: #0d3d24;
-            --color-primary-light: #2a7a52;
-            --color-accent: #ff6600;
-            --color-gold: #b8a369;
 
-            /* Текст */
-            --color-text: #1a1a1a;
-            --color-text-secondary: #4a4a4a;
-            --color-text-muted: #6b6b6b;
-
-            /* Фоны */
-            --color-bg: #ffffff;
-            --color-bg-light: #f8f9fa;
-            --color-bg-cream: #f5f3ee;
-
-            /* Типографика */
-            --font-main: 'Montserrat', sans-serif;
-            --font-heading: 'Playfair Display', Georgia, serif;
-
-            /* Отступы секций - КОМПАКТНЫЕ */
-            --section-py: 50px;
-            --section-py-sm: 35px;
-
-            /* Максимальная ширина */
-            --container-width: 1200px;
-
-            /* Скругления */
-            --radius: 8px;
-            --radius-lg: 16px;
-        }
-
-        /* ============================================
-           СБРОС И БАЗОВЫЕ СТИЛИ
-           ============================================ */
-        *, *::before, *::after {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -85,11 +61,10 @@
         }
 
         body {
-            font-family: var(--font-main);
-            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            color: #1a1a1a;
             line-height: 1.6;
-            color: var(--color-text);
-            background: var(--color-bg);
+            background: #ffffff;
         }
 
         img {
@@ -98,188 +73,90 @@
             display: block;
         }
 
-        a {
-            color: var(--color-primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
+        /* Цветовая схема - как в Tilda */
+        :root {
+            --primary-green: #b2c2ac;
+            --dark-green: #8fa585;
+            --accent-orange: #ff6600;
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+            --bg-light: #f8f8f8;
+            --bg-cream: #faf9f7;
         }
 
-        a:hover {
-            color: var(--color-primary-dark);
-        }
-
-        /* ============================================
-           КОНТЕЙНЕР
-           ============================================ */
-        .t-container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .t-container--narrow {
-            max-width: 800px;
-        }
-
-        /* ============================================
-           ТИПОГРАФИКА
-           ============================================ */
-        .t-title {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--color-text);
-        }
-
-        .t-title--xl {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-        }
-
-        .t-title--lg {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-        }
-
-        .t-title--md {
-            font-size: clamp(1.4rem, 3vw, 1.8rem);
-        }
-
-        .t-title--sm {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-        }
-
-        .t-subtitle {
-            font-family: var(--font-main);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--color-primary);
-            margin-bottom: 10px;
-        }
-
-        .t-descr {
-            font-size: 1rem;
-            color: var(--color-text-secondary);
-            line-height: 1.7;
-        }
-
-        .t-descr--lg {
-            font-size: 1.15rem;
-        }
-
-        /* ============================================
-           КНОПКИ
-           ============================================ */
-        .t-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 32px;
-            font-family: var(--font-main);
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 30px;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .t-btn--primary {
-            background: var(--color-accent);
-            color: white;
-            border-color: var(--color-accent);
-        }
-
-        .t-btn--primary:hover {
-            background: #e55a00;
-            border-color: #e55a00;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.3);
-            color: white;
-        }
-
-        .t-btn--outline {
-            background: transparent;
-            color: white;
-            border-color: white;
-        }
-
-        .t-btn--outline:hover {
-            background: white;
-            color: var(--color-primary);
-        }
-
-        /* ============================================
-           БЛОК: НАВИГАЦИЯ (ME401)
-           ============================================ */
-        .t-menu {
+        /* ===========================================
+           SECTION: HEADER / НАВИГАЦИЯ
+           Tilda Block: ME301
+           =========================================== */
+        .t-header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
 
-        .t-menu__inner {
+        .t-header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
         }
 
-        .t-menu__logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .t-menu__logo-img {
-            height: 45px;
-            width: auto;
-        }
-
-        .t-menu__logo-text {
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
+        .t-header__logo {
+            font-size: 18px;
             font-weight: 700;
-            color: var(--color-primary);
+            color: var(--text-dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
         }
 
-        .t-menu__list {
+        .t-header__logo span {
+            color: var(--primary-green);
+        }
+
+        .t-header__nav {
             display: flex;
-            gap: 30px;
+            gap: 35px;
             list-style: none;
         }
 
-        .t-menu__link {
-            color: var(--color-text);
+        .t-header__nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 14px;
             font-weight: 500;
-            font-size: 0.9rem;
-            padding: 8px 0;
+            transition: color 0.3s ease;
             position: relative;
         }
 
-        .t-menu__link::after {
+        .t-header__nav a:hover {
+            color: var(--dark-green);
+        }
+
+        .t-header__nav a::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--color-primary);
+            background: var(--primary-green);
             transition: width 0.3s ease;
         }
 
-        .t-menu__link:hover::after {
+        .t-header__nav a:hover::after {
             width: 100%;
         }
 
-        .t-menu__burger {
+        .t-header__mobile {
             display: none;
             flex-direction: column;
             gap: 5px;
@@ -287,1057 +164,1090 @@
             padding: 5px;
         }
 
-        .t-menu__burger span {
-            width: 24px;
+        .t-header__mobile span {
+            width: 25px;
             height: 2px;
-            background: var(--color-text);
+            background: var(--text-dark);
+            transition: all 0.3s ease;
         }
 
-        /* ============================================
-           БЛОК: ОБЛОЖКА (ME601)
-           ============================================ */
+        /* ===========================================
+           SECTION: HERO / ГЛАВНЫЙ ЭКРАН
+           Tilda Block: CR01H (Cover)
+           =========================================== */
         .t-cover {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
             position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             overflow: hidden;
-            padding: 100px 20px 60px;
-            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-light) 100%);
         }
 
-        .t-cover::before {
-            content: '';
+        .t-cover__bg {
             position: absolute;
-            inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/photos/0450.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35;
+        }
+
+        .t-cover__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.6) 100%);
         }
 
         .t-cover__content {
             position: relative;
-            z-index: 1;
-            text-align: center;
-            color: white;
-            max-width: 900px;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 40px 80px;
+            width: 100%;
         }
 
         .t-cover__badge {
             display: inline-block;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.3);
+            background: var(--primary-green);
+            color: #1a1a1a;
             padding: 10px 24px;
             border-radius: 30px;
-            font-size: 0.9rem;
+            font-size: 12px;
             font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
         }
 
         .t-cover__title {
-            font-family: var(--font-heading);
-            font-size: clamp(2.8rem, 7vw, 4.5rem);
-            font-weight: 700;
+            font-size: clamp(36px, 5vw, 72px);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.1;
             margin-bottom: 20px;
-            text-shadow: 0 2px 30px rgba(0,0,0,0.2);
+            max-width: 900px;
         }
 
-        .t-cover__descr {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            opacity: 0.95;
+        .t-cover__title span {
+            color: var(--primary-green);
+        }
+
+        .t-cover__subtitle {
+            font-size: clamp(16px, 2vw, 22px);
+            color: rgba(255,255,255,0.8);
             max-width: 700px;
-            margin: 0 auto 35px;
-            line-height: 1.7;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .t-cover__name {
+            font-size: 18px;
+            color: var(--primary-green);
+            margin-bottom: 40px;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .t-cover__date {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .t-cover__date-item {
+            text-align: left;
+        }
+
+        .t-cover__date-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .t-cover__date-value {
+            font-size: 24px;
+            color: #ffffff;
+            font-weight: 700;
         }
 
         .t-cover__buttons {
             display: flex;
-            gap: 16px;
-            justify-content: center;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
-        /* ============================================
-           БЛОК: ОБЪЯВЛЕНИЕ О ПОБЕДИТЕЛЯХ (AB101)
-           ============================================ */
-        .t-announce {
-            padding: var(--section-py) 0;
-            background: var(--color-bg-light);
-        }
-
-        .t-announce__card {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 40px;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
-        }
-
-        .t-announce__grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .t-announce__title {
-            color: var(--color-primary);
-            margin-bottom: 16px;
-        }
-
-        .t-announce__link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--color-accent);
-            font-weight: 600;
-            margin-top: 20px;
-        }
-
-        .t-announce__link:hover {
-            gap: 12px;
-            color: #e55a00;
-        }
-
-        .t-winners {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        .t-winner {
-            background: var(--color-bg-light);
-            border-radius: var(--radius);
-            padding: 24px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .t-winner:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .t-winner__place {
+        .t-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, #d4af37, #f4d675);
-            color: white;
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-        }
-
-        .t-winner__team {
+            padding: 18px 40px;
+            font-size: 14px;
             font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--color-primary);
-            margin-bottom: 4px;
-        }
-
-        .t-winner__uni {
-            font-size: 0.85rem;
-            color: var(--color-text-muted);
-        }
-
-        /* ============================================
-           БЛОК: СЛАЙДЕР ФОТО (GL11)
-           ============================================ */
-        .t-slider {
-            padding: var(--section-py-sm) 0;
-            background: var(--color-bg);
-            overflow: hidden;
-        }
-
-        .t-slider__track {
-            display: flex;
-            gap: 16px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            padding: 10px 20px;
-        }
-
-        .t-slider__track::-webkit-scrollbar {
-            display: none;
-        }
-
-        .t-slider__item {
-            flex: 0 0 300px;
-            scroll-snap-align: start;
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        .t-slider__item img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .t-slider__item:hover img {
-            transform: scale(1.05);
-        }
-
-        /* ============================================
-           БЛОК: О КОНКУРСЕ (TX16)
-           ============================================ */
-        .t-about {
-            padding: var(--section-py) 0;
-        }
-
-        .t-about__grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-
-        .t-about__title {
-            margin-bottom: 20px;
-        }
-
-        .t-goals {
-            margin-top: 30px;
-        }
-
-        .t-goal {
-            display: flex;
-            gap: 16px;
-            padding: 20px;
-            background: var(--color-bg-light);
-            border-radius: var(--radius);
-            margin-bottom: 12px;
+            text-decoration: none;
+            border-radius: 50px;
             transition: all 0.3s ease;
-        }
-
-        .t-goal:hover {
-            background: var(--color-bg-cream);
-            transform: translateX(5px);
-        }
-
-        .t-goal__icon {
-            width: 50px;
-            height: 50px;
-            background: var(--color-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .t-goal__icon svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        .t-goal__title {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .t-goal__text {
-            font-size: 0.9rem;
-            color: var(--color-text-muted);
-        }
-
-        .t-about__images {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .t-about__img {
-            border-radius: var(--radius);
-            overflow: hidden;
-        }
-
-        .t-about__img img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .t-about__img:hover img {
-            transform: scale(1.05);
-        }
-
-        .t-about__img--large {
-            grid-column: span 2;
-        }
-
-        .t-about__img--large img {
-            height: 220px;
-        }
-
-        /* ============================================
-           БЛОК: ПАРТНЕРЫ (PA02)
-           ============================================ */
-        .t-partners {
-            padding: var(--section-py-sm) 0;
-            background: var(--color-bg-light);
-        }
-
-        .t-partners__grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .t-partners__category {
-            background: white;
-            border-radius: var(--radius);
-            padding: 24px 20px;
-        }
-
-        .t-partners__title {
-            font-size: 0.75rem;
-            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--color-text-muted);
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--color-bg-light);
-            text-align: center;
+            cursor: pointer;
+            border: none;
         }
 
-        .t-partners__logos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            align-items: center;
+        .t-btn--primary {
+            background: var(--primary-green);
+            color: #1a1a1a;
         }
 
-        .t-partners__logo {
-            height: 35px;
-            max-width: 90px;
-            object-fit: contain;
-            filter: grayscale(20%);
-            opacity: 0.85;
-            transition: all 0.3s ease;
+        .t-btn--primary:hover {
+            background: var(--dark-green);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(178, 194, 172, 0.4);
         }
 
-        .t-partners__logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        /* ============================================
-           БЛОК: НОВОСТИ/СТАТЬЯ (AB501)
-           ============================================ */
-        .t-news {
-            padding: var(--section-py) 0;
-        }
-
-        .t-news__header {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .t-news__grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 24px;
-        }
-
-        .t-news__main {
-            background: white;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-        }
-
-        .t-news__img {
-            height: 280px;
-            overflow: hidden;
-        }
-
-        .t-news__img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .t-news__main:hover .t-news__img img {
-            transform: scale(1.05);
-        }
-
-        .t-news__content {
-            padding: 28px;
-        }
-
-        .t-news__main-title {
-            font-size: 1.3rem;
-            margin-bottom: 14px;
-        }
-
-        .t-news__sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .t-news__card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 20px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--color-primary);
-        }
-
-        .t-news__card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .t-news__card-title {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 6px;
-        }
-
-        .t-news__card-text {
-            font-size: 0.9rem;
-            color: var(--color-text-muted);
-        }
-
-        /* ============================================
-           БЛОК: ЦИТАТЫ/ОТЗЫВЫ (TM01)
-           ============================================ */
-        .t-quotes {
-            padding: var(--section-py-sm) 0;
-            background: var(--color-primary);
-            color: white;
-        }
-
-        .t-quotes__grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .t-quote {
-            background: rgba(255,255,255,0.1);
-            border-radius: var(--radius);
-            padding: 28px;
-            backdrop-filter: blur(5px);
-        }
-
-        .t-quote__text {
-            font-size: 1rem;
-            font-style: italic;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            opacity: 0.95;
-        }
-
-        .t-quote__author {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .t-quote__photo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
+        .t-btn--outline {
+            background: transparent;
+            color: #ffffff;
             border: 2px solid rgba(255,255,255,0.3);
         }
 
-        .t-quote__name {
-            font-weight: 600;
-            margin-bottom: 2px;
+        .t-btn--outline:hover {
+            border-color: #ffffff;
+            background: rgba(255,255,255,0.1);
         }
 
-        .t-quote__position {
-            font-size: 0.8rem;
-            opacity: 0.8;
+        .t-btn--orange {
+            background: var(--accent-orange);
+            color: #ffffff;
         }
 
-        /* ============================================
-           БЛОК: ДОПОЛНИТЕЛЬНЫЕ ЦИТАТЫ (TM02)
-           ============================================ */
-        .t-testimonials {
-            padding: var(--section-py) 0;
-            background: var(--color-bg);
+        .t-btn--orange:hover {
+            background: #e55a00;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
         }
 
-        .t-testimonials__header {
+        /* Scroll indicator */
+        .t-cover__scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
             text-align: center;
-            margin-bottom: 35px;
+            color: rgba(255,255,255,0.5);
         }
 
-        .t-testimonials__grid {
+        .t-cover__scroll-text {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .t-cover__scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+            margin: 0 auto;
+            animation: scrollPulse 2s infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ===========================================
+           SECTION: БАЗОВЫЕ СТИЛИ СЕКЦИЙ
+           =========================================== */
+        .t-section {
+            padding: 100px 0;
+        }
+
+        .t-section--sm {
+            padding: 70px 0;
+        }
+
+        .t-section--gray {
+            background: var(--bg-light);
+        }
+
+        .t-section--cream {
+            background: var(--bg-cream);
+        }
+
+        .t-section--dark {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .t-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .t-section__header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .t-section__label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+        }
+
+        .t-section--dark .t-section__label {
+            color: var(--primary-green);
+        }
+
+        .t-section__title {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .t-section--dark .t-section__title {
+            color: #ffffff;
+        }
+
+        .t-section__desc {
+            font-size: 17px;
+            color: var(--text-gray);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .t-section--dark .t-section__desc {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ===========================================
+           SECTION: О КОНКУРСЕ
+           Tilda Block: AB101 или AB104
+           =========================================== */
+        .t-about__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .t-about__image {
+            position: relative;
+        }
+
+        .t-about__image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+        }
+
+        .t-about__image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 3px solid var(--primary-green);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .t-about__content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        .t-about__content p {
+            font-size: 16px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        .t-about__content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===========================================
+           SECTION: ЦЕЛИ КОНКУРСА
+           Tilda Block: FT301
+           =========================================== */
+        .t-goals__grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 30px;
         }
 
-        .t-testimonial {
-            background: var(--color-bg-light);
-            border-radius: var(--radius);
-            padding: 24px;
-            transition: all 0.3s ease;
+        .t-goal-card {
+            background: #ffffff;
+            padding: 45px 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .t-testimonial:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .t-goal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
         }
 
-        .t-testimonial__text {
-            font-size: 0.95rem;
-            color: var(--color-text-secondary);
-            font-style: italic;
-            margin-bottom: 18px;
-            line-height: 1.6;
+        .t-goal-card__number {
+            font-size: 72px;
+            font-weight: 800;
+            color: var(--primary-green);
+            opacity: 0.15;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            line-height: 1;
         }
 
-        .t-testimonial__author {
+        .t-goal-card__icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-green);
+            border-radius: 14px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            margin-bottom: 25px;
         }
 
-        .t-testimonial__photo {
-            width: 45px;
-            height: 45px;
+        .t-goal-card__icon svg {
+            width: 26px;
+            height: 26px;
+            fill: #1a1a1a;
+        }
+
+        .t-goal-card__title {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .t-goal-card__text {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* ===========================================
+           SECTION: ПОБЕДИТЕЛИ / РЕЗУЛЬТАТЫ
+           Tilda Block: TE501
+           =========================================== */
+        .t-winners__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .t-winner-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .t-winner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .t-winner-card--gold {
+            border: 3px solid #ffd700;
+        }
+
+        .t-winner-card--silver {
+            border: 3px solid #c0c0c0;
+        }
+
+        .t-winner-card--bronze {
+            border: 3px solid #cd7f32;
+        }
+
+        .t-winner-card__place {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: #ffffff;
+            z-index: 10;
+        }
+
+        .t-winner-card--gold .t-winner-card__place {
+            background: linear-gradient(135deg, #ffd700, #ffb700);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .t-winner-card--silver .t-winner-card__place {
+            background: linear-gradient(135deg, #c0c0c0, #a8a8a8);
+            box-shadow: 0 4px 15px rgba(192, 192, 192, 0.4);
+        }
+
+        .t-winner-card--bronze .t-winner-card__place {
+            background: linear-gradient(135deg, #cd7f32, #b86b2a);
+            box-shadow: 0 4px 15px rgba(205, 127, 50, 0.4);
+        }
+
+        .t-winner-card__image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .t-winner-card__image img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .t-testimonial__name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 2px;
+        .t-winner-card:hover .t-winner-card__image img {
+            transform: scale(1.08);
         }
 
-        .t-testimonial__position {
-            font-size: 0.75rem;
-            color: var(--color-text-muted);
-        }
-
-        /* ============================================
-           БЛОК: ФОТОГАЛЕРЕЯ (GL01)
-           ============================================ */
-        .t-gallery {
-            padding: var(--section-py-sm) 0;
-            background: var(--color-bg-light);
-        }
-
-        .t-gallery__header {
+        .t-winner-card__content {
+            padding: 25px;
             text-align: center;
-            margin-bottom: 30px;
         }
 
+        .t-winner-card__team {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .t-winner-card__university {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.4;
+        }
+
+        /* ===========================================
+           SECTION: ГАЛЕРЕЯ
+           Tilda Block: GL01
+           =========================================== */
         .t-gallery__grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 15px;
         }
 
         .t-gallery__item {
-            aspect-ratio: 4/3;
-            border-radius: var(--radius);
+            position: relative;
+            border-radius: 12px;
             overflow: hidden;
+            aspect-ratio: 1;
             cursor: pointer;
+        }
+
+        .t-gallery__item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
         }
 
         .t-gallery__item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
+            transition: transform 0.5s ease;
         }
 
         .t-gallery__item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
 
-        .t-gallery__item--large {
-            grid-column: span 2;
-            grid-row: span 2;
+        .t-gallery__item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.4) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        /* ============================================
-           БЛОК: ЭКСПЕРТЫ/КОМАНДА (TE01)
-           ============================================ */
-        .t-team {
-            padding: var(--section-py) 0;
-        }
-
-        .t-team__header {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .t-team__grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .t-team__grid--3col {
-            grid-template-columns: repeat(3, 1fr);
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .t-member {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .t-member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-        }
-
-        .t-member__photo {
-            height: 180px;
-            overflow: hidden;
-            background: var(--color-bg-cream);
-        }
-
-        .t-member__photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .t-member:hover .t-member__photo img {
-            transform: scale(1.05);
-        }
-
-        .t-member__info {
-            padding: 18px;
-        }
-
-        .t-member__name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 6px;
-        }
-
-        .t-member__position {
-            font-size: 0.8rem;
-            color: var(--color-text-muted);
-            line-height: 1.4;
-        }
-
-        /* ============================================
-           БЛОК: ВУЗЫ-УЧАСТНИКИ (PA01)
-           ============================================ */
-        .t-universities {
-            padding: var(--section-py-sm) 0;
-            background: var(--color-bg-cream);
-        }
-
-        .t-universities__header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .t-universities__logos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .t-universities__logo {
-            height: 55px;
-            max-width: 140px;
-            object-fit: contain;
-            filter: grayscale(40%);
-            opacity: 0.75;
-            transition: all 0.3s ease;
-        }
-
-        .t-universities__logo:hover {
-            filter: grayscale(0%);
+        .t-gallery__item:hover::after {
             opacity: 1;
         }
 
-        /* ============================================
-           БЛОК: ОТЗЫВЫ ФИНАЛИСТОВ (TM03)
-           ============================================ */
-        .t-finalists {
-            padding: var(--section-py-sm) 0;
+        /* ===========================================
+           SECTION: ЦИТАТА
+           Tilda Block: QT01
+           =========================================== */
+        .t-quote {
+            padding: 90px 0;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        .t-finalists__header {
+        .t-quote__content {
+            max-width: 850px;
+            margin: 0 auto;
             text-align: center;
-            margin-bottom: 30px;
+            position: relative;
+            z-index: 10;
         }
 
-        .t-finalists__grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .t-quote__icon {
+            font-size: 80px;
+            color: rgba(255,255,255,0.25);
+            margin-bottom: 25px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .t-quote__text {
+            font-size: clamp(18px, 2.5vw, 26px);
+            color: #1a1a1a;
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            font-style: italic;
+        }
+
+        .t-quote__author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             gap: 20px;
         }
 
-        .t-finalist {
-            background: white;
-            border-radius: var(--radius);
-            padding: 24px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--color-primary);
-            transition: all 0.3s ease;
+        .t-quote__author-photo {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
         }
 
-        .t-finalist:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        .t-quote__author-info {
+            text-align: left;
         }
 
-        .t-finalist__uni {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--color-primary);
-            margin-bottom: 12px;
+        .t-quote__author-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a1a;
         }
 
-        .t-finalist__text {
-            font-size: 0.9rem;
-            color: var(--color-text-secondary);
-            font-style: italic;
-            line-height: 1.6;
+        .t-quote__author-title {
+            font-size: 13px;
+            color: rgba(26,26,26,0.7);
+            max-width: 300px;
         }
 
-        /* ============================================
-           БЛОК: ДОКУМЕНТЫ (FT01)
-           ============================================ */
-        .t-docs {
-            padding: var(--section-py-sm) 0;
-            background: var(--color-bg-light);
-        }
-
-        .t-docs__header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .t-docs__grid {
+        /* ===========================================
+           SECTION: СТАТИСТИКА
+           Tilda Block: ST301
+           =========================================== */
+        .t-stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+            gap: 40px;
         }
 
-        .t-doc {
-            background: white;
-            border-radius: var(--radius);
-            padding: 24px;
+        .t-stat-item {
             text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
         }
 
-        .t-doc:hover {
-            background: var(--color-primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .t-doc__icon {
-            width: 45px;
-            height: 45px;
-            margin: 0 auto 12px;
-        }
-
-        .t-doc__icon svg {
-            width: 100%;
-            height: 100%;
-            fill: var(--color-primary);
-            transition: fill 0.3s ease;
-        }
-
-        .t-doc:hover .t-doc__icon svg {
-            fill: white;
-        }
-
-        .t-doc__title {
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* ============================================
-           БЛОК: FAQ (FQ01)
-           ============================================ */
-        .t-faq {
-            padding: var(--section-py) 0;
-        }
-
-        .t-faq__header {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .t-faq__list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .t-faq__item {
-            background: var(--color-bg-light);
-            border-radius: var(--radius);
+        .t-stat-item__number {
+            font-size: clamp(42px, 5vw, 64px);
+            font-weight: 800;
+            color: var(--primary-green);
+            line-height: 1;
             margin-bottom: 10px;
-            overflow: hidden;
         }
 
-        .t-faq__question {
-            padding: 20px 24px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s ease;
+        .t-stat-item__label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .t-faq__question:hover {
-            background: var(--color-bg-cream);
-        }
-
-        .t-faq__question::after {
-            content: '+';
-            font-size: 1.4rem;
-            color: var(--color-primary);
-            transition: transform 0.3s ease;
-        }
-
-        .t-faq__item.active .t-faq__question::after {
-            transform: rotate(45deg);
-        }
-
-        .t-faq__answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-        }
-
-        .t-faq__item.active .t-faq__answer {
-            max-height: 300px;
-            padding: 0 24px 20px;
-        }
-
-        .t-faq__answer p {
-            color: var(--color-text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* ============================================
-           БЛОК: КОНТАКТЫ (CO01)
-           ============================================ */
-        .t-contacts {
-            padding: var(--section-py) 0;
-            background: var(--color-primary-dark);
-            color: white;
-        }
-
-        .t-contacts__grid {
+        /* ===========================================
+           SECTION: О ФИНАЛЕ
+           Tilda Block: FT101
+           =========================================== */
+        .t-finals__grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
 
-        .t-contacts__title {
-            color: white;
-            margin-bottom: 16px;
-        }
-
-        .t-contacts__text {
-            opacity: 0.9;
-            margin-bottom: 24px;
-        }
-
-        .t-contacts__email {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .t-contacts__email svg {
-            width: 24px;
-            height: 24px;
-            fill: var(--color-gold);
-        }
-
-        .t-contacts__email a {
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        .t-contacts__social {
-            background: rgba(255,255,255,0.1);
-            border-radius: var(--radius);
-            padding: 30px;
-            text-align: center;
-        }
-
-        .t-contacts__social h3 {
-            margin-bottom: 12px;
-        }
-
-        .t-contacts__social p {
-            opacity: 0.9;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .t-social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #4680C2;
-            color: white;
-            padding: 14px 28px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .t-social-btn:hover {
-            background: #3d73b3;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .t-social-btn svg {
-            width: 22px;
-            height: 22px;
-            fill: currentColor;
-        }
-
-        /* ============================================
-           БЛОК: ФУТЕР (BF101)
-           ============================================ */
-        .t-footer {
-            background: #111;
-            color: white;
-            padding: 35px 0 20px;
-        }
-
-        .t-footer__inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 20px;
-        }
-
-        .t-footer__logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .t-footer__logo img {
-            height: 40px;
-        }
-
-        .t-footer__logo span {
-            font-family: var(--font-heading);
-            font-size: 1rem;
-        }
-
-        .t-footer__links {
-            display: flex;
+        .t-finals__info {
+            display: grid;
             gap: 25px;
         }
 
-        .t-footer__links a {
+        .t-finals__item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .t-finals__item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-green);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .t-finals__item-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #1a1a1a;
+        }
+
+        .t-finals__item-content h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .t-finals__item-content p {
+            font-size: 15px;
+            color: var(--text-gray);
+        }
+
+        .t-finals__image {
+            position: relative;
+        }
+
+        .t-finals__image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        /* ===========================================
+           SECTION: ОРГАНИЗАТОРЫ
+           Tilda Block: PT01
+           =========================================== */
+        .t-organizers__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 70px;
+        }
+
+        .t-organizer-card {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            padding: 35px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .t-organizer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .t-organizer-card__logo {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-light);
+            border-radius: 15px;
+            padding: 12px;
+        }
+
+        .t-organizer-card__logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .t-organizer-card__content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .t-organizer-card__content p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* ===========================================
+           SECTION: ПАРТНЁРЫ
+           Tilda Block: PT02
+           =========================================== */
+        .t-partners__section {
+            margin-bottom: 50px;
+        }
+
+        .t-partners__section:last-child {
+            margin-bottom: 0;
+        }
+
+        .t-partners__label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-gray);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .t-partners__grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .t-partner-logo {
+            height: 55px;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .t-partner-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.08);
+        }
+
+        .t-partner-logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* ===========================================
+           SECTION: CTA / ПРИЗЫВ К ДЕЙСТВИЮ
+           Tilda Block: CTA01
+           =========================================== */
+        .t-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .t-cta__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/photos/0440.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+
+        .t-cta__content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .t-cta__title {
+            font-size: clamp(28px, 4vw, 48px);
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 18px;
+        }
+
+        .t-cta__text {
+            font-size: 17px;
             color: rgba(255,255,255,0.7);
-            font-size: 0.9rem;
+            max-width: 550px;
+            margin: 0 auto 35px;
+        }
+
+        .t-cta__buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===========================================
+           SECTION: КОНТАКТЫ
+           Tilda Block: CN01
+           =========================================== */
+        .t-contacts__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .t-contact-card {
+            text-align: center;
+            padding: 45px 25px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .t-contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .t-contact-card__icon {
+            width: 65px;
+            height: 65px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .t-contact-card__icon svg {
+            width: 28px;
+            height: 28px;
+            fill: #1a1a1a;
+        }
+
+        .t-contact-card__title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .t-contact-card__text {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .t-contact-card__text a {
+            color: var(--dark-green);
+            text-decoration: none;
+        }
+
+        .t-contact-card__text a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===========================================
+           SECTION: FOOTER
+           Tilda Block: BF301
+           =========================================== */
+        .t-footer {
+            background: #1a1a1a;
+            padding: 70px 0 35px;
+            color: #ffffff;
+        }
+
+        .t-footer__top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .t-footer__logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .t-footer__logo span {
+            color: var(--primary-green);
+        }
+
+        .t-footer__desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+            max-width: 280px;
+        }
+
+        .t-footer__title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .t-footer__links {
+            list-style: none;
+        }
+
+        .t-footer__links li {
+            margin-bottom: 10px;
+        }
+
+        .t-footer__links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
         }
 
         .t-footer__links a:hover {
-            color: white;
+            color: var(--primary-green);
+        }
+
+        .t-footer__bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .t-footer__copy {
-            text-align: center;
-            font-size: 0.8rem;
-            opacity: 0.5;
+            font-size: 13px;
+            color: rgba(255,255,255,0.4);
         }
 
-        /* ============================================
-           АДАПТИВНОСТЬ
-           ============================================ */
+        .t-footer__socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .t-footer__social {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .t-footer__social:hover {
+            background: var(--primary-green);
+        }
+
+        .t-footer__social svg {
+            width: 16px;
+            height: 16px;
+            fill: #ffffff;
+        }
+
+        .t-footer__social:hover svg {
+            fill: #1a1a1a;
+        }
+
+        /* ===========================================
+           RESPONSIVE DESIGN
+           =========================================== */
         @media (max-width: 1024px) {
-            .t-partners__grid {
+            .t-about__grid,
+            .t-finals__grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .t-goals__grid,
+            .t-winners__grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .t-team__grid {
+            .t-contacts__grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .t-testimonials__grid {
+            .t-organizers__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .t-gallery__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .t-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .t-footer__top {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            :root {
-                --section-py: 40px;
-                --section-py-sm: 30px;
-            }
-
-            .t-menu__list {
+            .t-header__nav {
                 display: none;
             }
 
-            .t-menu__burger {
+            .t-header__mobile {
                 display: flex;
             }
 
-            .t-announce__grid {
-                grid-template-columns: 1fr;
+            .t-section {
+                padding: 70px 0;
             }
 
-            .t-about__grid {
-                grid-template-columns: 1fr;
+            .t-container {
+                padding: 0 20px;
             }
 
-            .t-partners__grid {
-                grid-template-columns: 1fr;
-            }
-
-            .t-news__grid {
-                grid-template-columns: 1fr;
-            }
-
-            .t-quotes__grid {
-                grid-template-columns: 1fr;
-            }
-
-            .t-testimonials__grid {
+            .t-goals__grid,
+            .t-winners__grid,
+            .t-contacts__grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1345,756 +1255,599 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .t-gallery__item--large {
-                grid-column: span 1;
+            .t-gallery__item:nth-child(1) {
+                grid-column: span 2;
                 grid-row: span 1;
             }
 
-            .t-team__grid,
-            .t-team__grid--3col {
+            .t-cover__date {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .t-cover__buttons {
+                flex-direction: column;
+            }
+
+            .t-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .t-stats {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
             }
 
-            .t-finalists__grid {
+            .t-quote__author {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .t-quote__author-info {
+                text-align: center;
+            }
+
+            .t-organizer-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .t-footer__top {
                 grid-template-columns: 1fr;
+                gap: 35px;
             }
 
-            .t-docs__grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .t-contacts__grid {
-                grid-template-columns: 1fr;
-            }
-
-            .t-footer__inner {
+            .t-footer__bottom {
                 flex-direction: column;
                 gap: 20px;
                 text-align: center;
             }
 
-            .t-footer__links {
-                flex-wrap: wrap;
-                justify-content: center;
+            .t-about__image::before {
+                display: none;
             }
         }
 
         @media (max-width: 480px) {
-            .t-winners {
-                grid-template-columns: 1fr;
+            .t-cover__title {
+                font-size: 32px;
+            }
+
+            .t-section__title {
+                font-size: 26px;
             }
 
             .t-gallery__grid {
                 grid-template-columns: 1fr;
             }
 
-            .t-team__grid,
-            .t-team__grid--3col {
-                grid-template-columns: 1fr;
-            }
-
-            .t-docs__grid {
-                grid-template-columns: 1fr;
+            .t-gallery__item:nth-child(1) {
+                grid-column: span 1;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- ==========================================
-         НАВИГАЦИЯ (Tilda: ME401)
-         ========================================== -->
-    <header class="t-menu">
-        <div class="t-container">
-            <div class="t-menu__inner">
-                <a href="#" class="t-menu__logo">
-                    <img src="https://static.tildacdn.com/tild3165-6334-4431-b638-383162643131/image_164.png" alt="MSU Urban Law Cup" class="t-menu__logo-img">
-                    <span class="t-menu__logo-text">MSU Urban Law Cup</span>
-                </a>
-                <ul class="t-menu__list">
-                    <li><a href="#about" class="t-menu__link">О конкурсе</a></li>
-                    <li><a href="#partners" class="t-menu__link">Партнеры</a></li>
-                    <li><a href="#experts" class="t-menu__link">Эксперты</a></li>
-                    <li><a href="#docs" class="t-menu__link">Документы</a></li>
-                    <li><a href="#contacts" class="t-menu__link">Контакты</a></li>
+    <!-- ============================================
+         HEADER / НАВИГАЦИЯ
+         Tilda: Используйте блок ME301 или ME401
+         ============================================ -->
+    <header class="t-header">
+        <div class="container">
+            <a href="#" class="t-header__logo">MSU <span>Urban Law Cup</span></a>
+            <nav>
+                <ul class="t-header__nav">
+                    <li><a href="#about">О конкурсе</a></li>
+                    <li><a href="#results">Результаты</a></li>
+                    <li><a href="#finals">О финале</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#organizers">Организаторы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
                 </ul>
-                <div class="t-menu__burger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+            </nav>
+            <div class="t-header__mobile">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </header>
 
-    <!-- ==========================================
-         ОБЛОЖКА (Tilda: ME601)
-         ========================================== -->
+    <!-- ============================================
+         HERO / ГЛАВНЫЙ ЭКРАН
+         Tilda: Используйте блок CR01H или CR02H
+         ============================================ -->
     <section class="t-cover">
+        <div class="t-cover__bg"></div>
+        <div class="t-cover__overlay"></div>
         <div class="t-cover__content">
-            <div class="t-cover__badge">II MSU OPEN URBAN LAW CUP - 2025</div>
-            <h1 class="t-cover__title">MSU Urban Law Cup</h1>
-            <p class="t-cover__descr">
-                Открытый студенческий конкурс по земельному законодательству
-                и законодательству о градостроительной деятельности имени О.И. Крассова
+            <div class="t-cover__badge">II Открытый студенческий конкурс 2025</div>
+            <h1 class="t-cover__title">
+                Кубок МГУ по <span>земельному</span> и <span>градостроительному</span> праву
+            </h1>
+            <p class="t-cover__subtitle">
+                Командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства
             </p>
+            <p class="t-cover__name">имени О.И. Крассова</p>
+            <div class="t-cover__date">
+                <div class="t-cover__date-item">
+                    <div class="t-cover__date-label">Дата финала</div>
+                    <div class="t-cover__date-value">12 апреля 2025</div>
+                </div>
+                <div class="t-cover__date-item">
+                    <div class="t-cover__date-label">Место проведения</div>
+                    <div class="t-cover__date-value">МГУ им. М.В. Ломоносова</div>
+                </div>
+            </div>
             <div class="t-cover__buttons">
                 <a href="#" class="t-btn t-btn--primary">Принять участие</a>
-                <a href="#about" class="t-btn t-btn--outline">Узнать больше</a>
+                <a href="#results" class="t-btn t-btn--outline">Результаты 2025</a>
             </div>
         </div>
-    </section>
-
-    <!-- ==========================================
-         ОБЪЯВЛЕНИЕ О ПОБЕДИТЕЛЯХ (Tilda: AB101)
-         ========================================== -->
-    <section class="t-announce">
-        <div class="t-container">
-            <div class="t-announce__card">
-                <div class="t-announce__grid">
-                    <div class="t-announce__content">
-                        <span class="t-subtitle">Итоги конкурса</span>
-                        <h2 class="t-title t-title--lg t-announce__title">Чествуем победителей II конкурса!</h2>
-                        <p class="t-descr">12 апреля в МГУ имени М.В. Ломоносова состоялся торжественный финал. В рамках финала участники поборолись за главный приз в очном туре соревнования, после чего состоялась торжественная церемония награждения победителей.</p>
-                        <a href="https://pravo.ru/company_news/252596/" class="t-announce__link" target="_blank">
-                            Пресс-релиз на сайте Право.ru
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
-                    </div>
-                    <div class="t-winners">
-                        <div class="t-winner">
-                            <div class="t-winner__place">1</div>
-                            <div class="t-winner__team">КапиталЪ</div>
-                            <div class="t-winner__uni">МГУ имени М.В. Ломоносова</div>
-                        </div>
-                        <div class="t-winner">
-                            <div class="t-winner__place" style="background: linear-gradient(135deg, #a8a8a8, #e0e0e0);">2</div>
-                            <div class="t-winner__team">LandLawrds</div>
-                            <div class="t-winner__uni">УрГЮУ им. В.Ф. Яковлева</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="t-cover__scroll">
+            <div class="t-cover__scroll-text">Прокрутите вниз</div>
+            <div class="t-cover__scroll-line"></div>
         </div>
     </section>
 
-    <!-- ==========================================
-         СЛАЙДЕР ФОТО (Tilda: GL11)
-         ========================================== -->
-    <section class="t-slider">
-        <div class="t-slider__track">
-            <div class="t-slider__item"><img src="https://static.tildacdn.com/tild3938-3738-4130-b133-626133656465/0430.jpg" alt="Фото 1"></div>
-            <div class="t-slider__item"><img src="https://static.tildacdn.com/tild3366-6164-4165-b837-623162646365/0432.jpg" alt="Фото 2"></div>
-            <div class="t-slider__item"><img src="https://static.tildacdn.com/tild3330-3537-4238-b262-353738393063/0433.jpg" alt="Фото 3"></div>
-            <div class="t-slider__item"><img src="https://static.tildacdn.com/tild3433-6561-4231-a238-323961633530/0D3A6970.jpg" alt="Фото 4"></div>
-            <div class="t-slider__item"><img src="https://static.tildacdn.com/tild3935-3030-4332-a466-333430366234/0440.jpg" alt="Фото 5"></div>
-            <div class="t-slider__item"><img src="https://static.tildacdn.com/tild3339-6266-4434-a464-653233343862/0066.jpg" alt="Фото 6"></div>
-            <div class="t-slider__item"><img src="https://static.tildacdn.com/tild6561-6565-4536-b264-633062313361/0069.jpg" alt="Фото 7"></div>
-            <div class="t-slider__item"><img src="https://static.tildacdn.com/tild6134-3739-4264-b536-643065303462/0195.jpg" alt="Фото 8"></div>
-            <div class="t-slider__item"><img src="https://static.tildacdn.com/tild3230-6334-4265-b666-323830326563/0450.jpg" alt="Фото 9"></div>
-        </div>
-    </section>
-
-    <!-- ==========================================
-         О КОНКУРСЕ (Tilda: TX16)
-         ========================================== -->
-    <section id="about" class="t-about">
+    <!-- ============================================
+         О КОНКУРСЕ
+         Tilda: Используйте блок AB101 или AB104
+         ============================================ -->
+    <section id="about" class="t-section">
         <div class="t-container">
             <div class="t-about__grid">
+                <div class="t-about__image">
+                    <img src="images/photos/0D3A6970.jpg" alt="Участники конкурса MSU Urban Law Cup">
+                </div>
                 <div class="t-about__content">
-                    <span class="t-subtitle">О конкурсе</span>
-                    <h2 class="t-title t-title--lg t-about__title">MSU Open Urban Law Cup</h2>
-                    <p class="t-descr t-descr--lg">
-                        Командное соревнование для студентов по разработке решения спорной правовой ситуации,
-                        связанной с актуальными проблемами применения норм земельного законодательства
-                        и законодательства о градостроительной деятельности, смоделированной Оргкомитетом конкурса.
+                    <h3>О конкурсе</h3>
+                    <p>
+                        <strong>Кубок МГУ по земельному и градостроительному праву</strong> — это командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства.
                     </p>
-                    <div class="t-goals">
-                        <h3 class="t-title t-title--sm" style="margin-bottom: 16px;">Цели конкурса:</h3>
-                        <div class="t-goal">
-                            <div class="t-goal__icon">
-                                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                            </div>
-                            <div>
-                                <div class="t-goal__title">Формирование интереса</div>
-                                <div class="t-goal__text">К земельному и градостроительному праву и компетенций в указанных правовых областях</div>
-                            </div>
-                        </div>
-                        <div class="t-goal">
-                            <div class="t-goal__icon">
-                                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </div>
-                            <div>
-                                <div class="t-goal__title">Выявление лучших студентов</div>
-                                <div class="t-goal__text">Интересующихся актуальными проблемами земельного и градостроительного законодательства</div>
-                            </div>
-                        </div>
-                        <div class="t-goal">
-                            <div class="t-goal__icon">
-                                <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                            </div>
-                            <div>
-                                <div class="t-goal__title">Создание сообщества</div>
-                                <div class="t-goal__text">Студентов, преподавателей и практикующих юристов</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-about__images">
-                    <div class="t-about__img t-about__img--large">
-                        <img src="https://static.tildacdn.com/tild3063-3930-4637-b237-376338393032/0430.jpg" alt="MSU Urban Law Cup">
-                    </div>
-                    <div class="t-about__img">
-                        <img src="https://static.tildacdn.com/tild3437-3831-4461-a531-343561316165/0433.jpg" alt="Участники">
-                    </div>
-                    <div class="t-about__img">
-                        <img src="https://static.tildacdn.com/tild3532-3030-4230-a164-356666323062/0440.jpg" alt="Финал">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================
-         ПАРТНЕРЫ (Tilda: PA02)
-         ========================================== -->
-    <section id="partners" class="t-partners">
-        <div class="t-container">
-            <div class="t-partners__grid">
-                <div class="t-partners__category">
-                    <div class="t-partners__title">Организаторы</div>
-                    <div class="t-partners__logos">
-                        <img src="https://static.tildacdn.com/tild6331-3963-4237-b365-333031613734/logo-new1.png" alt="МГУ" class="t-partners__logo">
-                        <img src="https://static.tildacdn.com/tild6262-3464-4264-a132-326164333334/PC_logo2.jpg" alt="Регионсервис" class="t-partners__logo">
-                    </div>
-                </div>
-                <div class="t-partners__category">
-                    <div class="t-partners__title">При поддержке</div>
-                    <div class="t-partners__logos">
-                        <img src="https://static.tildacdn.com/tild6635-3364-4064-a638-326130303631/Governmentru_logosvg.png" alt="Правительство РФ" class="t-partners__logo">
-                        <img src="https://static.tildacdn.com/tild6239-3534-4932-a139-316233653233/photo.png" alt="Минстрой" class="t-partners__logo">
-                        <img src="https://static.tildacdn.com/tild3364-3131-4534-b164-316565663335/Logo_of_Rosreestr.jpg" alt="Росреестр" class="t-partners__logo">
-                    </div>
-                </div>
-                <div class="t-partners__category">
-                    <div class="t-partners__title">Партнеры</div>
-                    <div class="t-partners__logos">
-                        <img src="https://static.tildacdn.com/tild3639-3934-4239-a564-643637663435/gasl-1.svg" alt="Галс" class="t-partners__logo">
-                        <img src="https://static.tildacdn.com/tild3836-3665-4465-b833-353563633832/logo_30__-01.png" alt="ЛСР" class="t-partners__logo">
-                        <img src="https://static.tildacdn.com/tild3434-6133-4730-b533-643737326238/_.png" alt="Сбер" class="t-partners__logo">
-                        <img src="https://static.tildacdn.com/tild3664-6461-4836-b366-316661313561/_73.png" alt="Малышева 73" class="t-partners__logo">
-                        <img src="https://static.tildacdn.com/tild3138-6562-4736-b839-636632653061/Frame_83.png" alt="Голос" class="t-partners__logo">
-                        <img src="https://static.tildacdn.com/tild3437-3034-4339-a136-616136663266/Logo_Lidery2024_1_1.png" alt="Лидеры" class="t-partners__logo">
-                    </div>
-                </div>
-                <div class="t-partners__category">
-                    <div class="t-partners__title">Инфо-партнеры</div>
-                    <div class="t-partners__logos">
-                        <img src="https://static.tildacdn.com/tild3366-3064-4238-b133-373037323164/pravo_ru.png" alt="Право.ru" class="t-partners__logo">
-                        <img src="https://static.tildacdn.com/tild3839-3165-4361-a263-663035333233/Frame_73.png" alt="РАСО" class="t-partners__logo">
-                        <img src="https://static.tildacdn.com/tild6166-3731-4338-b239-323865356362/legal_business.png" alt="Legal Business" class="t-partners__logo">
-                        <img src="https://static.tildacdn.com/tild6335-3832-4165-b135-393734646236/ghfdj_he.jpg" alt="Земельный клуб" class="t-partners__logo">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================
-         НОВОСТИ (Tilda: AB501)
-         ========================================== -->
-    <section class="t-news">
-        <div class="t-container">
-            <div class="t-news__header">
-                <span class="t-subtitle">Новости</span>
-                <h2 class="t-title t-title--lg">Последние события конкурса</h2>
-            </div>
-            <div class="t-news__grid">
-                <div class="t-news__main">
-                    <div class="t-news__img">
-                        <img src="https://static.tildacdn.com/tild3362-3230-4130-a239-383962636163/0069.jpg" alt="Финал конкурса">
-                    </div>
-                    <div class="t-news__content">
-                        <h3 class="t-title t-news__main-title">В МГУ прошел заключительный этап конкурса MSU Open Urban Law Cup</h3>
-                        <p class="t-descr">Знаменательно в День космонавтики на небосклоне юриспруденции засияли новые звезды. Сильнейшие студенческие команды, вышедшие в финал конкурса, поборолись за главный приз — 100 000 руб. от Коллегии адвокатов «Регионсервис».</p>
-                        <a href="https://pravo.ru/company_news/252596/" class="t-announce__link" target="_blank">
-                            Читать полностью
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="t-news__sidebar">
-                    <div class="t-news__card">
-                        <div class="t-news__card-title">174 участника из 22 университетов</div>
-                        <div class="t-news__card-text">Со всей страны подали заявки на участие в конкурсе</div>
-                    </div>
-                    <div class="t-news__card">
-                        <div class="t-news__card-title">Федеральный масштаб проекта</div>
-                        <div class="t-news__card-text">Участники из Екатеринбурга, Иркутска, Томска, Кемерова, Уфы, Калининграда, Владивостока и других городов</div>
-                    </div>
-                    <div class="t-news__card">
-                        <div class="t-news__card-title">270 лет МГУ</div>
-                        <div class="t-news__card-text">Конкурс проходит в год юбилея Московского государственного университета</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================
-         ЦИТАТЫ (Tilda: TM01)
-         ========================================== -->
-    <section class="t-quotes">
-        <div class="t-container">
-            <div class="t-quotes__grid">
-                <div class="t-quote">
-                    <p class="t-quote__text">
-                        «Наш конкурс — это символ преемственности поколений. Каждый новый финалист — это яркое подтверждение того, что светлое будущее нашей профессии уже наступило. Нам остается гордиться тем, что мы смогли открыть новые таланты в рамках конкурса.»
+                    <p>
+                        Конкурс проводится на базе Юридического факультета МГУ имени М.В. Ломоносова и объединяет лучших студентов-юристов со всей России.
                     </p>
-                    <div class="t-quote__author">
-                        <img src="https://static.tildacdn.com/tild6637-3362-4965-b666-666234313863/photo.png" alt="Денис Рыбаков" class="t-quote__photo">
-                        <div>
-                            <div class="t-quote__name">Денис Рыбаков</div>
-                            <div class="t-quote__position">Председатель КА «Регионсервис», член Общественной палаты РФ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-quote">
-                    <p class="t-quote__text">
-                        «За последние пять лет мы набираем темпы жилищного и промышленного строительства. Мы ориентируемся на ведущих специалистов и сразу же ищем молодых талантливых юристов, кому можем передавать эти знания и умения в качестве наставничества.»
+                    <p>
+                        Участники работают над реальными кейсами под руководством практикующих юристов и преподавателей ведущих вузов страны, развивая навыки правового анализа и командной работы.
                     </p>
-                    <div class="t-quote__author">
-                        <img src="https://static.tildacdn.com/tild3936-6263-4230-b234-356631396632/Frame_14_6.png" alt="Максим Галь" class="t-quote__photo">
-                        <div>
-                            <div class="t-quote__name">Максим Галь</div>
-                            <div class="t-quote__position">Зам. директора департамента КРТ Минстроя России</div>
-                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ЦЕЛИ КОНКУРСА
+         Tilda: Используйте блок FT301 или FT302
+         ============================================ -->
+    <section class="t-section t-section--gray">
+        <div class="t-container">
+            <div class="t-section__header">
+                <div class="t-section__label">Миссия</div>
+                <h2 class="t-section__title">Цели конкурса</h2>
+            </div>
+            <div class="t-goals__grid">
+                <div class="t-goal-card">
+                    <div class="t-goal-card__number">01</div>
+                    <div class="t-goal-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+                    </div>
+                    <h3 class="t-goal-card__title">Развитие интереса</h3>
+                    <p class="t-goal-card__text">
+                        Воспитание у студентов интереса к земельному и градостроительному праву как к перспективной сфере юридической деятельности
+                    </p>
+                </div>
+                <div class="t-goal-card">
+                    <div class="t-goal-card__number">02</div>
+                    <div class="t-goal-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    </div>
+                    <h3 class="t-goal-card__title">Выявление талантов</h3>
+                    <p class="t-goal-card__text">
+                        Определение лучших студентов, проявляющих интерес к актуальным вопросам земельного законодательства и градостроительной деятельности
+                    </p>
+                </div>
+                <div class="t-goal-card">
+                    <div class="t-goal-card__number">03</div>
+                    <div class="t-goal-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <h3 class="t-goal-card__title">Создание сообщества</h3>
+                    <p class="t-goal-card__text">
+                        Формирование профессионального сообщества студентов, преподавателей и практикующих юристов в сфере земельного права
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         РЕЗУЛЬТАТЫ / ПОБЕДИТЕЛИ
+         Tilda: Используйте блок TE501 или TE502
+         ============================================ -->
+    <section id="results" class="t-section">
+        <div class="t-container">
+            <div class="t-section__header">
+                <div class="t-section__label">Результаты II конкурса</div>
+                <h2 class="t-section__title">Победители 2025</h2>
+                <p class="t-section__desc">
+                    Поздравляем победителей и призёров II Открытого студенческого Кубка МГУ по земельному и градостроительному праву!
+                </p>
+            </div>
+            <div class="t-winners__grid">
+                <div class="t-winner-card t-winner-card--gold">
+                    <div class="t-winner-card__place">1</div>
+                    <div class="t-winner-card__image">
+                        <img src="images/photos/0430.jpg" alt="Команда КапиталЪ - победители">
+                    </div>
+                    <div class="t-winner-card__content">
+                        <h3 class="t-winner-card__team">КапиталЪ</h3>
+                        <p class="t-winner-card__university">МГУ им. М.В. Ломоносова</p>
+                    </div>
+                </div>
+                <div class="t-winner-card t-winner-card--silver">
+                    <div class="t-winner-card__place">2</div>
+                    <div class="t-winner-card__image">
+                        <img src="images/photos/0432.jpg" alt="Команда LandLawrds">
+                    </div>
+                    <div class="t-winner-card__content">
+                        <h3 class="t-winner-card__team">LandLawrds</h3>
+                        <p class="t-winner-card__university">МГУ им. М.В. Ломоносова</p>
+                    </div>
+                </div>
+                <div class="t-winner-card t-winner-card--bronze">
+                    <div class="t-winner-card__place">3</div>
+                    <div class="t-winner-card__image">
+                        <img src="images/photos/0433.jpg" alt="Команда КиМ">
+                    </div>
+                    <div class="t-winner-card__content">
+                        <h3 class="t-winner-card__team">КиМ</h3>
+                        <p class="t-winner-card__university">УрГЮУ им. В.Ф. Яковлева</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="#" class="t-btn t-btn--orange">Пресс-релиз о победителях</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         СТАТИСТИКА
+         Tilda: Используйте блок ST301 или ST302
+         ============================================ -->
+    <section class="t-section t-section--sm t-section--dark">
+        <div class="t-container">
+            <div class="t-stats">
+                <div class="t-stat-item">
+                    <div class="t-stat-item__number">50+</div>
+                    <div class="t-stat-item__label">Команд-участников</div>
+                </div>
+                <div class="t-stat-item">
+                    <div class="t-stat-item__number">20+</div>
+                    <div class="t-stat-item__label">Вузов России</div>
+                </div>
+                <div class="t-stat-item">
+                    <div class="t-stat-item__number">15</div>
+                    <div class="t-stat-item__label">Членов жюри</div>
+                </div>
+                <div class="t-stat-item">
+                    <div class="t-stat-item__number">2</div>
+                    <div class="t-stat-item__label">Года проведения</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ЦИТАТА
+         Tilda: Используйте блок QT01 или QT02
+         ============================================ -->
+    <section class="t-quote">
+        <div class="t-container">
+            <div class="t-quote__content">
+                <div class="t-quote__icon">"</div>
+                <p class="t-quote__text">
+                    Этот конкурс символизирует преемственность поколений. Каждый финалист подтверждает: наше будущее в надёжных руках — у профессионалов, которые уже сегодня создают завтрашний день своими идеями и энтузиазмом.
+                </p>
+                <div class="t-quote__author">
+                    <img src="images/photos/0066.jpg" alt="Денис Рыбаков" class="t-quote__author-photo">
+                    <div class="t-quote__author-info">
+                        <div class="t-quote__author-name">Денис Рыбаков</div>
+                        <div class="t-quote__author-title">Председатель Коллегии адвокатов «Регионсервис», член Общественной палаты РФ</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================
-         ДОПОЛНИТЕЛЬНЫЕ ЦИТАТЫ (Tilda: TM02)
-         ========================================== -->
-    <section class="t-testimonials">
+    <!-- ============================================
+         ГАЛЕРЕЯ
+         Tilda: Используйте блок GL01 или GL03
+         ============================================ -->
+    <section id="gallery" class="t-section t-section--gray">
         <div class="t-container">
-            <div class="t-testimonials__header">
-                <span class="t-subtitle">Мнения</span>
-                <h2 class="t-title t-title--lg">Что говорят о конкурсе</h2>
-            </div>
-            <div class="t-testimonials__grid">
-                <div class="t-testimonial">
-                    <p class="t-testimonial__text">«В этом году мы наблюдаем очень достойный, высоко экспертный уровень команд в финале конкурса. КА «Регионсервис» осознанно вкладывает много времени, сил и внимания в подрастающее поколение.»</p>
-                    <div class="t-testimonial__author">
-                        <img src="https://static.tildacdn.com/tild6537-3734-4037-a264-613239323930/Image.jpeg" alt="Анна Жолобова" class="t-testimonial__photo">
-                        <div>
-                            <div class="t-testimonial__name">Анна Жолобова</div>
-                            <div class="t-testimonial__position">Управляющий партнер московского офиса КА «Регионсервис»</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-testimonial">
-                    <p class="t-testimonial__text">«Этот конкурс — единственное в своем роде соревнование высшей школы по профилю земельного и градостроительного законодательства. Его значение невозможно переоценить.»</p>
-                    <div class="t-testimonial__author">
-                        <img src="https://static.tildacdn.com/tild6239-3761-4462-b666-333862663334/photo.jpg" alt="Михаил Губин" class="t-testimonial__photo">
-                        <div>
-                            <div class="t-testimonial__name">Михаил Губин</div>
-                            <div class="t-testimonial__position">Директор по развитию «Общества Малышева 73»</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-testimonial">
-                    <p class="t-testimonial__text">«Все участники конкурса выступили достаточно хорошо. Видно, что у них есть глубокая теоретическая подготовка и практико-ориентированный подход.»</p>
-                    <div class="t-testimonial__author">
-                        <img src="https://static.tildacdn.com/tild6461-6265-4532-b630-306534653532/noroot.png" alt="Святослав Бушин" class="t-testimonial__photo">
-                        <div>
-                            <div class="t-testimonial__name">Святослав Бушин</div>
-                            <div class="t-testimonial__position">Директор департамента ГК «Галс-Девелопмент»</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-testimonial">
-                    <p class="t-testimonial__text">«Для нас очень важно соблюдать традиции, заложенные нашими предшественниками, но не забывать про развитие, идти вперед вместе с действующим законодательством.»</p>
-                    <div class="t-testimonial__author">
-                        <img src="https://static.tildacdn.com/tild3262-6331-4330-b932-613839346563/photo.jpg" alt="Леонид Бандорин" class="t-testimonial__photo">
-                        <div>
-                            <div class="t-testimonial__name">Леонид Бандорин</div>
-                            <div class="t-testimonial__position">Доцент кафедры экологического и земельного права МГУ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-testimonial">
-                    <p class="t-testimonial__text">«Данный проект формирует интерес у студентов к земельному и градостроительному праву, он также закладывает фундамент для уверенного старта карьеры.»</p>
-                    <div class="t-testimonial__author">
-                        <img src="https://static.tildacdn.com/tild3335-6530-4433-a637-326234613535/images.png" alt="Евгений Ковалев" class="t-testimonial__photo">
-                        <div>
-                            <div class="t-testimonial__name">Евгений Ковалев</div>
-                            <div class="t-testimonial__position">Председатель Комитета РАСО</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-testimonial">
-                    <p class="t-testimonial__text">«Земельное, градостроительное, экологическое право — очень перспективные направления. Земля всегда под ногами, а объекты недвижимости везде окружают нас.»</p>
-                    <div class="t-testimonial__author">
-                        <img src="https://static.tildacdn.com/tild3135-6361-4239-a634-663031316638/msu__1.png" alt="Валентина Смирнова" class="t-testimonial__photo">
-                        <div>
-                            <div class="t-testimonial__name">Валентина Смирнова</div>
-                            <div class="t-testimonial__position">Студентка МГУ, финалист конкурса</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================
-         ФОТОГАЛЕРЕЯ (Tilda: GL01)
-         ========================================== -->
-    <section class="t-gallery">
-        <div class="t-container">
-            <div class="t-gallery__header">
-                <span class="t-subtitle">Фотогалерея</span>
-                <h2 class="t-title t-title--lg">Финал конкурса 2024</h2>
+            <div class="t-section__header">
+                <div class="t-section__label">Фотоотчёт</div>
+                <h2 class="t-section__title">Галерея</h2>
             </div>
             <div class="t-gallery__grid">
-                <div class="t-gallery__item t-gallery__item--large">
-                    <img src="https://static.tildacdn.com/tild3031-3837-4930-b530-343164393138/DSC_6417.jpg" alt="Финал">
+                <div class="t-gallery__item">
+                    <img src="images/photos/0450.jpg" alt="Финал конкурса MSU Urban Law Cup">
                 </div>
-                <div class="t-gallery__item"><img src="https://static.tildacdn.com/tild3331-6435-4565-b264-306635636661/DSC_6354_resized.jpg" alt="Участники"></div>
-                <div class="t-gallery__item"><img src="https://static.tildacdn.com/tild6139-3430-4436-b064-326435353061/DSC_6367_resized.jpg" alt="Мероприятие"></div>
-                <div class="t-gallery__item"><img src="https://static.tildacdn.com/tild3537-3662-4666-a238-316632373363/DSC_6395_resized.jpg" alt="Команды"></div>
-                <div class="t-gallery__item"><img src="https://static.tildacdn.com/tild6233-3961-4637-b034-323239333539/DSC_6404_resized.jpg" alt="Презентации"></div>
-                <div class="t-gallery__item"><img src="https://static.tildacdn.com/tild3338-6230-4932-b035-306132323633/DSC_6489_resized.jpg" alt="Жюри"></div>
-                <div class="t-gallery__item"><img src="https://static.tildacdn.com/tild6132-3864-4133-a436-383638323462/DSC_6557_resized.jpg" alt="Выступления"></div>
-                <div class="t-gallery__item t-gallery__item--large">
-                    <img src="https://static.tildacdn.com/tild3735-6539-4161-b233-363963656166/DSC_6632_resized.jpg" alt="Награждение">
+                <div class="t-gallery__item">
+                    <img src="images/photos/0440.jpg" alt="Награждение победителей">
                 </div>
-                <div class="t-gallery__item"><img src="https://static.tildacdn.com/tild3332-3930-4735-b432-643666383633/DSC_6699_resized.jpg" alt="Победители"></div>
-                <div class="t-gallery__item"><img src="https://static.tildacdn.com/tild3133-6461-4366-b135-663436643934/DSC_6729_resized.jpg" alt="Церемония"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==========================================
-         ЭКСПЕРТЫ (Tilda: TE01)
-         ========================================== -->
-    <section id="experts" class="t-team">
-        <div class="t-container">
-            <div class="t-team__header">
-                <span class="t-subtitle">Эксперты</span>
-                <h2 class="t-title t-title--lg">Ведущие эксперты в области земельного права</h2>
-            </div>
-            <div class="t-team__grid">
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild3936-6263-4230-b234-356631396632/Frame_14_6.png" alt="Максим Галь"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Максим Галь</div>
-                        <div class="t-member__position">Зам. директора департамента КРТ Минстроя России</div>
-                    </div>
+                <div class="t-gallery__item">
+                    <img src="images/photos/0069.jpg" alt="Участники конкурса">
                 </div>
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild6537-3734-4037-a264-613239323930/Image.jpeg" alt="Анна Жолобова"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Анна Жолобова</div>
-                        <div class="t-member__position">Управляющий партнер московского офиса КА «Регионсервис»</div>
-                    </div>
+                <div class="t-gallery__item">
+                    <img src="images/photos/0195.jpg" alt="Жюри конкурса">
                 </div>
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild6239-3761-4462-b666-333862663334/photo.jpg" alt="Михаил Губин"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Михаил Губин</div>
-                        <div class="t-member__position">Директор по развитию «Общества Малышева 73»</div>
-                    </div>
-                </div>
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild6665-3536-4363-b830-616633613537/__1.png" alt="Павел Мельников"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Павел Мельников</div>
-                        <div class="t-member__position">Директор по развитию ПАО «Группа ЛСР»</div>
-                    </div>
-                </div>
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild6639-3565-4936-a333-373465316239/3015bigbox--.jpg" alt="Мария Сафарова"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Мария Сафарова</div>
-                        <div class="t-member__position">К.э.н., доцент ВШУ им. А.А. Высоковского НИУ ВШЭ</div>
-                    </div>
-                </div>
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild3230-3131-4234-a335-343237373139/kazan-fed-univ.jpg" alt="Максим Попов"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Максим Попов</div>
-                        <div class="t-member__position">Советник ALUMNI Partners, к.ю.н.</div>
-                    </div>
-                </div>
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild3434-3364-4062-b765-353035313131/photo.jpeg" alt="Сергей Григорьев"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Сергей Григорьев</div>
-                        <div class="t-member__position">Директор по развитию «Группы Голос»</div>
-                    </div>
-                </div>
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild6461-6265-4532-b630-306534653532/noroot.png" alt="Святослав Бушин"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Святослав Бушин</div>
-                        <div class="t-member__position">Директор департамента ГК «Галс-Девелопмент»</div>
-                    </div>
-                </div>
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild3132-3438-4166-a263-653765333563/photo.png" alt="Алексей Башарин"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Алексей Башарин</div>
-                        <div class="t-member__position">Референт руководителя ОФ «Талант и успех»</div>
-                    </div>
+                <div class="t-gallery__item">
+                    <img src="images/photos/0066.jpg" alt="Выступление участников">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================
-         НАУЧНЫЕ РУКОВОДИТЕЛИ (Tilda: TE02)
-         ========================================== -->
-    <section class="t-team" style="background: var(--color-bg-light);">
+    <!-- ============================================
+         О ФИНАЛЕ
+         Tilda: Используйте блок FT101 или AB104
+         ============================================ -->
+    <section id="finals" class="t-section">
         <div class="t-container">
-            <div class="t-team__header">
-                <span class="t-subtitle">Руководство</span>
-                <h2 class="t-title t-title--lg">Научные руководители конкурса</h2>
+            <div class="t-section__header">
+                <div class="t-section__label">Информация</div>
+                <h2 class="t-section__title">О финале конкурса</h2>
             </div>
-            <div class="t-team__grid t-team__grid--3col">
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild3262-6331-4330-b932-613839346563/photo.jpg" alt="Леонид Бандорин"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Леонид Бандорин</div>
-                        <div class="t-member__position">Доцент кафедры экологического и земельного права МГУ, к.ю.н.</div>
+            <div class="t-finals__grid">
+                <div class="t-finals__info">
+                    <div class="t-finals__item">
+                        <div class="t-finals__item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
+                        </div>
+                        <div class="t-finals__item-content">
+                            <h4>Дата проведения</h4>
+                            <p>12 апреля 2025 года</p>
+                        </div>
+                    </div>
+                    <div class="t-finals__item">
+                        <div class="t-finals__item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <div class="t-finals__item-content">
+                            <h4>Место проведения</h4>
+                            <p>Юридический факультет МГУ им. М.В. Ломоносова, г. Москва</p>
+                        </div>
+                    </div>
+                    <div class="t-finals__item">
+                        <div class="t-finals__item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        </div>
+                        <div class="t-finals__item-content">
+                            <h4>Формат</h4>
+                            <p>Очное командное соревнование с решением практических кейсов</p>
+                        </div>
+                    </div>
+                    <div class="t-finals__item">
+                        <div class="t-finals__item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+                        </div>
+                        <div class="t-finals__item-content">
+                            <h4>Оценка</h4>
+                            <p>Экспертное жюри из ведущих практикующих юристов и преподавателей</p>
+                        </div>
                     </div>
                 </div>
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild3161-3736-4663-b864-623331613163/noroot.png" alt="Надежда Заславская"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Надежда Заславская</div>
-                        <div class="t-member__position">Профессор кафедры экологического и земельного права МГУ, д.ю.н.</div>
-                    </div>
-                </div>
-                <div class="t-member">
-                    <div class="t-member__photo"><img src="https://static.tildacdn.com/tild6633-6530-4363-a164-313639373638/135081.png" alt="Андрей Переладов"></div>
-                    <div class="t-member__info">
-                        <div class="t-member__name">Андрей Переладов</div>
-                        <div class="t-member__position">Сопредседатель КА «Регионсервис», руководитель практики «Экология»</div>
-                    </div>
+                <div class="t-finals__image">
+                    <img src="images/photos/0D3A6970.jpg" alt="Финал конкурса">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================
-         ВУЗЫ-УЧАСТНИКИ (Tilda: PA01)
-         ========================================== -->
-    <section class="t-universities">
+    <!-- ============================================
+         ОРГАНИЗАТОРЫ
+         Tilda: Используйте блок PT01 или PT02
+         ============================================ -->
+    <section id="organizers" class="t-section t-section--gray">
         <div class="t-container">
-            <div class="t-universities__header">
-                <span class="t-subtitle">Вузы-участники</span>
-                <h2 class="t-title t-title--lg">Со всей России поступило множество заявок</h2>
-                <p class="t-descr" style="max-width: 700px; margin: 16px auto 0;">Желающие побороться за победу творчески подошли к выполнению заданий и разработали качественные проекты КРТ</p>
+            <div class="t-section__header">
+                <div class="t-section__label">Команда</div>
+                <h2 class="t-section__title">Организаторы</h2>
             </div>
-            <div class="t-universities__logos">
-                <img src="https://static.tildacdn.com/tild3135-6361-4239-a634-663031316638/msu__1.png" alt="МГУ" class="t-universities__logo">
-                <img src="https://static.tildacdn.com/tild3966-3233-4138-b037-326631363735/_.png" alt="УрГЮУ" class="t-universities__logo">
-                <img src="https://static.tildacdn.com/tild6265-6633-4833-b965-386365323265/_.png" alt="ИЦЧП" class="t-universities__logo">
-                <img src="https://static.tildacdn.com/tild3533-3936-4839-a161-323134316661/_.jpg" alt="ИЗиСП" class="t-universities__logo">
-                <img src="https://static.tildacdn.com/tild3265-3433-4230-b836-313135386330/noroot.png" alt="КФУ" class="t-universities__logo">
-                <img src="https://static.tildacdn.com/tild6364-6562-4833-b566-343361366433/noroot.png" alt="ВШЭ" class="t-universities__logo">
-                <img src="https://static.tildacdn.com/tild6631-3538-4136-b031-373332326335/noroot.png" alt="СПбГУ" class="t-universities__logo">
-                <img src="https://static.tildacdn.com/tild3362-3239-4530-b334-646333633732/noroot.png" alt="ТГУ" class="t-universities__logo">
+            <div class="t-organizers__grid">
+                <div class="t-organizer-card">
+                    <div class="t-organizer-card__logo">
+                        <img src="images/logos/msu-law-logo.png" alt="Юридический факультет МГУ">
+                    </div>
+                    <div class="t-organizer-card__content">
+                        <h4>Юридический факультет МГУ</h4>
+                        <p>Московский государственный университет имени М.В. Ломоносова — ведущий вуз страны с богатыми традициями в области юридического образования</p>
+                    </div>
+                </div>
+                <div class="t-organizer-card">
+                    <div class="t-organizer-card__logo">
+                        <img src="images/logos/regionservis-logo.jpg" alt="Коллегия адвокатов Регионсервис">
+                    </div>
+                    <div class="t-organizer-card__content">
+                        <h4>Коллегия адвокатов «Регионсервис»</h4>
+                        <p>Ведущая юридическая практика России, специализирующаяся на земельном и градостроительном праве</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ==========================================
-         ОТЗЫВЫ ФИНАЛИСТОВ (Tilda: TM03)
-         ========================================== -->
-    <section class="t-finalists">
-        <div class="t-container">
-            <div class="t-finalists__header">
-                <span class="t-subtitle">Финалисты 2024</span>
-                <h2 class="t-title t-title--lg">Отзывы участников</h2>
-            </div>
-            <div class="t-finalists__grid">
-                <div class="t-finalist">
-                    <div class="t-finalist__uni">УрГЮУ имени В.Ф. Яковлева</div>
-                    <p class="t-finalist__text">«Участие в MSU Open Urban Law Cup — это уникальный шанс попробовать себя в одной из стремительно развивающихся отраслей российского законодательства!»</p>
-                </div>
-                <div class="t-finalist">
-                    <div class="t-finalist__uni">ИЦЧП имени С.С. Алексеева</div>
-                    <p class="t-finalist__text">«Задача заставила нас напрячься. Предложенная под КРТ территория, несмотря на незначительные размеры, — кладезь проблем: ЗОУИТы, разные собственники, аварийные дома.»</p>
-                </div>
-                <div class="t-finalist">
-                    <div class="t-finalist__uni">ИЗиСП при Правительстве РФ</div>
-                    <p class="t-finalist__text">«В процессе выполнения интересного задания наша команда ознакомилась с практическими аспектами применения градостроительного и земельного права.»</p>
+            <!-- При поддержке -->
+            <div class="t-partners__section">
+                <div class="t-partners__label">При поддержке</div>
+                <div class="t-partners__grid">
+                    <div class="t-partner-logo">
+                        <img src="images/logos/government-ru.png" alt="Правительство России">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/logos/rosreestr-logo.jpg" alt="Росреестр">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ==========================================
-         ДОКУМЕНТЫ (Tilda: FT01)
-         ========================================== -->
-    <section id="docs" class="t-docs">
-        <div class="t-container">
-            <div class="t-docs__header">
-                <span class="t-subtitle">Документы</span>
-                <h2 class="t-title t-title--lg">Положения конкурса</h2>
+            <!-- Партнёры -->
+            <div class="t-partners__section">
+                <div class="t-partners__label">Партнёры</div>
+                <div class="t-partners__grid">
+                    <div class="t-partner-logo">
+                        <img src="images/partners/gasl.svg" alt="GASL">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/partner1.png" alt="Партнёр">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/lidery2024.png" alt="Лидеры 2024">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/partner3.png" alt="Партнёр">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/frame83.png" alt="Партнёр">
+                    </div>
+                </div>
             </div>
-            <div class="t-docs__grid">
-                <a href="#" class="t-doc">
-                    <div class="t-doc__icon">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="1"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <div class="t-doc__title">Положение о Конкурсе</div>
-                </a>
-                <a href="#" class="t-doc">
-                    <div class="t-doc__icon">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="1"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <div class="t-doc__title">Положение об Оргкомитете</div>
-                </a>
-                <a href="#" class="t-doc">
-                    <div class="t-doc__icon">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="1"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <div class="t-doc__title">Положение о Жюри</div>
-                </a>
-                <a href="#" class="t-doc">
-                    <div class="t-doc__icon">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="1"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <div class="t-doc__title">Справка о Конкурсе</div>
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- ==========================================
-         FAQ (Tilda: FQ01)
-         ========================================== -->
-    <section class="t-faq">
-        <div class="t-container">
-            <div class="t-faq__header">
-                <span class="t-subtitle">FAQ</span>
-                <h2 class="t-title t-title--lg">Вопросы и ответы</h2>
-            </div>
-            <div class="t-faq__list">
-                <div class="t-faq__item">
-                    <div class="t-faq__question">Насколько строгим является требование к количеству символов?</div>
-                    <div class="t-faq__answer">
-                        <p>Требование о количестве знаков является обязательным. Допускается превышение на 10%. При превышении 33 000 знаков Оргкомитет вычитает 1 балл за каждые 500 знаков сверх лимита. Работа с более чем 38 000 знаков не допускается для оценивания.</p>
+            <!-- Информационные партнёры -->
+            <div class="t-partners__section">
+                <div class="t-partners__label">Информационные партнёры</div>
+                <div class="t-partners__grid">
+                    <div class="t-partner-logo">
+                        <img src="images/partners/pravo-ru.png" alt="Право.ру">
                     </div>
-                </div>
-                <div class="t-faq__item">
-                    <div class="t-faq__question">Возможно ли оформление задания с использованием таблиц и графиков?</div>
-                    <div class="t-faq__answer">
-                        <p>Да, участники имеют право выбрать любую форму изложения. Таблицы и графики должны быть созданы с помощью текстового редактора. Скриншоты ПКК и картографические материалы допустимо включать в текст или в приложение.</p>
-                    </div>
-                </div>
-                <div class="t-faq__item">
-                    <div class="t-faq__question">Нужно ли анализировать существующие права третьих лиц на участок?</div>
-                    <div class="t-faq__answer">
-                        <p>Пределы анализа участка и содержание заключения устанавливаются командами самостоятельно. Оценивание проходит в том числе по критерию полноты раскрытия вопросов, указанных в задании.</p>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/info-partner.jpg" alt="Информационный партнёр">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==========================================
-         КОНТАКТЫ (Tilda: CO01)
-         ========================================== -->
-    <section id="contacts" class="t-contacts">
+    <!-- ============================================
+         CTA / ПРИЗЫВ К ДЕЙСТВИЮ
+         Tilda: Используйте блок CTA01 или CTA02
+         ============================================ -->
+    <section class="t-cta">
+        <div class="t-cta__bg"></div>
         <div class="t-container">
+            <div class="t-cta__content">
+                <h2 class="t-cta__title">Готовы принять участие?</h2>
+                <p class="t-cta__text">
+                    Присоединяйтесь к лучшим студентам-юристам России и покажите свои знания в области земельного и градостроительного права
+                </p>
+                <div class="t-cta__buttons">
+                    <a href="#" class="t-btn t-btn--primary">Подать заявку</a>
+                    <a href="#" class="t-btn t-btn--outline">Узнать подробности</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         КОНТАКТЫ
+         Tilda: Используйте блок CN01 или CN02
+         ============================================ -->
+    <section id="contacts" class="t-section">
+        <div class="t-container">
+            <div class="t-section__header">
+                <div class="t-section__label">Связь</div>
+                <h2 class="t-section__title">Контакты</h2>
+            </div>
             <div class="t-contacts__grid">
-                <div class="t-contacts__content">
-                    <span class="t-subtitle" style="color: var(--color-gold);">Контакты</span>
-                    <h2 class="t-title t-title--lg t-contacts__title">Свяжитесь с нами</h2>
-                    <p class="t-contacts__text">Здесь вы найдёте все необходимые данные для связи с организаторами конкурса.</p>
-                    <div class="t-contacts__email">
-                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor"/></svg>
-                        <a href="mailto:openurbanlawcup@yandex.ru">openurbanlawcup@yandex.ru</a>
+                <div class="t-contact-card">
+                    <div class="t-contact-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     </div>
+                    <h3 class="t-contact-card__title">Адрес</h3>
+                    <p class="t-contact-card__text">
+                        г. Москва, Ленинские горы, д. 1, стр. 13<br>
+                        Юридический факультет МГУ
+                    </p>
                 </div>
-                <div class="t-contacts__social">
-                    <h3>Подпишитесь на группу ВКонтакте</h3>
-                    <p>Будьте в курсе самых свежих новостей конкурса и актуальной информации в области земельного права!</p>
-                    <a href="https://vk.com/urbanlawcup" class="t-social-btn" target="_blank">
-                        <svg viewBox="0 0 24 24"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.597v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.12-5.339-3.202-2.17-3.04-2.763-5.32-2.763-5.793 0-.254.102-.491.597-.491h1.744c.442 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.305-.491.746-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.49-.085.744-.576.744z"/></svg>
-                        Подписаться на VK
+                <div class="t-contact-card">
+                    <div class="t-contact-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <h3 class="t-contact-card__title">Email</h3>
+                    <p class="t-contact-card__text">
+                        <a href="mailto:urbanlawcup@law.msu.ru">urbanlawcup@law.msu.ru</a>
+                    </p>
+                </div>
+                <div class="t-contact-card">
+                    <div class="t-contact-card__icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <h3 class="t-contact-card__title">Телефон</h3>
+                    <p class="t-contact-card__text">
+                        <a href="tel:+74959391000">+7 (495) 939-10-00</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         Tilda: Используйте блок BF301 или BF401
+         ============================================ -->
+    <footer class="t-footer">
+        <div class="t-container">
+            <div class="t-footer__top">
+                <div>
+                    <div class="t-footer__logo">MSU <span>Urban Law Cup</span></div>
+                    <p class="t-footer__desc">
+                        Открытый студенческий конкурс по земельному и градостроительному праву имени О.И. Крассова
+                    </p>
+                </div>
+                <div>
+                    <div class="t-footer__title">Навигация</div>
+                    <ul class="t-footer__links">
+                        <li><a href="#about">О конкурсе</a></li>
+                        <li><a href="#results">Результаты</a></li>
+                        <li><a href="#finals">О финале</a></li>
+                        <li><a href="#gallery">Галерея</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="t-footer__title">Информация</div>
+                    <ul class="t-footer__links">
+                        <li><a href="#">Регламент</a></li>
+                        <li><a href="#">Жюри</a></li>
+                        <li><a href="#">Оргкомитет</a></li>
+                        <li><a href="#">Вебинар</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="t-footer__title">Контакты</div>
+                    <ul class="t-footer__links">
+                        <li><a href="mailto:urbanlawcup@law.msu.ru">urbanlawcup@law.msu.ru</a></li>
+                        <li><a href="tel:+74959391000">+7 (495) 939-10-00</a></li>
+                        <li><a href="#">Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="t-footer__bottom">
+                <div class="t-footer__copy">
+                    © 2024-2025 MSU Urban Law Cup. Все права защищены.
+                </div>
+                <div class="t-footer__socials">
+                    <a href="#" class="t-footer__social" aria-label="Telegram">
+                        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    </a>
+                    <a href="#" class="t-footer__social" aria-label="VK">
+                        <svg viewBox="0 0 24 24"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.563c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4 8.684 4 8.2c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.49 2.27 4.676 2.853 4.676.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.15-3.574 2.15-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.475-.085.72-.576.72z"/></svg>
                     </a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- ==========================================
-         ФУТЕР (Tilda: BF101)
-         ========================================== -->
-    <footer class="t-footer">
-        <div class="t-container">
-            <div class="t-footer__inner">
-                <div class="t-footer__logo">
-                    <img src="https://static.tildacdn.com/tild3165-6334-4431-b638-383162643131/image_164.png" alt="MSU Urban Law Cup">
-                    <span>MSU Urban Law Cup</span>
-                </div>
-                <div class="t-footer__links">
-                    <a href="#about">О конкурсе</a>
-                    <a href="#partners">Партнеры</a>
-                    <a href="#experts">Эксперты</a>
-                    <a href="#docs">Документы</a>
-                    <a href="#contacts">Контакты</a>
-                </div>
-            </div>
-            <div class="t-footer__copy">
-                MSU Urban Law Cup. Конкурс по земельному законодательству и законодательству о градостроительной деятельности.
-            </div>
-        </div>
     </footer>
 
-    <!-- ==========================================
-         СКРИПТЫ
-         ========================================== -->
-    <script>
-        // FAQ Accordion
-        document.querySelectorAll('.t-faq__question').forEach(q => {
-            q.addEventListener('click', () => {
-                const item = q.parentElement;
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.t-faq__item').forEach(i => i.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
-            });
-        });
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                const target = document.querySelector(a.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // Mobile Menu
-        document.querySelector('.t-menu__burger').addEventListener('click', function() {
-            const list = document.querySelector('.t-menu__list');
-            list.style.display = list.style.display === 'flex' ? 'none' : 'flex';
-            list.style.position = 'absolute';
-            list.style.top = '100%';
-            list.style.left = '0';
-            list.style.right = '0';
-            list.style.background = 'white';
-            list.style.flexDirection = 'column';
-            list.style.padding = '20px';
-            list.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-        });
-    </script>
 </body>
 </html>
