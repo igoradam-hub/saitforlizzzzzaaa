@@ -444,6 +444,7 @@
         <header class="admin-header">
             <h1>Админ-панель</h1>
             <div class="admin-header-actions">
+                <button class="btn btn-danger" onclick="resetContent()">Откатить изменения</button>
                 <a href="/" target="_blank">Открыть сайт</a>
                 <button class="btn btn-secondary" onclick="logout()">Выйти</button>
             </div>
@@ -769,6 +770,34 @@
             document.getElementById('adminPanel').style.display = 'none';
         }
 
+        async function resetContent() {
+            if (!confirm('Вы уверены? Все изменения будут сброшены к значениям по умолчанию!')) {
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/reset', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${authToken}`
+                    }
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    content = data.content;
+                    populateFields();
+                    renderLists();
+                    showSaveIndicator('Контент сброшен к значениям по умолчанию!');
+                } else {
+                    alert('Ошибка сброса контента');
+                }
+            } catch (error) {
+                console.error('Reset error:', error);
+                alert('Ошибка сброса контента');
+            }
+        }
+
         async function loadContent() {
             try {
                 const res = await fetch('/api/content');
@@ -971,8 +1000,9 @@
             }
         }
 
-        function showSaveIndicator() {
+        function showSaveIndicator(message = 'Изменения сохранены!') {
             const indicator = document.getElementById('saveIndicator');
+            indicator.textContent = message;
             indicator.style.display = 'block';
             setTimeout(() => {
                 indicator.style.display = 'none';

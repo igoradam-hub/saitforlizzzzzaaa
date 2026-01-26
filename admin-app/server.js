@@ -203,6 +203,21 @@ app.post('/api/auth', (req, res) => {
     }
 });
 
+// Reset to default content (protected)
+app.post('/api/reset', authMiddleware, (req, res) => {
+    try {
+        fs.writeFileSync(CONTENT_FILE, JSON.stringify(defaultContent, null, 2), 'utf8');
+        res.json({ success: true, message: 'Content reset to default', content: defaultContent });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to reset content' });
+    }
+});
+
+// Get default content (for comparison)
+app.get('/api/default', (req, res) => {
+    res.json(defaultContent);
+});
+
 // Serve admin panel (redirect root to admin)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
