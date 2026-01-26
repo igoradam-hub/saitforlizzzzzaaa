@@ -1,0 +1,15 @@
+{
+  "name": "msu-urban-law-cup",
+  "version": "1.0.0",
+  "description": "MSU Urban Law Cup - Кубок МГУ по земельному и градостроительному праву",
+  "scripts": {
+    "start": "npx serve -s . -l $PORT",
+    "dev": "npx serve -s . -l 3000"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
