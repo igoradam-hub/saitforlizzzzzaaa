@@ -2,14 +2,11 @@
   "name": "msu-urban-law-cup",
   "version": "1.0.0",
   "description": "MSU Urban Law Cup - Кубок МГУ по земельному и градостроительному праву",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "npx serve -s . -l $PORT"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "multer": "^1.4.5-lts.1"
+    "serve": "^14.2.0"
   },
   "engines": {
     "node": ">=18"
