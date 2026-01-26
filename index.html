@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSU Urban Law Cup</title>
+    <meta name="description" content="Конкурс по земельному законодательству и законодательству о градостроительной деятельности">
+    <meta property="og:url" content="http://urbanlawcup-msu.ru">
+    <meta property="og:title" content="MSU Urban Law Cup">
+    <meta property="og:description" content="Конкурс по земельному законодательству и законодательству о градостроительной деятельности">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://thb.tildacdn.com/tild3032-6134-4634-b033-666437623663/-/resize/504x/DSC_6417.jpg">
+    <link rel="shortcut icon" href="https://static.tildacdn.com/tild3165-6334-4431-b638-383162643131/image_164.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #1a5f3c;
+            --primary-green-dark: #0d3d24;
+            --primary-green-light: #2a7a52;
+            --accent-gold: #b8a369;
+            --text-dark: #1a1a1a;
+            --text-gray: #4a4a4a;
+            --text-light: #6b6b6b;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-cream: #f5f3ee;
+            --section-padding: 60px 0;
+            --section-padding-sm: 40px 0;
+            --container-max: 1200px;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-white);
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-green-light);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-green-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26, 95, 60, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .section-subtitle {
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Header / Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-green-dark) 0%, var(--primary-green) 50%, var(--primary-green-light) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 16px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto 32px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero .btn-primary {
+            background: white;
+            color: var(--primary-green);
+        }
+
+        .hero .btn-primary:hover {
+            background: var(--bg-cream);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero .btn-outline {
+            border-color: white;
+            color: white;
+        }
+
+        .hero .btn-outline:hover {
+            background: white;
+            color: var(--primary-green);
+        }
+
+        /* Winners Announcement Section */
+        .winners-announcement {
+            padding: var(--section-padding);
+            background: var(--bg-light);
+        }
+
+        .announcement-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .announcement-content h2 {
+            color: var(--primary-green);
+        }
+
+        .announcement-content p {
+            color: var(--text-gray);
+        }
+
+        .announcement-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-top: 16px;
+        }
+
+        .announcement-link:hover {
+            gap: 12px;
+        }
+
+        .winners-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .winner-card {
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .winner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .winner-place {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gold);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .winner-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        /* About Section */
+        .about {
+            padding: var(--section-padding);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-content {
+            padding-right: 20px;
+        }
+
+        .about-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 24px;
+        }
+
+        .goals-list {
+            list-style: none;
+        }
+
+        .goals-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .goals-list li:hover {
+            background: var(--bg-cream);
+            transform: translateX(5px);
+        }
+
+        .goal-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .goal-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .about-images img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .about-images img:hover {
+            transform: scale(1.02);
+        }
+
+        .about-images img:first-child {
+            grid-column: span 2;
+            height: 250px;
+        }
+
+        /* Partners Section - Compact */
+        .partners {
+            padding: var(--section-padding-sm);
+            background: var(--bg-light);
+        }
+
+        .partners-wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .partners-category {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 24px;
+        }
+
+        .partners-category h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .partners-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partners-logos img {
+            height: 40px;
+            width: auto;
+            max-width: 100px;
+            object-fit: contain;
+            filter: grayscale(30%);
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .partners-logos img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* News/Press Section */
+        .news {
+            padding: var(--section-padding);
+        }
+
+        .news-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .news-main {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .news-main-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .news-main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .news-main:hover .news-main-image img {
+            transform: scale(1.05);
+        }
+
+        .news-main-content {
+            padding: 30px;
+        }
+
+        .news-main h3 {
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+        }
+
+        .news-main p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .news-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .news-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .news-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            padding: var(--section-padding-sm);
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .quote-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .quote-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .quote-text {
+            font-size: 1.05rem;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .quote-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .quote-author-info h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .quote-author-info span {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Experts Section */
+        .experts {
+            padding: var(--section-padding);
+            background: var(--bg-light);
+        }
+
+        .experts-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .experts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .expert-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .expert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .expert-image {
+            height: 180px;
+            overflow: hidden;
+            background: var(--bg-cream);
+        }
+
+        .expert-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .expert-card:hover .expert-image img {
+            transform: scale(1.05);
+        }
+
+        .expert-info {
+            padding: 20px;
+        }
+
+        .expert-info h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .expert-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* Photo Gallery Section */
+        .gallery {
+            padding: var(--section-padding-sm);
+            background: var(--bg-light);
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* Universities Section */
+        .universities {
+            padding: var(--section-padding-sm);
+        }
+
+        .universities-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .universities-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .universities-logos img {
+            height: 60px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+            filter: grayscale(50%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .universities-logos img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Additional Quotes */
+        .speakers-quotes {
+            padding: var(--section-padding-sm);
+            background: white;
+        }
+
+        .speakers-quotes-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .speaker-quote-card {
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            transition: var(--transition);
+        }
+
+        .speaker-quote-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .speaker-quote-card .quote-text {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .speaker-quote-card .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .speaker-quote-card .quote-author img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .speaker-quote-card .quote-author-info h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .speaker-quote-card .quote-author-info span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Finalists Section */
+        .finalists {
+            padding: var(--section-padding-sm);
+            background: var(--bg-cream);
+        }
+
+        .finalists-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .finalists-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .finalist-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 24px;
+            transition: var(--transition);
+        }
+
+        .finalist-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .finalist-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 12px;
+        }
+
+        .finalist-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        /* Documents Section */
+        .documents {
+            padding: var(--section-padding-sm);
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .document-card {
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .document-card:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .document-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 12px;
+            fill: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .document-card:hover .document-icon {
+            fill: white;
+        }
+
+        .document-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: var(--section-padding);
+            background: var(--primary-green-dark);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-content h2 {
+            color: white;
+        }
+
+        .contact-content p {
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent-gold);
+        }
+
+        .contact-item a {
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .contact-social {
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .contact-social h3 {
+            margin-bottom: 16px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #4680C2;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background: #3d73b3;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: var(--section-padding-sm);
+            background: var(--bg-light);
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--bg-cream);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 24px 20px;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .footer-logo span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .announcement-card {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-content {
+                padding-right: 0;
+            }
+
+            .partners-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quote-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .finalists-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .documents-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .speakers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            :root {
+                --section-padding: 40px 0;
+                --section-padding-sm: 30px 0;
+            }
+
+            .partners-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .experts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .finalists-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .winners-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item.large {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .speakers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .universities-logos {
+                gap: 20px;
+            }
+
+            .universities-logos img {
+                height: 45px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="nav-logo">
+                    <img src="https://static.tildacdn.com/tild3165-6334-4431-b638-383162643131/image_164.png" alt="MSU Urban Law Cup">
+                    <span>MSU Urban Law Cup</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#about">О конкурсе</a></li>
+                    <li><a href="#partners">Партнеры</a></li>
+                    <li><a href="#experts">Эксперты</a></li>
+                    <li><a href="#documents">Документы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">II MSU OPEN URBAN LAW CUP - 2025</div>
+                <h1>MSU Urban Law Cup</h1>
+                <p class="hero-subtitle">
+                    Открытый студенческий конкурс по земельному законодательству
+                    и законодательству о градостроительной деятельности имени О.И. Крассова
+                </p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Принять участие</a>
+                    <a href="#about" class="btn btn-outline">Узнать больше</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Winners Announcement -->
+    <section class="winners-announcement">
+        <div class="container">
+            <div class="announcement-card">
+                <div class="announcement-content">
+                    <span class="section-subtitle">Итоги конкурса</span>
+                    <h2>Чествуем победителей II конкурса!</h2>
+                    <p>12 апреля в МГУ имени М.В. Ломоносова состоялся торжественный финал. В рамках финала участники поборолись за главный приз в очном туре соревнования, после чего состоялась торжественная церемония награждения победителей.</p>
+                    <a href="https://pravo.ru/company_news/252596/" class="announcement-link" target="_blank">
+                        Пресс-релиз на сайте Право.ru
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="winners-grid">
+                    <div class="winner-card">
+                        <div class="winner-place">1</div>
+                        <h4>МГУ имени М.В. Ломоносова</h4>
+                    </div>
+                    <div class="winner-card">
+                        <div class="winner-place">2</div>
+                        <h4>УрГЮУ имени В.Ф. Яковлева</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-subtitle">О конкурсе</span>
+                    <h2>MSU Open Urban Law Cup</h2>
+                    <p class="about-description">
+                        Командное соревнование для студентов по разработке решения спорной правовой ситуации,
+                        связанной с актуальными проблемами применения норм земельного законодательства
+                        и законодательства о градостроительной деятельности.
+                    </p>
+                    <h3>Цели конкурса:</h3>
+                    <ul class="goals-list">
+                        <li>
+                            <div class="goal-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                            </div>
+                            <div>
+                                <strong>Формирование интереса</strong><br>
+                                <span style="color: var(--text-gray);">К земельному и градостроительному праву и компетенций в указанных правовых областях</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="goal-icon">
+                                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div>
+                                <strong>Выявление лучших студентов</strong><br>
+                                <span style="color: var(--text-gray);">Интересующихся актуальными проблемами земельного и градостроительного законодательства</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="goal-icon">
+                                <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                            </div>
+                            <div>
+                                <strong>Создание сообщества</strong><br>
+                                <span style="color: var(--text-gray);">Студентов, преподавателей и практикующих юристов</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-images">
+                    <img src="https://thb.tildacdn.com/tild3063-3930-4637-b237-376338393032/-/empty/0430.jpg" alt="MSU Urban Law Cup">
+                    <img src="https://thb.tildacdn.com/tild3437-3831-4461-a531-343561316165/-/empty/0433.jpg" alt="Участники конкурса">
+                    <img src="https://thb.tildacdn.com/tild3532-3030-4230-a164-356666323062/-/empty/0440.jpg" alt="Финал конкурса">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="partners">
+        <div class="container">
+            <div class="partners-wrapper">
+                <div class="partners-category">
+                    <h3>Организаторы</h3>
+                    <div class="partners-logos">
+                        <img src="https://thb.tildacdn.com/tild6331-3963-4237-b365-333031613734/-/empty/logo-new1.png" alt="МГУ">
+                        <img src="https://thb.tildacdn.com/tild6262-3464-4264-a132-326164333334/-/empty/PC_logo2.jpg" alt="Регионсервис">
+                    </div>
+                </div>
+                <div class="partners-category">
+                    <h3>При поддержке</h3>
+                    <div class="partners-logos">
+                        <img src="https://thb.tildacdn.com/tild6635-3364-4064-a638-326130303631/-/empty/Governmentru_logosvg.png" alt="Правительство РФ">
+                        <img src="https://thb.tildacdn.com/tild6239-3534-4932-a139-316233653233/-/empty/photo.png" alt="Минстрой">
+                        <img src="https://thb.tildacdn.com/tild3364-3131-4534-b164-316565663335/-/empty/Logo_of_Rosreestr.jpg" alt="Росреестр">
+                    </div>
+                </div>
+                <div class="partners-category">
+                    <h3>Партнеры конкурса</h3>
+                    <div class="partners-logos">
+                        <img src="https://static.tildacdn.com/tild3639-3934-4239-a564-643637663435/gasl-1.svg" alt="Галс">
+                        <img src="https://thb.tildacdn.com/tild3836-3665-4465-b833-353563633832/-/empty/logo_30__-01.png" alt="ЛСР">
+                        <img src="https://thb.tildacdn.com/tild3434-6133-4730-b533-643737326238/-/empty/_.png" alt="Сбер">
+                        <img src="https://thb.tildacdn.com/tild3664-6461-4836-b366-316661313561/-/empty/_73.png" alt="Малышева 73">
+                        <img src="https://thb.tildacdn.com/tild3138-6562-4736-b839-636632653061/-/empty/Frame_83.png" alt="Голос">
+                        <img src="https://thb.tildacdn.com/tild3437-3034-4339-a136-616136663266/-/empty/Logo_Lidery2024_1_1.png" alt="Лидеры перемен">
+                        <img src="https://static.tildacdn.com/tild6534-3866-4130-b165-386161393239/Frame_77_1.png" alt="Талант и успех">
+                    </div>
+                </div>
+                <div class="partners-category">
+                    <h3>Информационные партнеры</h3>
+                    <div class="partners-logos">
+                        <img src="https://thb.tildacdn.com/tild3366-3064-4238-b133-373037323164/-/empty/pravo_ru.png" alt="Право.ru">
+                        <img src="https://thb.tildacdn.com/tild3839-3165-4361-a263-663035333233/-/empty/Frame_73.png" alt="РАСО">
+                        <img src="https://thb.tildacdn.com/tild6166-3731-4338-b239-323865356362/-/empty/legal_business.png" alt="Legal Business">
+                        <img src="https://thb.tildacdn.com/tild6335-3832-4165-b135-393734646236/-/empty/ghfdj_he.jpg" alt="Земельный клуб">
+                        <img src="https://thb.tildacdn.com/tild3261-3436-4233-a163-306132663937/-/empty/___.jpg" alt="Правовая беседа">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <div class="container">
+            <div class="news-header">
+                <span class="section-subtitle">Новости</span>
+                <h2>Последние события конкурса</h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-main">
+                    <div class="news-main-image">
+                        <img src="https://thb.tildacdn.com/tild3362-3230-4130-a239-383962636163/-/empty/0069.jpg" alt="Финал конкурса">
+                    </div>
+                    <div class="news-main-content">
+                        <h3>В МГУ прошел заключительный этап конкурса MSU Open Urban Law Cup</h3>
+                        <p>Знаменательно в День космонавтики на небосклоне юриспруденции засияли новые звезды. Сильнейшие студенческие команды, вышедшие в финал конкурса по земельному законодательству и законодательству о градостроительной деятельности имени О. И. Крассова, поборолись за главный приз — 100 000 руб. от Коллегии адвокатов «Регионсервис».</p>
+                        <a href="https://pravo.ru/company_news/252596/" class="announcement-link" target="_blank">
+                            Читать полностью
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="news-sidebar">
+                    <div class="news-card">
+                        <h4>174 участника из 22 университетов</h4>
+                        <p>Со всей страны подали заявки на участие в конкурсе</p>
+                    </div>
+                    <div class="news-card">
+                        <h4>Федеральный масштаб проекта</h4>
+                        <p>Участники из Екатеринбурга, Иркутска, Томска, Кемерова, Уфы, Калининграда, Владивостока, Санкт-Петербурга и других городов</p>
+                    </div>
+                    <div class="news-card">
+                        <h4>270 лет МГУ</h4>
+                        <p>Конкурс проходит в год юбилея Московского государственного университета</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote-grid">
+                <div class="quote-card">
+                    <p class="quote-text">
+                        «Наш конкурс — это символ преемственности поколений. Каждый новый финалист — это яркое подтверждение того, что светлое будущее нашей профессии уже наступило. Именно представители нового поколения юристов создают завтрашний день своими идеями, подходами, проектами и энтузиазмом.»
+                    </p>
+                    <div class="quote-author">
+                        <img src="https://thb.tildacdn.com/tild6637-3362-4965-b666-666234313863/-/empty/photo.png" alt="Денис Рыбаков">
+                        <div class="quote-author-info">
+                            <h4>Денис Рыбаков</h4>
+                            <span>Председатель КА «Регионсервис», член Общественной палаты РФ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="quote-card">
+                    <p class="quote-text">
+                        «За последние пять лет мы набираем темпы жилищного и промышленного строительства. Активное внимание уделяется развитию законодательства. Потребность в реализации и создании проектов требует специалистов, которые будут сопровождать эти проекты.»
+                    </p>
+                    <div class="quote-author">
+                        <img src="https://thb.tildacdn.com/tild3936-6263-4230-b234-356631396632/-/empty/Frame_14_6.png" alt="Максим Галь">
+                        <div class="quote-author-info">
+                            <h4>Максим Галь</h4>
+                            <span>Заместитель директора департамента КРТ Минстроя</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Speakers Quotes -->
+    <section class="speakers-quotes">
+        <div class="container">
+            <div class="speakers-quotes-header">
+                <span class="section-subtitle">Мнения</span>
+                <h2>Что говорят о конкурсе</h2>
+            </div>
+            <div class="speakers-grid">
+                <div class="speaker-quote-card">
+                    <p class="quote-text">
+                        «В этом году мы наблюдаем очень достойный, высоко экспертный уровень команд в финале конкурса. КА «Регионсервис» осознанно вкладывает много времени, сил и внимания в подрастающее поколение.»
+                    </p>
+                    <div class="quote-author">
+                        <img src="https://static.tildacdn.com/tild6537-3734-4037-a264-613239323930/Image.jpeg" alt="Анна Жолобова">
+                        <div class="quote-author-info">
+                            <h4>Анна Жолобова</h4>
+                            <span>Управляющий партнер московского офиса КА «Регионсервис»</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="speaker-quote-card">
+                    <p class="quote-text">
+                        «Этот конкурс — единственное в своем роде соревнование высшей школы по профилю земельного и градостроительного законодательства. Его значение невозможно переоценить.»
+                    </p>
+                    <div class="quote-author">
+                        <img src="https://static.tildacdn.com/tild6239-3761-4462-b666-333862663334/photo.jpg" alt="Михаил Губин">
+                        <div class="quote-author-info">
+                            <h4>Михаил Губин</h4>
+                            <span>Директор по развитию «Общества Малышева 73»</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="speaker-quote-card">
+                    <p class="quote-text">
+                        «Все участники конкурса выступили достаточно хорошо. Видно, что у них есть глубокая теоретическая подготовка и практико-ориентированный подход.»
+                    </p>
+                    <div class="quote-author">
+                        <img src="https://thb.tildacdn.com/tild6461-6265-4532-b630-306534653532/-/empty/noroot.png" alt="Святослав Бушин">
+                        <div class="quote-author-info">
+                            <h4>Святослав Бушин</h4>
+                            <span>Директор департамента ГК «Галс-Девелопмент»</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="speaker-quote-card">
+                    <p class="quote-text">
+                        «Московскому государственному университету в этом году исполнилась круглая дата — 270 лет. Для нас очень важно соблюдать традиции, заложенные нашими предшественниками.»
+                    </p>
+                    <div class="quote-author">
+                        <img src="https://thb.tildacdn.com/tild3262-6331-4330-b932-613839346563/-/empty/photo.jpg" alt="Леонид Бандорин">
+                        <div class="quote-author-info">
+                            <h4>Леонид Бандорин</h4>
+                            <span>Доцент кафедры экологического и земельного права МГУ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="speaker-quote-card">
+                    <p class="quote-text">
+                        «Данный проект формирует интерес у студентов к земельному и градостроительному праву, он также закладывает фундамент для уверенного старта карьеры.»
+                    </p>
+                    <div class="quote-author">
+                        <img src="https://static.tildacdn.com/tild3335-6530-4433-a637-326234613535/images.png" alt="Евгений Ковалев">
+                        <div class="quote-author-info">
+                            <h4>Евгений Ковалев</h4>
+                            <span>Председатель Комитета РАСО, продюсер Legal Business Forum</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="speaker-quote-card">
+                    <p class="quote-text">
+                        «Земельное, градостроительное, экологическое право — очень перспективные направления. Земля всегда под ногами, а объекты недвижимости везде окружают нас.»
+                    </p>
+                    <div class="quote-author">
+                        <img src="https://static.tildacdn.com/tild3135-6361-4239-a634-663031316638/msu__1.png" alt="Валентина Смирнова">
+                        <div class="quote-author-info">
+                            <h4>Валентина Смирнова</h4>
+                            <span>Студентка МГУ, финалист конкурса</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="gallery">
+        <div class="container">
+            <div class="gallery-header">
+                <span class="section-subtitle">Фотогалерея</span>
+                <h2>Финал конкурса 2024</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="https://static.tildacdn.com/tild3031-3837-4930-b530-343164393138/DSC_6417.jpg" alt="Финал конкурса">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.tildacdn.com/tild3331-6435-4565-b264-306635636661/DSC_6354_resized.jpg" alt="Участники">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.tildacdn.com/tild6139-3430-4436-b064-326435353061/DSC_6367_resized.jpg" alt="Мероприятие">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.tildacdn.com/tild3537-3662-4666-a238-316632373363/DSC_6395_resized.jpg" alt="Команды">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.tildacdn.com/tild6233-3961-4637-b034-323239333539/DSC_6404_resized.jpg" alt="Презентации">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.tildacdn.com/tild3338-6230-4932-b035-306132323633/DSC_6489_resized.jpg" alt="Жюри">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.tildacdn.com/tild6132-3864-4133-a436-383638323462/DSC_6557_resized.jpg" alt="Выступления">
+                </div>
+                <div class="gallery-item large">
+                    <img src="https://static.tildacdn.com/tild3735-6539-4161-b233-363963656166/DSC_6632_resized.jpg" alt="Награждение">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.tildacdn.com/tild3332-3930-4735-b432-643666383633/DSC_6699_resized.jpg" alt="Победители">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.tildacdn.com/tild3133-6461-4366-b135-663436643934/DSC_6729_resized.jpg" alt="Церемония">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.tildacdn.com/tild3030-6265-4430-a361-663432333964/DSC_6740_resized.jpg" alt="Финалисты">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://static.tildacdn.com/tild3965-3138-4639-b865-333634373232/DSC_6767_resized.jpg" alt="Участники финала">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experts Section -->
+    <section id="experts" class="experts">
+        <div class="container">
+            <div class="experts-header">
+                <span class="section-subtitle">Эксперты</span>
+                <h2>Ведущие эксперты в области земельного права</h2>
+            </div>
+            <div class="experts-grid">
+                <div class="expert-card">
+                    <div class="expert-image">
+                        <img src="https://thb.tildacdn.com/tild3936-6263-4230-b234-356631396632/-/empty/Frame_14_6.png" alt="Максим Галь">
+                    </div>
+                    <div class="expert-info">
+                        <h4>Максим Галь</h4>
+                        <p>Заместитель директора департамента КРТ Минстроя России</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <div class="expert-image">
+                        <img src="https://thb.tildacdn.com/tild6133-6664-4662-a666-626362306335/-/empty/photo.jpeg" alt="Алексей Бутовецкий">
+                    </div>
+                    <div class="expert-info">
+                        <h4>Алексей Бутовецкий</h4>
+                        <p>Эксперт по градостроительным и земельным вопросам</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <div class="expert-image">
+                        <img src="https://thb.tildacdn.com/tild6665-3536-4363-b830-616633613537/-/empty/__1.png" alt="Павел Мельников">
+                    </div>
+                    <div class="expert-info">
+                        <h4>Павел Мельников</h4>
+                        <p>Директор по развитию ПАО «Группа ЛСР»</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <div class="expert-image">
+                        <img src="https://thb.tildacdn.com/tild6639-3565-4936-a333-373465316239/-/empty/3015bigbox--.jpg" alt="Мария Сафарова">
+                    </div>
+                    <div class="expert-info">
+                        <h4>Мария Сафарова</h4>
+                        <p>К.э.н., доцент ВШУ им. А.А. Высоковского НИУ ВШЭ</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <div class="expert-image">
+                        <img src="https://thb.tildacdn.com/tild3230-3131-4234-a335-343237373139/-/empty/kazan-fed-univ.jpg" alt="Максим Попов">
+                    </div>
+                    <div class="expert-info">
+                        <h4>Максим Попов</h4>
+                        <p>Советник юридической компании ALUMNI Partners, к.ю.н.</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <div class="expert-image">
+                        <img src="https://thb.tildacdn.com/tild3434-3364-4062-b765-353035313131/-/empty/photo.jpeg" alt="Сергей Григорьев">
+                    </div>
+                    <div class="expert-info">
+                        <h4>Сергей Григорьев</h4>
+                        <p>Директор по развитию «Группы Голос», депутат Челябинской городской думы</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <div class="expert-image">
+                        <img src="https://thb.tildacdn.com/tild6461-6265-4532-b630-306534653532/-/empty/noroot.png" alt="Святослав Бушин">
+                    </div>
+                    <div class="expert-info">
+                        <h4>Святослав Бушин</h4>
+                        <p>Директор департамента ГК «Галс-Девелопмент»</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <div class="expert-image">
+                        <img src="https://thb.tildacdn.com/tild3132-3438-4166-a263-653765333563/-/empty/photo.png" alt="Алексей Башарин">
+                    </div>
+                    <div class="expert-info">
+                        <h4>Алексей Башарин</h4>
+                        <p>Референт руководителя ОФ «Талант и успех»</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scientific Advisors -->
+    <section class="experts" style="background: white;">
+        <div class="container">
+            <div class="experts-header">
+                <span class="section-subtitle">Научные руководители</span>
+                <h2>Руководство конкурса</h2>
+            </div>
+            <div class="experts-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="expert-card">
+                    <div class="expert-image">
+                        <img src="https://thb.tildacdn.com/tild3262-6331-4330-b932-613839346563/-/empty/photo.jpg" alt="Леонид Бандорин">
+                    </div>
+                    <div class="expert-info">
+                        <h4>Леонид Бандорин</h4>
+                        <p>Доцент кафедры экологического и земельного права МГУ, к.ю.н.</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <div class="expert-image">
+                        <img src="https://thb.tildacdn.com/tild3161-3736-4663-b864-623331613163/-/empty/noroot.png" alt="Надежда Заславская">
+                    </div>
+                    <div class="expert-info">
+                        <h4>Надежда Заславская</h4>
+                        <p>Профессор кафедры экологического и земельного права МГУ, д.ю.н.</p>
+                    </div>
+                </div>
+                <div class="expert-card">
+                    <div class="expert-image">
+                        <img src="https://thb.tildacdn.com/tild6633-6530-4363-a164-313639373638/-/empty/135081.png" alt="Андрей Переладов">
+                    </div>
+                    <div class="expert-info">
+                        <h4>Андрей Переладов</h4>
+                        <p>Сопредседатель КА «Регионсервис», руководитель практики «Экология и природопользование»</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Universities Section -->
+    <section class="universities">
+        <div class="container">
+            <div class="universities-header">
+                <span class="section-subtitle">Вузы-участники</span>
+                <h2>Со всей России поступило множество заявок</h2>
+                <p style="color: var(--text-gray); max-width: 700px; margin: 0 auto;">Желающие побороться за победу творчески подошли к выполнению предложенных заданий, провели глубокий анализ и разработали качественные проекты КРТ</p>
+            </div>
+            <div class="universities-logos">
+                <img src="https://static.tildacdn.com/tild3135-6361-4239-a634-663031316638/msu__1.png" alt="МГУ">
+                <img src="https://static.tildacdn.com/tild3966-3233-4138-b037-326631363735/_.png" alt="УрГЮУ">
+                <img src="https://static.tildacdn.com/tild6265-6633-4833-b965-386365323265/_.png" alt="ИЦЧП">
+                <img src="https://static.tildacdn.com/tild3533-3936-4839-a161-323134316661/_.jpg" alt="ИЗиСП">
+                <img src="https://static.tildacdn.com/tild3265-3433-4230-b836-313135386330/noroot.png" alt="КФУ">
+                <img src="https://static.tildacdn.com/tild6364-6562-4833-b566-343361366433/noroot.png" alt="ВШЭ">
+                <img src="https://static.tildacdn.com/tild6631-3538-4136-b031-373332326335/noroot.png" alt="СПбГУ">
+                <img src="https://static.tildacdn.com/tild3362-3239-4530-b334-646333633732/noroot.png" alt="ТГУ">
+            </div>
+        </div>
+    </section>
+
+    <!-- Finalists Section -->
+    <section class="finalists">
+        <div class="container">
+            <div class="finalists-header">
+                <span class="section-subtitle">Финалисты 2024</span>
+                <h2>Отзывы участников</h2>
+            </div>
+            <div class="finalists-grid">
+                <div class="finalist-card">
+                    <h4>УрГЮУ имени В.Ф. Яковлева</h4>
+                    <p>«Участие в MSU Open Urban Law Cup - это уникальный шанс попробовать себя в одной из стремительно развивающихся отраслей российского законодательства!»</p>
+                </div>
+                <div class="finalist-card">
+                    <h4>ИЦЧП имени С.С. Алексеева</h4>
+                    <p>«Задача заставила нас напрячься. Предложенная под КРТ территория, несмотря на незначительные размеры, — кладезь проблем: ЗОУИТы, разные собственники, аварийные дома.»</p>
+                </div>
+                <div class="finalist-card">
+                    <h4>ИЗиСП при Правительстве РФ</h4>
+                    <p>«В процессе выполнения интересного задания наша команда ознакомилась с практическими аспектами применения градостроительного и земельного права.»</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section id="documents" class="documents">
+        <div class="container">
+            <div class="experts-header">
+                <span class="section-subtitle">Документы</span>
+                <h2>Положения конкурса</h2>
+            </div>
+            <div class="documents-grid">
+                <a href="#" class="document-card">
+                    <svg class="document-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    <h4>Положение о Конкурсе</h4>
+                </a>
+                <a href="#" class="document-card">
+                    <svg class="document-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    <h4>Положение об Оргкомитете</h4>
+                </a>
+                <a href="#" class="document-card">
+                    <svg class="document-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    <h4>Положение о Жюри</h4>
+                </a>
+                <a href="#" class="document-card">
+                    <svg class="document-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    <h4>Справка о Конкурсе</h4>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="faq-header">
+                <span class="section-subtitle">FAQ</span>
+                <h2>Вопросы и ответы</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Насколько строгим является требование к количеству символов?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Требование о количестве знаков является обязательным. Допускается превышение на 10%. При превышении 33 000 знаков Оргкомитет вычитает 1 балл за каждые 500 знаков сверх лимита. Работа с более чем 38 000 знаков не допускается для оценивания.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Возможно ли оформление задания с использованием таблиц и графиков?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, участники имеют право выбрать любую форму изложения. Таблицы и графики должны быть созданы с помощью текстового редактора. Скриншоты ПКК и картографические материалы допустимо включать в текст или в приложение.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Нужно ли анализировать существующие права третьих лиц на участок?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Пределы анализа участка и содержание заключения устанавливаются командами самостоятельно. Оценивание проходит в том числе по критерию полноты раскрытия вопросов, указанных в задании.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-content">
+                    <span class="section-subtitle" style="color: var(--accent-gold);">Контакты</span>
+                    <h2>Свяжитесь с нами</h2>
+                    <p>Здесь вы найдёте все необходимые данные для связи с организаторами конкурса.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <a href="mailto:openurbanlawcup@yandex.ru">openurbanlawcup@yandex.ru</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-social">
+                    <h3>Подпишитесь на группу ВКонтакте</h3>
+                    <p style="opacity: 0.9; margin-bottom: 20px;">Будьте в курсе самых свежих новостей конкурса и актуальной информации в области земельного права!</p>
+                    <a href="https://vk.com/urbanlawcup" class="social-btn" target="_blank">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.597v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.12-5.339-3.202-2.17-3.04-2.763-5.32-2.763-5.793 0-.254.102-.491.597-.491h1.744c.442 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.305-.491.746-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.49-.085.744-.576.744z"/>
+                        </svg>
+                        Подписаться на группу VK
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://static.tildacdn.com/tild3165-6334-4431-b638-383162643131/image_164.png" alt="MSU Urban Law Cup">
+                    <span>MSU Urban Law Cup</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">О конкурсе</a>
+                    <a href="#partners">Партнеры</a>
+                    <a href="#experts">Эксперты</a>
+                    <a href="#documents">Документы</a>
+                    <a href="#contact">Контакты</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>MSU Urban Law Cup. Конкурс по земельному законодательству и законодательству о градостроительной деятельности.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 30px rgba(0,0,0,0.12)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+            }
+        });
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
