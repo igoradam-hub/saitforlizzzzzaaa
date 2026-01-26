@@ -171,6 +171,71 @@
             transition: all 0.3s ease;
         }
 
+        .t-header__mobile.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .t-header__mobile.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .t-header__mobile.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Мобильное меню */
+        .t-mobile-nav {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            padding: 30px 20px;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .t-mobile-nav.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .t-mobile-nav__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .t-mobile-nav__list li {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .t-mobile-nav__list a {
+            display: block;
+            padding: 18px 0;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .t-mobile-nav__list a:hover {
+            color: var(--accent-orange);
+        }
+
+        .t-mobile-nav__btn {
+            margin-top: auto;
+            text-align: center;
+        }
+
         /* ===========================================
            SECTION: HERO / ГЛАВНЫЙ ЭКРАН
            Tilda Block: CR01H (Cover)
@@ -1237,12 +1302,34 @@
                 display: flex;
             }
 
+            .t-cover__content {
+                padding: 100px 20px 60px;
+            }
+
+            .t-cover__badge {
+                font-size: 11px;
+                padding: 10px 18px;
+            }
+
+            .t-cover__title {
+                font-size: 36px;
+                line-height: 1.2;
+            }
+
+            .t-cover__subtitle {
+                font-size: 15px;
+            }
+
             .t-section {
                 padding: 70px 0;
             }
 
             .t-container {
                 padding: 0 20px;
+            }
+
+            .t-section__title {
+                font-size: 28px;
             }
 
             .t-goals__grid,
@@ -1268,10 +1355,13 @@
 
             .t-cover__buttons {
                 flex-direction: column;
+                width: 100%;
             }
 
             .t-btn {
                 width: 100%;
+                padding: 16px 28px;
+                font-size: 15px;
                 text-align: center;
             }
 
@@ -1312,19 +1402,56 @@
 
         @media (max-width: 480px) {
             .t-cover__title {
-                font-size: 32px;
+                font-size: 26px;
+            }
+
+            .t-cover__subtitle {
+                font-size: 14px;
+            }
+
+            .t-cover__badge {
+                font-size: 10px;
+                padding: 8px 14px;
             }
 
             .t-section__title {
-                font-size: 26px;
+                font-size: 24px;
+            }
+
+            .t-section__label {
+                font-size: 11px;
             }
 
             .t-gallery__grid {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
 
             .t-gallery__item:nth-child(1) {
                 grid-column: span 1;
+            }
+
+            .t-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .t-stat-item__number {
+                font-size: 36px;
+            }
+
+            .t-cta__title {
+                font-size: 24px;
+            }
+
+            .t-partners__grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .t-mobile-nav__list a {
+                font-size: 16px;
+                padding: 15px 0;
             }
         }
 
@@ -1569,7 +1696,7 @@
          ============================================ -->
     <header class="t-header">
         <div class="container">
-            <a href="#" class="t-header__logo">MSU <span>Urban Law Cup</span></a>
+            <a href="#hero" class="t-header__logo">MSU <span>Urban Law Cup</span></a>
             <nav>
                 <ul class="t-header__nav">
                     <li><a href="#about">О конкурсе</a></li>
@@ -1580,10 +1707,22 @@
                     <li><a href="#contacts">Контакты</a></li>
                 </ul>
             </nav>
-            <div class="t-header__mobile">
+            <button class="t-header__mobile" aria-label="Открыть меню">
                 <span></span>
                 <span></span>
                 <span></span>
+            </button>
+            <!-- Мобильное меню -->
+            <div class="t-mobile-nav">
+                <ul class="t-mobile-nav__list">
+                    <li><a href="#about">О конкурсе</a></li>
+                    <li><a href="#results">Результаты</a></li>
+                    <li><a href="#finals">О финале</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#organizers">Организаторы</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+                <a href="#contacts" class="t-btn t-btn--primary t-mobile-nav__btn">Принять участие</a>
             </div>
         </div>
     </header>
@@ -1592,7 +1731,7 @@
          HERO / ГЛАВНЫЙ ЭКРАН
          Tilda: Используйте блок CR01H или CR02H
          ============================================ -->
-    <section class="t-cover">
+    <section id="hero" class="t-cover">
         <div class="t-cover__bg"></div>
         <div class="t-cover__overlay"></div>
         <div class="t-cover__content">
@@ -1615,7 +1754,7 @@
                 </div>
             </div>
             <div class="t-cover__buttons">
-                <a href="#" class="t-btn t-btn--primary">Принять участие</a>
+                <a href="#contacts" class="t-btn t-btn--primary">Принять участие</a>
                 <a href="#results" class="t-btn t-btn--outline">Результаты 2025</a>
             </div>
         </div>
@@ -1738,7 +1877,7 @@
                 </div>
             </div>
             <div style="text-align: center;">
-                <a href="#" class="t-btn t-btn--orange">Пресс-релиз о победителях</a>
+                <a href="https://urbanlawcup-msu.ru/" target="_blank" rel="noopener" class="t-btn t-btn--orange">Пресс-релиз о победителях</a>
             </div>
         </div>
     </section>
@@ -1972,8 +2111,8 @@
                     Присоединяйтесь к лучшим студентам-юристам России и покажите свои знания в области земельного и градостроительного права
                 </p>
                 <div class="t-cta__buttons">
-                    <a href="#" class="t-btn t-btn--primary">Подать заявку</a>
-                    <a href="#" class="t-btn t-btn--outline">Узнать подробности</a>
+                    <a href="#contacts" class="t-btn t-btn--primary">Подать заявку</a>
+                    <a href="#about" class="t-btn t-btn--outline">Узнать подробности</a>
                 </div>
             </div>
         </div>
@@ -2047,10 +2186,10 @@
                 <div>
                     <div class="t-footer__title">Информация</div>
                     <ul class="t-footer__links">
-                        <li><a href="#">Регламент</a></li>
-                        <li><a href="#">Жюри</a></li>
-                        <li><a href="#">Оргкомитет</a></li>
-                        <li><a href="#">Вебинар</a></li>
+                        <li><a href="https://urbanlawcup-msu.ru/" target="_blank" rel="noopener">Регламент</a></li>
+                        <li><a href="#organizers">Жюри</a></li>
+                        <li><a href="#organizers">Оргкомитет</a></li>
+                        <li><a href="https://urbanlawcup-msu.ru/" target="_blank" rel="noopener">Вебинар</a></li>
                     </ul>
                 </div>
                 <div>
@@ -2058,7 +2197,7 @@
                     <ul class="t-footer__links">
                         <li><a href="mailto:urbanlawcup@law.msu.ru">urbanlawcup@law.msu.ru</a></li>
                         <li><a href="tel:+74959391000">+7 (495) 939-10-00</a></li>
-                        <li><a href="#">Telegram</a></li>
+                        <li><a href="https://t.me/urbanlawcup" target="_blank" rel="noopener">Telegram</a></li>
                     </ul>
                 </div>
             </div>
@@ -2067,10 +2206,10 @@
                     © 2024-2025 MSU Urban Law Cup. Все права защищены.
                 </div>
                 <div class="t-footer__socials">
-                    <a href="#" class="t-footer__social" aria-label="Telegram">
+                    <a href="https://t.me/urbanlawcup" target="_blank" rel="noopener" class="t-footer__social" aria-label="Telegram">
                         <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                     </a>
-                    <a href="#" class="t-footer__social" aria-label="VK">
+                    <a href="https://vk.com/urbanlawcup" target="_blank" rel="noopener" class="t-footer__social" aria-label="VK">
                         <svg viewBox="0 0 24 24"><path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1.01-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.563c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4 8.684 4 8.2c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.678.847 2.49 2.27 4.676 2.853 4.676.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.15-3.574 2.15-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.475-.085.72-.576.72z"/></svg>
                     </a>
                 </div>
@@ -2084,6 +2223,28 @@
     <script>
         // Intersection Observer для scroll-анимаций
         document.addEventListener('DOMContentLoaded', function() {
+
+            // Мобильное меню
+            const mobileMenuBtn = document.querySelector('.t-header__mobile');
+            const mobileNav = document.querySelector('.t-mobile-nav');
+            const mobileNavLinks = document.querySelectorAll('.t-mobile-nav a');
+
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+                });
+
+                // Закрытие меню при клике на ссылку
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenuBtn.classList.remove('active');
+                        mobileNav.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
 
             // Элементы для анимации при скролле
             const animateElements = document.querySelectorAll(`
@@ -2257,24 +2418,19 @@
                 });
             });
 
-            // Текстовый курсор для hero заголовка
-            const heroTitle = document.querySelector('.t-cover__title');
-            if (heroTitle) {
-                const text = heroTitle.innerHTML;
-                heroTitle.innerHTML = '';
-                heroTitle.style.opacity = '1';
+            // Анимация слов в заголовке hero (без typewriter - не ломает HTML)
+            const heroSpans = document.querySelectorAll('.t-cover__title span');
+            heroSpans.forEach((span, index) => {
+                span.style.opacity = '0';
+                span.style.display = 'inline-block';
+                span.style.transition = `opacity 0.6s ease ${0.8 + index * 0.2}s, transform 0.6s ease ${0.8 + index * 0.2}s`;
+                span.style.transform = 'translateY(20px)';
 
-                let i = 0;
-                const typeWriter = () => {
-                    if (i < text.length) {
-                        heroTitle.innerHTML += text.charAt(i);
-                        i++;
-                        setTimeout(typeWriter, 30);
-                    }
-                };
-
-                setTimeout(typeWriter, 800);
-            }
+                setTimeout(() => {
+                    span.style.opacity = '1';
+                    span.style.transform = 'translateY(0)';
+                }, 100);
+            });
         });
     </script>
 
