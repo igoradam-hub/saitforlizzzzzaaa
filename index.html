@@ -793,6 +793,51 @@
             opacity: 1;
         }
 
+        /* Gallery expanded state */
+        .t-gallery__more {
+            display: none;
+        }
+
+        .t-gallery__more.t-gallery__more--visible {
+            display: contents;
+        }
+
+        .t-gallery__btn-wrapper {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .t-gallery__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: var(--t-primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .t-gallery__btn:hover {
+            background: var(--t-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 82, 147, 0.3);
+        }
+
+        .t-gallery__btn svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .t-gallery__btn--expanded svg {
+            transform: rotate(180deg);
+        }
+
         /* ===========================================
            SECTION: ЦИТАТА
            Tilda Block: QT01
@@ -1973,7 +2018,7 @@
                 <div class="t-section__label">Фотоотчёт</div>
                 <h2 class="t-section__title">Галерея</h2>
             </div>
-            <div class="t-gallery__grid">
+            <div class="t-gallery__grid" id="galleryGrid">
                 <div class="t-gallery__item">
                     <img src="images/photos/0450.jpg" alt="Финал конкурса MSU Urban Law Cup">
                 </div>
@@ -1989,6 +2034,30 @@
                 <div class="t-gallery__item">
                     <img src="images/photos/0066.jpg" alt="Выступление участников">
                 </div>
+                <!-- Дополнительные фото (скрыты по умолчанию) -->
+                <div class="t-gallery__more" id="galleryMore">
+                    <div class="t-gallery__item">
+                        <img src="images/photos/0424.jpg" alt="Мероприятие конкурса">
+                    </div>
+                    <div class="t-gallery__item">
+                        <img src="images/photos/0430.jpg" alt="Участники финала">
+                    </div>
+                    <div class="t-gallery__item">
+                        <img src="images/photos/0432.jpg" alt="Работа жюри">
+                    </div>
+                    <div class="t-gallery__item">
+                        <img src="images/photos/0433.jpg" alt="Презентация решений">
+                    </div>
+                    <div class="t-gallery__item">
+                        <img src="images/photos/0D3A6970.jpg" alt="Церемония награждения">
+                    </div>
+                </div>
+            </div>
+            <div class="t-gallery__btn-wrapper">
+                <button class="t-gallery__btn" id="galleryBtn" onclick="toggleGallery()">
+                    <span id="galleryBtnText">Больше фото</span>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </button>
             </div>
         </div>
     </section>
@@ -2653,6 +2722,23 @@
                 console.log('Dynamic content loaded successfully');
             } catch (error) {
                 console.log('Using default content (API not available)');
+            }
+        }
+
+        // Gallery toggle function
+        function toggleGallery() {
+            const galleryMore = document.getElementById('galleryMore');
+            const galleryBtn = document.getElementById('galleryBtn');
+            const galleryBtnText = document.getElementById('galleryBtnText');
+
+            if (galleryMore.classList.contains('t-gallery__more--visible')) {
+                galleryMore.classList.remove('t-gallery__more--visible');
+                galleryBtn.classList.remove('t-gallery__btn--expanded');
+                galleryBtnText.textContent = 'Больше фото';
+            } else {
+                galleryMore.classList.add('t-gallery__more--visible');
+                galleryBtn.classList.add('t-gallery__btn--expanded');
+                galleryBtnText.textContent = 'Скрыть';
             }
         }
     </script>
