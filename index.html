@@ -2773,27 +2773,27 @@
                     if (finalsImg && content.finals.image) finalsImg.src = content.finals.image;
                 }
 
-                // Contacts section
-                if (content.contacts) {
-                    const contactCards = document.querySelectorAll('.t-contact-card');
-                    if (contactCards[0] && content.contacts.address) {
-                        contactCards[0].querySelector('p').innerHTML = content.contacts.address.replace(/\n/g, '<br>');
-                    }
-                    if (contactCards[1] && content.contacts.email) {
-                        const emailLink = contactCards[1].querySelector('a');
-                        if (emailLink) {
-                            emailLink.href = `mailto:${content.contacts.email}`;
-                            emailLink.textContent = content.contacts.email;
-                        }
-                    }
-                    if (contactCards[2] && content.contacts.phone) {
-                        const phoneLink = contactCards[2].querySelector('a');
-                        if (phoneLink) {
-                            phoneLink.href = `tel:${content.contacts.phone.replace(/\s/g, '')}`;
-                            phoneLink.textContent = content.contacts.phone;
-                        }
-                    }
-                }
+                // Contacts section - disabled to preserve static Telegram links
+                // if (content.contacts) {
+                //     const contactCards = document.querySelectorAll('.t-contact-card');
+                //     if (contactCards[0] && content.contacts.address) {
+                //         contactCards[0].querySelector('p').innerHTML = content.contacts.address.replace(/\n/g, '<br>');
+                //     }
+                //     if (contactCards[1] && content.contacts.email) {
+                //         const emailLink = contactCards[1].querySelector('a');
+                //         if (emailLink) {
+                //             emailLink.href = `mailto:${content.contacts.email}`;
+                //             emailLink.textContent = content.contacts.email;
+                //         }
+                //     }
+                //     if (contactCards[2] && content.contacts.phone) {
+                //         const phoneLink = contactCards[2].querySelector('a');
+                //         if (phoneLink) {
+                //             phoneLink.href = `tel:${content.contacts.phone.replace(/\s/g, '')}`;
+                //             phoneLink.textContent = content.contacts.phone;
+                //         }
+                //     }
+                // }
 
                 // CTA section
                 if (content.cta) {
