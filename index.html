@@ -794,12 +794,12 @@
         }
 
         /* Gallery expanded state */
-        .t-gallery__more {
+        .t-gallery__more-item {
             display: none;
         }
 
-        .t-gallery__more.t-gallery__more--visible {
-            display: contents;
+        .t-gallery__grid.t-gallery__grid--expanded .t-gallery__more-item {
+            display: block;
         }
 
         .t-gallery__btn-wrapper {
@@ -2035,22 +2035,20 @@
                     <img src="images/photos/0066.jpg" alt="Выступление участников">
                 </div>
                 <!-- Дополнительные фото (скрыты по умолчанию) -->
-                <div class="t-gallery__more" id="galleryMore">
-                    <div class="t-gallery__item">
-                        <img src="images/photos/0424.jpg" alt="Мероприятие конкурса">
-                    </div>
-                    <div class="t-gallery__item">
-                        <img src="images/photos/0430.jpg" alt="Участники финала">
-                    </div>
-                    <div class="t-gallery__item">
-                        <img src="images/photos/0432.jpg" alt="Работа жюри">
-                    </div>
-                    <div class="t-gallery__item">
-                        <img src="images/photos/0433.jpg" alt="Презентация решений">
-                    </div>
-                    <div class="t-gallery__item">
-                        <img src="images/photos/0D3A6970.jpg" alt="Церемония награждения">
-                    </div>
+                <div class="t-gallery__item t-gallery__more-item">
+                    <img src="images/photos/0424.jpg" alt="Мероприятие конкурса">
+                </div>
+                <div class="t-gallery__item t-gallery__more-item">
+                    <img src="images/photos/0430.jpg" alt="Участники финала">
+                </div>
+                <div class="t-gallery__item t-gallery__more-item">
+                    <img src="images/photos/0432.jpg" alt="Работа жюри">
+                </div>
+                <div class="t-gallery__item t-gallery__more-item">
+                    <img src="images/photos/0433.jpg" alt="Презентация решений">
+                </div>
+                <div class="t-gallery__item t-gallery__more-item">
+                    <img src="images/photos/0D3A6970.jpg" alt="Церемония награждения">
                 </div>
             </div>
             <div class="t-gallery__btn-wrapper">
@@ -2727,16 +2725,16 @@
 
         // Gallery toggle function
         function toggleGallery() {
-            const galleryMore = document.getElementById('galleryMore');
+            const galleryGrid = document.getElementById('galleryGrid');
             const galleryBtn = document.getElementById('galleryBtn');
             const galleryBtnText = document.getElementById('galleryBtnText');
 
-            if (galleryMore.classList.contains('t-gallery__more--visible')) {
-                galleryMore.classList.remove('t-gallery__more--visible');
+            if (galleryGrid.classList.contains('t-gallery__grid--expanded')) {
+                galleryGrid.classList.remove('t-gallery__grid--expanded');
                 galleryBtn.classList.remove('t-gallery__btn--expanded');
                 galleryBtnText.textContent = 'Больше фото';
             } else {
-                galleryMore.classList.add('t-gallery__more--visible');
+                galleryGrid.classList.add('t-gallery__grid--expanded');
                 galleryBtn.classList.add('t-gallery__btn--expanded');
                 galleryBtnText.textContent = 'Скрыть';
             }
