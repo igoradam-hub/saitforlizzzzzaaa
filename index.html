@@ -347,6 +347,26 @@
             font-weight: 700;
         }
 
+        .t-cover__highlight {
+            background: rgba(178, 194, 172, 0.2);
+            border-left: 4px solid var(--primary-green);
+            padding: 20px 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .t-cover__highlight h2 {
+            font-size: 24px;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+        }
+
+        .t-cover__highlight p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
         .t-cover__buttons {
             display: flex;
             gap: 20px;
@@ -986,6 +1006,48 @@
             font-size: 14px;
             color: var(--text-gray);
             line-height: 1.6;
+        }
+
+        /* ===========================================
+           SECTION: ЖЮРИ
+           =========================================== */
+        .t-jury__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .t-jury__grid--small {
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        }
+
+        .t-jury-card {
+            background: #f8f8f8;
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .t-jury-card:hover {
+            background: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        .t-jury-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .t-jury-card p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .t-jury-card:hover p {
+            color: var(--text-dark);
         }
 
         /* ===========================================
@@ -1699,11 +1761,10 @@
             <a href="#hero" class="t-header__logo">MSU <span>Urban Law Cup</span></a>
             <nav>
                 <ul class="t-header__nav">
-                    <li><a href="#about">О конкурсе</a></li>
                     <li><a href="#results">Результаты</a></li>
-                    <li><a href="#finals">О финале</a></li>
-                    <li><a href="#gallery">Галерея</a></li>
-                    <li><a href="#organizers">Организаторы</a></li>
+                    <li><a href="#finals">О Финале</a></li>
+                    <li><a href="#jury">Жюри</a></li>
+                    <li><a href="#organizers">Оргкомитет</a></li>
                     <li><a href="#contacts">Контакты</a></li>
                 </ul>
             </nav>
@@ -1715,14 +1776,13 @@
             <!-- Мобильное меню -->
             <div class="t-mobile-nav">
                 <ul class="t-mobile-nav__list">
-                    <li><a href="#about">О конкурсе</a></li>
                     <li><a href="#results">Результаты</a></li>
-                    <li><a href="#finals">О финале</a></li>
-                    <li><a href="#gallery">Галерея</a></li>
-                    <li><a href="#organizers">Организаторы</a></li>
+                    <li><a href="#finals">О Финале</a></li>
+                    <li><a href="#jury">Жюри</a></li>
+                    <li><a href="#organizers">Оргкомитет</a></li>
                     <li><a href="#contacts">Контакты</a></li>
                 </ul>
-                <a href="#contacts" class="t-btn t-btn--primary t-mobile-nav__btn">Принять участие</a>
+                <a href="#contacts" class="t-btn t-btn--primary t-mobile-nav__btn">Связаться</a>
             </div>
         </div>
     </header>
@@ -1735,26 +1795,20 @@
         <div class="t-cover__bg"></div>
         <div class="t-cover__overlay"></div>
         <div class="t-cover__content">
-            <div class="t-cover__badge">II Открытый студенческий конкурс 2025</div>
+            <div class="t-cover__badge">II MSU OPEN URBAN LAW CUP - 2025</div>
             <h1 class="t-cover__title">
-                Кубок МГУ по <span>земельному</span> и <span>градостроительному</span> праву
+                Открытый студенческий конкурс по <span>земельному законодательству</span> и <span>законодательству о градостроительной деятельности</span>
             </h1>
-            <p class="t-cover__subtitle">
-                Командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства
-            </p>
             <p class="t-cover__name">имени О.И. Крассова</p>
-            <div class="t-cover__date">
-                <div class="t-cover__date-item">
-                    <div class="t-cover__date-label">Дата финала</div>
-                    <div class="t-cover__date-value">12 апреля 2025</div>
-                </div>
-                <div class="t-cover__date-item">
-                    <div class="t-cover__date-label">Место проведения</div>
-                    <div class="t-cover__date-value">МГУ им. М.В. Ломоносова</div>
-                </div>
+            <p class="t-cover__subtitle">
+                Второй открытый студенческий конкурс по земельному законодательству и законодательству о градостроительной деятельности
+            </p>
+            <div class="t-cover__highlight">
+                <h2>Чествуем победителей II конкурса!</h2>
+                <p>12 апреля в МГУ имени М.В. Ломоносова состоялся торжественный финал</p>
             </div>
             <div class="t-cover__buttons">
-                <a href="#contacts" class="t-btn t-btn--primary">Принять участие</a>
+                <a href="https://pravo.ru/company_news/252596/" target="_blank" class="t-btn t-btn--primary">Пресс-релиз на Право.ru</a>
                 <a href="#results" class="t-btn t-btn--outline">Результаты 2025</a>
             </div>
         </div>
@@ -1771,15 +1825,15 @@
                     <img src="images/photos/0D3A6970.jpg" alt="Участники конкурса MSU Urban Law Cup">
                 </div>
                 <div class="t-about__content">
-                    <h3>О конкурсе</h3>
+                    <h3>MSU Open Urban Law Cup</h3>
                     <p>
-                        <strong>Кубок МГУ по земельному и градостроительному праву</strong> — это командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства.
+                        <strong>MSU Open Urban Law Cup</strong> — это командное соревнование для студентов по разработке решения спорной правовой ситуации, связанной с актуальными проблемами применения норм земельного законодательства и законодательства о градостроительной деятельности, смоделированной Оргкомитетом конкурса.
                     </p>
                     <p>
-                        Конкурс проводится на базе Юридического факультета МГУ имени М.В. Ломоносова и объединяет лучших студентов-юристов со всей России.
+                        Организаторами конкурса выступили кафедра экологического и земельного права юридического факультета МГУ и КА «Регионсервис». Генеральным информационным партнером стал портал Право.ru.
                     </p>
                     <p>
-                        Участники работают над реальными кейсами под руководством практикующих юристов и преподавателей ведущих вузов страны, развивая навыки правового анализа и командной работы.
+                        В этом году конкурс побил рекорд прошлого. Участвовало более полусотни команд из Екатеринбурга, Иркутска, Томска, Кемерова, Уфы, Калининграда, Владивостока, Санкт-Петербурга и Москвы.
                     </p>
                 </div>
             </div>
@@ -1802,9 +1856,9 @@
                     <div class="t-goal-card__icon">
                         <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
                     </div>
-                    <h3 class="t-goal-card__title">Развитие интереса</h3>
+                    <h3 class="t-goal-card__title">Формирование интереса</h3>
                     <p class="t-goal-card__text">
-                        Воспитание у студентов интереса к земельному и градостроительному праву как к перспективной сфере юридической деятельности
+                        Формирование интереса у студентов к земельному и градостроительному праву и компетенций в указанных правовых областях
                     </p>
                 </div>
                 <div class="t-goal-card">
@@ -1812,9 +1866,9 @@
                     <div class="t-goal-card__icon">
                         <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                     </div>
-                    <h3 class="t-goal-card__title">Выявление талантов</h3>
+                    <h3 class="t-goal-card__title">Выявление лучших студентов</h3>
                     <p class="t-goal-card__text">
-                        Определение лучших студентов, проявляющих интерес к актуальным вопросам земельного законодательства и градостроительной деятельности
+                        Выявление лучших студентов, интересующихся актуальными проблемами земельного законодательства и законодательства о градостроительной деятельности
                     </p>
                 </div>
                 <div class="t-goal-card">
@@ -1824,7 +1878,7 @@
                     </div>
                     <h3 class="t-goal-card__title">Создание сообщества</h3>
                     <p class="t-goal-card__text">
-                        Формирование профессионального сообщества студентов, преподавателей и практикующих юристов в сфере земельного права
+                        Создание сообщества студентов, преподавателей и практикующих юристов
                     </p>
                 </div>
             </div>
@@ -1890,20 +1944,20 @@
         <div class="t-container">
             <div class="t-stats">
                 <div class="t-stat-item">
+                    <div class="t-stat-item__number">174</div>
+                    <div class="t-stat-item__label">Участника</div>
+                </div>
+                <div class="t-stat-item">
+                    <div class="t-stat-item__number">22</div>
+                    <div class="t-stat-item__label">Университета</div>
+                </div>
+                <div class="t-stat-item">
                     <div class="t-stat-item__number">50+</div>
-                    <div class="t-stat-item__label">Команд-участников</div>
+                    <div class="t-stat-item__label">Команд</div>
                 </div>
                 <div class="t-stat-item">
-                    <div class="t-stat-item__number">20+</div>
-                    <div class="t-stat-item__label">Вузов России</div>
-                </div>
-                <div class="t-stat-item">
-                    <div class="t-stat-item__number">15</div>
+                    <div class="t-stat-item__number">10+</div>
                     <div class="t-stat-item__label">Членов жюри</div>
-                </div>
-                <div class="t-stat-item">
-                    <div class="t-stat-item__number">2</div>
-                    <div class="t-stat-item__label">Года проведения</div>
                 </div>
             </div>
         </div>
@@ -1918,13 +1972,13 @@
             <div class="t-quote__content">
                 <div class="t-quote__icon">"</div>
                 <p class="t-quote__text">
-                    Этот конкурс символизирует преемственность поколений. Каждый финалист подтверждает: наше будущее в надёжных руках — у профессионалов, которые уже сегодня создают завтрашний день своими идеями и энтузиазмом.
+                    Наш конкурс — это символ преемственности поколений. Каждый новый финалист — это яркое подтверждение того, что светлое будущее нашей профессии уже наступило. Именно представители нового поколения юристов создают завтрашний день своими идеями, подходами, проектами и энтузиазмом. Нам остается гордиться тем, что мы смогли открыть новые таланты в рамках конкурса, и верить, что впереди всех нас ждут великие дела.
                 </p>
                 <div class="t-quote__author">
                     <img src="images/photos/0066.jpg" alt="Денис Рыбаков" class="t-quote__author-photo">
                     <div class="t-quote__author-info">
                         <div class="t-quote__author-name">Денис Рыбаков</div>
-                        <div class="t-quote__author-title">Председатель Коллегии адвокатов «Регионсервис», член Общественной палаты РФ</div>
+                        <div class="t-quote__author-position">Председатель Коллегии адвокатов «Регионсервис», член Общественной палаты РФ</div>
                     </div>
                 </div>
             </div>
@@ -2012,6 +2066,79 @@
                 </div>
                 <div class="t-finals__image">
                     <img src="images/photos/0D3A6970.jpg" alt="Финал конкурса">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ЖЮРИ
+         ============================================ -->
+    <section id="jury" class="t-section">
+        <div class="t-container">
+            <div class="t-section__header">
+                <div class="t-section__label">Эксперты</div>
+                <h2 class="t-section__title">Члены Жюри</h2>
+                <p class="t-section__desc">Ведущие эксперты в области земельного права и законодательства о градостроительной деятельности</p>
+            </div>
+            <div class="t-jury__grid">
+                <div class="t-jury-card">
+                    <h4>Максим Галь</h4>
+                    <p>Заместитель директора департамента комплексного развития территорий Минстроя России</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Анна Жолобова</h4>
+                    <p>Управляющий партнер московского офиса КА «Регионсервис», член Комитета НОСТРОЙ, LL.M.</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Алексей Бутовецкий</h4>
+                    <p>Статс-секретарь — заместитель руководителя Росреестра</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Михаил Губин</h4>
+                    <p>Директор по развитию ГК «Малышева 73»</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Павел Мельников</h4>
+                    <p>Директор по развитию московского подразделения ПАО «Группа ЛСР»</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Мария Сафарова</h4>
+                    <p>Доцент Высшей школы урбанистики НИУ ВШЭ, к.э.н.</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Максим Попов</h4>
+                    <p>Советник ALUMNI Partners, к.ю.н.</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Сергей Григорьев</h4>
+                    <p>Директор по развитию «Группы Голос», депутат Челябинской городской думы</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Илья Рябов</h4>
+                    <p>Директор департамента имущества ГК «Галс-Девелопмент»</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Алексей Башарин</h4>
+                    <p>Референт Образовательного Фонда «Талант и успех», лектор СПбГУ, НИУ ВШЭ</p>
+                </div>
+            </div>
+
+            <div class="t-section__header" style="margin-top: 60px;">
+                <h3 class="t-section__title" style="font-size: 28px;">Научные руководители</h3>
+            </div>
+            <div class="t-jury__grid t-jury__grid--small">
+                <div class="t-jury-card">
+                    <h4>Леонид Бандорин</h4>
+                    <p>Доцент кафедры экологического и земельного права Юридического факультета МГУ, к.ю.н.</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Надежда Заславская</h4>
+                    <p>Профессор кафедры экологического и земельного права Юридического факультета МГУ, д.ю.н.</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Андрей Переладов</h4>
+                    <p>Сопредседатель КА «Регионсервис», управляющий партнер офиса в г. Кемерово</p>
                 </div>
             </div>
         </div>
@@ -2145,7 +2272,7 @@
                     </div>
                     <h3 class="t-contact-card__title">Email</h3>
                     <p class="t-contact-card__text">
-                        <a href="mailto:urbanlawcup@law.msu.ru">urbanlawcup@law.msu.ru</a>
+                        <a href="mailto:openurbanlawcup@yandex.ru">openurbanlawcup@yandex.ru</a>
                     </p>
                 </div>
                 <div class="t-contact-card">
@@ -2195,7 +2322,7 @@
                 <div>
                     <div class="t-footer__title">Контакты</div>
                     <ul class="t-footer__links">
-                        <li><a href="mailto:urbanlawcup@law.msu.ru">urbanlawcup@law.msu.ru</a></li>
+                        <li><a href="mailto:openurbanlawcup@yandex.ru">openurbanlawcup@yandex.ru</a></li>
                         <li><a href="tel:+74959391000">+7 (495) 939-10-00</a></li>
                         <li><a href="https://t.me/urbanlawcup" target="_blank" rel="noopener">Telegram</a></li>
                     </ul>
