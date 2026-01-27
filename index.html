@@ -1458,6 +1458,403 @@
         }
 
         /* ===========================================
+           SECTION: ВУЗЫ-УЧАСТНИКИ
+           =========================================== */
+        .t-universities {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .t-universities__title {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .t-universities__grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .t-universities__logo {
+            height: 60px;
+            max-width: 120px;
+            object-fit: contain;
+            filter: grayscale(0);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .t-universities__logo:hover {
+            opacity: 1;
+        }
+
+        /* ===========================================
+           SECTION: ТАЙМЕР ОБРАТНОГО ОТСЧЕТА
+           =========================================== */
+        .t-countdown-section {
+            background: var(--primary-green);
+            padding: 50px 0;
+        }
+
+        .t-countdown__title {
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .t-countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .t-countdown__item {
+            text-align: center;
+        }
+
+        .t-countdown__number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .t-countdown__label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin-top: 8px;
+        }
+
+        /* ===========================================
+           SECTION: ДОКУМЕНТЫ
+           =========================================== */
+        .t-documents {
+            padding: 60px 0;
+            background: var(--bg-light);
+        }
+
+        .t-documents__grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .t-documents__link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 30px;
+            background: var(--primary-green);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .t-documents__link:hover {
+            background: var(--dark-green);
+            transform: translateX(5px);
+        }
+
+        .t-documents__link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* ===========================================
+           SECTION: ТРЕБОВАНИЯ К ЗАДАНИЮ
+           =========================================== */
+        .t-requirements {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .t-requirements__header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .t-requirements__title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .t-requirements__subtitle {
+            font-size: 16px;
+            color: var(--text-gray);
+        }
+
+        .t-requirements__subtitle a {
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .t-requirements__subtitle a:hover {
+            text-decoration: underline;
+        }
+
+        .t-requirements__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .t-requirement-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-left: 4px solid var(--primary-green);
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .t-requirement-card__title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .t-requirement-card__title svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary-green);
+        }
+
+        .t-requirement-card__text {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .t-requirement-card__text strong {
+            color: var(--text-dark);
+        }
+
+        /* ===========================================
+           SECTION: FAQ / ВОПРОСЫ И ОТВЕТЫ
+           =========================================== */
+        .t-faq {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .t-faq__list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .t-faq__item {
+            margin-bottom: 30px;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .t-faq__question {
+            padding: 20px 25px;
+            background: var(--primary-green);
+            color: #fff;
+        }
+
+        .t-faq__question-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .t-faq__question-text {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .t-faq__answer {
+            padding: 25px;
+        }
+
+        .t-faq__answer-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--dark-green);
+            margin-bottom: 10px;
+        }
+
+        .t-faq__answer-text {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* ===========================================
+           SECTION: ЕСТЬ ВОПРОСЫ?
+           =========================================== */
+        .t-askquestions {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            text-align: center;
+        }
+
+        .t-askquestions__title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .t-askquestions__text {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+        }
+
+        .t-askquestions__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 40px;
+            background: #fff;
+            color: var(--dark-green);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .t-askquestions__btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .t-askquestions__btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* ===========================================
+           SECTION: ФОРМА РЕГИСТРАЦИИ
+           =========================================== */
+        .t-registration {
+            position: relative;
+            padding: 100px 0;
+            background: url('images/photos/0433.jpg') center/cover no-repeat;
+        }
+
+        .t-registration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .t-registration__container {
+            position: relative;
+            z-index: 1;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .t-registration__title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .t-registration__subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+        }
+
+        .t-registration__form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .t-registration__input {
+            padding: 16px 20px;
+            background: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-family: inherit;
+            color: var(--text-dark);
+        }
+
+        .t-registration__input::placeholder {
+            color: #999;
+        }
+
+        .t-registration__input:focus {
+            outline: 2px solid var(--primary-green);
+        }
+
+        .t-registration__textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .t-registration__btn {
+            margin-top: 10px;
+            padding: 18px;
+            background: var(--primary-green);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .t-registration__btn:hover {
+            background: var(--dark-green);
+        }
+
+        .t-registration__note {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            margin-top: 20px;
+        }
+
+        /* ===========================================
            RESPONSIVE DESIGN
            =========================================== */
         @media (max-width: 1024px) {
@@ -1597,6 +1994,31 @@
 
             .t-about__image::before {
                 display: none;
+            }
+
+            /* Responsive for new sections */
+            .t-universities__grid {
+                gap: 25px;
+            }
+
+            .t-universities__logo {
+                height: 45px;
+            }
+
+            .t-countdown {
+                gap: 20px;
+            }
+
+            .t-countdown__number {
+                font-size: 36px;
+            }
+
+            .t-requirements__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .t-askquestions__title {
+                font-size: 28px;
             }
         }
 
@@ -1903,6 +2325,7 @@
                     <li><a href="#schedule">График 2026</a></li>
                     <li><a href="#jury">Жюри</a></li>
                     <li><a href="#organizers">Оргкомитет</a></li>
+                    <li><a href="#registration">Регистрация</a></li>
                     <li><a href="#contacts">Контакты</a></li>
                 </ul>
             </nav>
@@ -1918,9 +2341,10 @@
                     <li><a href="#schedule">График 2026</a></li>
                     <li><a href="#jury">Жюри</a></li>
                     <li><a href="#organizers">Оргкомитет</a></li>
+                    <li><a href="#registration">Регистрация</a></li>
                     <li><a href="#contacts">Контакты</a></li>
                 </ul>
-                <a href="#contacts" class="t-btn t-btn--primary t-mobile-nav__btn">Связаться</a>
+                <a href="#registration" class="t-btn t-btn--primary t-mobile-nav__btn">Регистрация</a>
             </div>
         </div>
     </header>
@@ -1974,6 +2398,59 @@
                         За два года существования конкурса, в нем приняли участие более полусотни команд из Екатеринбурга, Иркутска, Томска, Кемерова, Уфы, Калининграда, Владивостока, Санкт-Петербурга и Москвы.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ТАЙМЕР ОБРАТНОГО ОТСЧЕТА
+         ============================================ -->
+    <section class="t-countdown-section">
+        <div class="t-container">
+            <div class="t-countdown__title">До конца регистрации осталось</div>
+            <div class="t-countdown" id="countdown">
+                <div class="t-countdown__item">
+                    <div class="t-countdown__number" id="countdown-days">00</div>
+                    <div class="t-countdown__label">дней</div>
+                </div>
+                <div class="t-countdown__item">
+                    <div class="t-countdown__number" id="countdown-hours">00</div>
+                    <div class="t-countdown__label">часов</div>
+                </div>
+                <div class="t-countdown__item">
+                    <div class="t-countdown__number" id="countdown-minutes">00</div>
+                    <div class="t-countdown__label">минут</div>
+                </div>
+                <div class="t-countdown__item">
+                    <div class="t-countdown__number" id="countdown-seconds">00</div>
+                    <div class="t-countdown__label">секунд</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ДОКУМЕНТЫ О КОНКУРСЕ
+         ============================================ -->
+    <section class="t-documents">
+        <div class="t-container">
+            <div class="t-documents__grid">
+                <a href="https://disk.yandex.ru/i/7K_tD0mIpfgGXw" target="_blank" class="t-documents__link">
+                    <span>Положение о Конкурсе</span>
+                    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                </a>
+                <a href="https://disk.yandex.ru/i/ztpNNRaV6HWR-Q" target="_blank" class="t-documents__link">
+                    <span>Положение об Оргкомитете</span>
+                    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                </a>
+                <a href="https://disk.yandex.ru/i/UiwqZeksiVzF1w" target="_blank" class="t-documents__link">
+                    <span>Положение о Жюри Конкурса</span>
+                    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                </a>
+                <a href="https://disk.yandex.ru/i/Sw4wOXbQA8uGNA" target="_blank" class="t-documents__link">
+                    <span>Справка о Конкурсе</span>
+                    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                </a>
             </div>
         </div>
     </section>
@@ -2102,6 +2579,21 @@
     </section>
 
     <!-- ============================================
+         ВУЗЫ-УЧАСТНИКИ
+         ============================================ -->
+    <section class="t-universities">
+        <div class="t-container">
+            <div class="t-universities__title">Среди вузов-участников</div>
+            <div class="t-universities__grid">
+                <img src="images/logos/HSE.webp" alt="ВШЭ" class="t-universities__logo">
+                <img src="images/logos/MSU.webp" alt="МГУ" class="t-universities__logo">
+                <img src="images/logos/MGUA.webp" alt="МГЮА" class="t-universities__logo">
+                <img src="images/logos/URGU.webp" alt="УрГЮУ" class="t-universities__logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
          ГАЛЕРЕЯ
          Tilda: Используйте блок GL01 или GL03
          ============================================ -->
@@ -2220,6 +2712,190 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ОСНОВНЫЕ ТРЕБОВАНИЯ К ВЫПОЛНЕНИЮ ЗАДАНИЯ
+         ============================================ -->
+    <section class="t-requirements">
+        <div class="t-container">
+            <div class="t-requirements__header">
+                <h2 class="t-requirements__title">Основные требования к выполнению задания</h2>
+                <p class="t-requirements__subtitle">Полная информация о правилах и требованиях отражена в <a href="https://disk.yandex.ru/i/7K_tD0mIpfgGXw" target="_blank">Положении о конкурсе</a></p>
+            </div>
+            <div class="t-requirements__grid">
+                <div class="t-requirement-card">
+                    <h3 class="t-requirement-card__title">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                        Формат файлов
+                    </h3>
+                    <div class="t-requirement-card__text">
+                        Решение команды должно быть представлено <strong>в двух форматах: Word и Pdf</strong>. Файлы должны быть идентичны по своему содержанию.
+                    </div>
+                </div>
+                <div class="t-requirement-card">
+                    <h3 class="t-requirement-card__title">
+                        <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+                        Шрифт
+                    </h3>
+                    <div class="t-requirement-card__text">
+                        <strong>Основной текст:</strong> Times New Roman, кегль – 12, обычного начертания.<br>
+                        <strong>Сноски:</strong> Times New Roman, кегль – 10, обычного начертания.
+                    </div>
+                </div>
+                <div class="t-requirement-card">
+                    <h3 class="t-requirement-card__title">
+                        <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                        Объем - 30 000 знаков
+                    </h3>
+                    <div class="t-requirement-card__text">
+                        Не учитываются сноски, пробелы, титульный лист, перечень сокращений.<br><br>
+                        При превышении требований к количеству знаков в работе Оргкомитет оставляет за собой право аннулировать результаты работы команды или применить иные санкции в виде снижения общего балла за работу.
+                    </div>
+                </div>
+                <div class="t-requirement-card">
+                    <h3 class="t-requirement-card__title">
+                        <svg viewBox="0 0 24 24"><path d="M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm12 4c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6v-1z"/></svg>
+                        Поля и абзацы
+                    </h3>
+                    <div class="t-requirement-card__text">
+                        Интервал междустрочный основного текста – 1,5; сносок – 1,15; отступ первой строки абзаца – 1 см, без интервалов между абзацами.<br><br>
+                        Требования к параметрам страницы: поля: верхнее – 1,5 см, нижнее – 1 см, левое – 2 см, правое – 1 см.
+                    </div>
+                </div>
+                <div class="t-requirement-card">
+                    <h3 class="t-requirement-card__title">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        Наименования документов и письма
+                    </h3>
+                    <div class="t-requirement-card__text">
+                        Тема письма:<br>
+                        <strong>РЕШЕНИЕ ЗАДАНИЯ. Название команды</strong><br>
+                        Названия документов:<br>
+                        <strong>«Название команды. Решение отборочного этапа»</strong>
+                    </div>
+                </div>
+                <div class="t-requirement-card">
+                    <h3 class="t-requirement-card__title">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                        Анонимность работы
+                    </h3>
+                    <div class="t-requirement-card__text">
+                        Участникам запрещается обозначать в тексте работы название команды, наименование учебного учреждения, имена участников или каким-либо иным образом нарушать анонимность представленного ответа.
+                    </div>
+                </div>
+                <div class="t-requirement-card">
+                    <h3 class="t-requirement-card__title">
+                        <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                        Изображения
+                    </h3>
+                    <div class="t-requirement-card__text">
+                        <strong>Допускается</strong> включение в текст решения изображений, например: картографических материалов, схемы и иные похожие графические элементы.<br><br>
+                        <strong>Не допускается</strong> включение в текст решения работы изображений, на которых будет присутствовать текст, непосредственно относящийся к решению командой задания.
+                    </div>
+                </div>
+                <div class="t-requirement-card">
+                    <h3 class="t-requirement-card__title">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Самостоятельность работы
+                    </h3>
+                    <div class="t-requirement-card__text">
+                        Работа должна быть подготовлена каждой командой самостоятельно, заимствование решений у других команд недопустимо.<br><br>
+                        В заключительный этап проходят пять команд, набравшие наибольшее количество баллов по итогам отборочного этапа.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ВОПРОСЫ И ОТВЕТЫ (FAQ)
+         ============================================ -->
+    <section class="t-faq">
+        <div class="t-container">
+            <div class="t-section__header">
+                <div class="t-section__label">FAQ</div>
+                <h2 class="t-section__title">Вопросы и ответы</h2>
+            </div>
+            <div class="t-faq__list">
+                <div class="t-faq__item">
+                    <div class="t-faq__question">
+                        <div class="t-faq__question-label">Участник:</div>
+                        <div class="t-faq__question-text">Насколько строгим является требование к количеству символов? Можно ли его превысить?</div>
+                    </div>
+                    <div class="t-faq__answer">
+                        <div class="t-faq__answer-label">Оргкомитет:</div>
+                        <div class="t-faq__answer-text">
+                            Требование о количестве знаков, установленном в Положении о Конкурсе, является обязательным. Допускается превышение установленного Положением о Конкурсе предельного количества знаков на 10%. При превышении командой 33 000 знаков Оргкомитет вычитает 1 балл за каждые 500 знаков сверх установленного лимита.<br><br>
+                            Работа, содержащая более 38 000 знаков, не допускается Оргкомитетом для дальнейшего оценивания Жюри. В этом случае Оргкомитет выставляет за представленную работу 0 баллов.
+                        </div>
+                    </div>
+                </div>
+                <div class="t-faq__item">
+                    <div class="t-faq__question">
+                        <div class="t-faq__question-label">Участник:</div>
+                        <div class="t-faq__question-text">Возможно ли оформление задания в том числе с использованием таблиц и/или графиков?</div>
+                    </div>
+                    <div class="t-faq__answer">
+                        <div class="t-faq__answer-label">Оргкомитет:</div>
+                        <div class="t-faq__answer-text">
+                            Да, участники имеют право выбрать любую форму изложения решения задания. При этом любые таблицы и/или графики должны быть созданы с помощью текстового редактора и не могут быть включены в файл как изображения.<br><br>
+                            Скриншоты Публичной кадастровой карты, иные картографические или графические материалы допустимо включать непосредственно в текст решения задания или в форме приложения к нему.
+                        </div>
+                    </div>
+                </div>
+                <div class="t-faq__item">
+                    <div class="t-faq__question">
+                        <div class="t-faq__question-label">Участник:</div>
+                        <div class="t-faq__question-text">Нужно ли для выполнения задания анализировать существующие права третьих лиц на земельный участок, возможные договоры аренды и сервитуты, а также учитывать нахождение на них объектов недвижимости?</div>
+                    </div>
+                    <div class="t-faq__answer">
+                        <div class="t-faq__answer-label">Оргкомитет:</div>
+                        <div class="t-faq__answer-text">
+                            Пределы анализа участка и содержание заключения устанавливаются командами самостоятельно. Оценивание проходит в том числе по критерию полноты раскрытия вопросов, указанных в задании.
+                        </div>
+                    </div>
+                </div>
+                <div class="t-faq__item">
+                    <div class="t-faq__question">
+                        <div class="t-faq__question-label">Участник:</div>
+                        <div class="t-faq__question-text">Что указывать на титульном листе, если существует требование о соблюдении анонимности?</div>
+                    </div>
+                    <div class="t-faq__answer">
+                        <div class="t-faq__answer-label">Оргкомитет:</div>
+                        <div class="t-faq__answer-text">
+                            Наличие титульного листа при оформлении решения не является обязательным. Присутствующий в решении задания титульный лист не должен содержать указание на название команды, имена ее участников, наименование учебного заведения. На титульном листе могут быть графические изображения, в том числе символика Конкурса, а также надписи и заголовки, не нарушающие анонимность работы. Напоминаем, что в силу п. 3.14 Положения о Конкурсе нарушение требований об анонимности работы влечёт за собой возможность её аннулирования.
+                        </div>
+                    </div>
+                </div>
+                <div class="t-faq__item">
+                    <div class="t-faq__question">
+                        <div class="t-faq__question-label">Участник:</div>
+                        <div class="t-faq__question-text">Срок направления работы считается по московскому времени?</div>
+                    </div>
+                    <div class="t-faq__answer">
+                        <div class="t-faq__answer-label">Оргкомитет:</div>
+                        <div class="t-faq__answer-text">
+                            Да, срок направления решения заданий определен до 16 марта, 23:59 по московскому времени.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ЕСТЬ ВОПРОСЫ?
+         ============================================ -->
+    <section class="t-askquestions">
+        <div class="t-container">
+            <h2 class="t-askquestions__title">Есть вопросы?</h2>
+            <p class="t-askquestions__text">Напишите нам в Telegram и мы ответим на все ваши вопросы</p>
+            <a href="https://t.me/Anastasia_timurovna" target="_blank" class="t-askquestions__btn">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+                Написать в Telegram
+            </a>
         </div>
     </section>
 
@@ -2389,6 +3065,29 @@
     </section>
 
     <!-- ============================================
+         ФОРМА РЕГИСТРАЦИИ
+         ============================================ -->
+    <section id="registration" class="t-registration">
+        <div class="t-registration__container">
+            <h2 class="t-registration__title">Примите участие в конкурсе!</h2>
+            <p class="t-registration__subtitle">Зарегистрируйте свою команду и вступите в борьбу за главный приз!</p>
+            <form class="t-registration__form" id="registrationForm">
+                <input type="text" class="t-registration__input" placeholder="Название команды" required>
+                <input type="email" class="t-registration__input" placeholder="Электронная почта" required>
+                <input type="tel" class="t-registration__input" placeholder="Телефон для связи">
+                <textarea class="t-registration__input t-registration__textarea" placeholder="Название вуза"></textarea>
+                <input type="text" class="t-registration__input" placeholder="ФИО капитана команды" required>
+                <input type="text" class="t-registration__input" placeholder="ФИО участника команды №2">
+                <input type="text" class="t-registration__input" placeholder="ФИО участника команды №3">
+                <input type="text" class="t-registration__input" placeholder="ФИО участника команды №4">
+                <input type="text" class="t-registration__input" placeholder="ФИО тренера (если есть)">
+                <button type="submit" class="t-registration__btn">Зарегистрироваться</button>
+            </form>
+            <p class="t-registration__note">Нажимая кнопку "Зарегистрироваться" вы даете согласие на обработку персональных данных</p>
+        </div>
+    </section>
+
+    <!-- ============================================
          КОНТАКТЫ
          ============================================ -->
     <section id="contacts" class="t-section">
@@ -2504,6 +3203,36 @@
                     });
                 });
             }
+
+            // Countdown timer - до 23 февраля 2026 00:00 по московскому времени
+            function updateCountdown() {
+                // February 23, 2026 00:00:00 Moscow time (UTC+3)
+                const targetDate = new Date('2026-02-23T00:00:00+03:00');
+                const now = new Date();
+                const diff = targetDate - now;
+
+                if (diff <= 0) {
+                    document.getElementById('countdown-days').textContent = '00';
+                    document.getElementById('countdown-hours').textContent = '00';
+                    document.getElementById('countdown-minutes').textContent = '00';
+                    document.getElementById('countdown-seconds').textContent = '00';
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+
+            // Инициализация и обновление каждую секунду
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
 
             // Элементы для анимации при скролле
             const animateElements = document.querySelectorAll(`
