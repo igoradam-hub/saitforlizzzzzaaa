@@ -1106,61 +1106,87 @@
         }
 
         /* ===========================================
-           SECTION: ОРГАНИЗАТОРЫ
-           Tilda Block: PT01
+           SECTION: ОРГАНИЗАТОРЫ И ПАРТНЁРЫ
            =========================================== */
-        .t-organizers__grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-bottom: 70px;
-        }
-
-        .t-organizer-card {
+        .t-organizers__logos {
             display: flex;
-            align-items: center;
-            gap: 25px;
-            padding: 35px;
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-            transition: all 0.3s ease;
-        }
-
-        .t-organizer-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-        }
-
-        .t-organizer-card__logo {
-            width: 100px;
-            height: 100px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            background: var(--bg-light);
-            border-radius: 15px;
-            padding: 12px;
+            align-items: center;
+            gap: 80px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
         }
 
-        .t-organizer-card__logo img {
-            max-width: 100%;
-            max-height: 100%;
+        .t-organizer-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .t-organizer-logo img {
+            height: 100%;
+            width: auto;
             object-fit: contain;
         }
 
-        .t-organizer-card__content h4 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 8px;
+        .t-partners__section {
+            margin-bottom: 50px;
+            padding-top: 40px;
+            border-top: 1px solid #e0e0e0;
         }
 
-        .t-organizer-card__content p {
-            font-size: 14px;
+        .t-partners__section:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .t-partners__label {
+            font-size: 18px;
+            font-weight: 400;
             color: var(--text-gray);
-            line-height: 1.6;
+            margin-bottom: 35px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .t-partners__label--main {
+            color: var(--dark-green);
+            font-size: 20px;
+        }
+
+        .t-partners__grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .t-partners__grid--small {
+            gap: 40px;
+        }
+
+        .t-partner-logo {
+            height: 60px;
+            transition: all 0.3s ease;
+        }
+
+        .t-partner-logo--large {
+            height: 80px;
+        }
+
+        .t-partner-logo--small {
+            height: 45px;
+        }
+
+        .t-partner-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .t-partner-logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
         }
 
         /* ===========================================
@@ -1203,55 +1229,6 @@
 
         .t-jury-card:hover p {
             color: var(--text-dark);
-        }
-
-        /* ===========================================
-           SECTION: ПАРТНЁРЫ
-           Tilda Block: PT02
-           =========================================== */
-        .t-partners__section {
-            margin-bottom: 50px;
-        }
-
-        .t-partners__section:last-child {
-            margin-bottom: 0;
-        }
-
-        .t-partners__label {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-gray);
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .t-partners__grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 35px;
-            align-items: center;
-        }
-
-        .t-partner-logo {
-            height: 55px;
-            opacity: 0.6;
-            transition: all 0.3s ease;
-            filter: grayscale(100%);
-        }
-
-        .t-partner-logo:hover {
-            opacity: 1;
-            filter: grayscale(0%);
-            transform: scale(1.08);
-        }
-
-        .t-partner-logo img {
-            height: 100%;
-            width: auto;
-            object-fit: contain;
         }
 
         /* ===========================================
@@ -2317,30 +2294,16 @@
          ОРГАНИЗАТОРЫ
          Tilda: Используйте блок PT01 или PT02
          ============================================ -->
-    <section id="organizers" class="t-section t-section--gray">
+    <section id="organizers" class="t-section">
         <div class="t-container">
-            <div class="t-section__header">
-                <div class="t-section__label">Команда</div>
-                <h2 class="t-section__title">Организаторы</h2>
-            </div>
-            <div class="t-organizers__grid">
-                <div class="t-organizer-card">
-                    <div class="t-organizer-card__logo">
-                        <img src="images/logos/msu-law-logo.png" alt="Юридический факультет МГУ">
-                    </div>
-                    <div class="t-organizer-card__content">
-                        <h4>Юридический факультет МГУ</h4>
-                        <p>Московский государственный университет имени М.В. Ломоносова — ведущий вуз страны с богатыми традициями в области юридического образования</p>
-                    </div>
+            <!-- Организаторы -->
+            <div class="t-partners__label">Организаторы</div>
+            <div class="t-organizers__logos">
+                <div class="t-organizer-logo">
+                    <img src="images/logos/msu-law-logo.png" alt="Юридический факультет МГУ">
                 </div>
-                <div class="t-organizer-card">
-                    <div class="t-organizer-card__logo">
-                        <img src="images/logos/regionservis-logo.jpg" alt="Коллегия адвокатов Регионсервис">
-                    </div>
-                    <div class="t-organizer-card__content">
-                        <h4>Коллегия адвокатов «Регионсервис»</h4>
-                        <p>Ведущая юридическая практика России, специализирующаяся на земельном и градостроительном праве</p>
-                    </div>
+                <div class="t-organizer-logo">
+                    <img src="images/logos/regionservis-logo.jpg" alt="Регионсервис">
                 </div>
             </div>
 
@@ -2348,27 +2311,30 @@
             <div class="t-partners__section">
                 <div class="t-partners__label">При поддержке</div>
                 <div class="t-partners__grid">
-                    <div class="t-partner-logo">
-                        <img src="images/logos/government-ru.png" alt="Правительство России">
+                    <div class="t-partner-logo t-partner-logo--large">
+                        <img src="images/logos/government-ru.png" alt="Правительство Российской Федерации">
                     </div>
-                    <div class="t-partner-logo">
+                    <div class="t-partner-logo t-partner-logo--large">
                         <img src="images/logos/rosreestr-logo.jpg" alt="Росреестр">
                     </div>
                 </div>
             </div>
 
-            <!-- Партнёры -->
+            <!-- Партнёры конкурса -->
             <div class="t-partners__section">
-                <div class="t-partners__label">Партнёры</div>
+                <div class="t-partners__label">Партнеры конкурса</div>
                 <div class="t-partners__grid">
                     <div class="t-partner-logo">
-                        <img src="images/partners/gasl.svg" alt="GASL">
+                        <img src="images/partners/gasl.svg" alt="ГАЛС">
                     </div>
                     <div class="t-partner-logo">
                         <img src="images/partners/partner1.png" alt="Партнёр">
                     </div>
                     <div class="t-partner-logo">
-                        <img src="images/partners/lidery2024.png" alt="Лидеры 2024">
+                        <img src="images/partners/partner2.png" alt="Партнёр">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/lidery2024.png" alt="ЛСР - Лидеры строительной России">
                     </div>
                     <div class="t-partner-logo">
                         <img src="images/partners/partner3.png" alt="Партнёр">
@@ -2376,17 +2342,30 @@
                     <div class="t-partner-logo">
                         <img src="images/partners/frame83.png" alt="Партнёр">
                     </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/partner4.jpg" alt="Партнёр">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Генеральный информационный партнёр -->
+            <div class="t-partners__section">
+                <div class="t-partners__label t-partners__label--main">Генеральный информационный партнер</div>
+                <div class="t-partners__grid">
+                    <div class="t-partner-logo t-partner-logo--large">
+                        <img src="images/partners/pravo-ru.png" alt="Право.ru">
+                    </div>
                 </div>
             </div>
 
             <!-- Информационные партнёры -->
             <div class="t-partners__section">
-                <div class="t-partners__label">Информационные партнёры</div>
-                <div class="t-partners__grid">
-                    <div class="t-partner-logo">
-                        <img src="images/partners/pravo-ru.png" alt="Право.ру">
+                <div class="t-partners__label">Информационные партнеры</div>
+                <div class="t-partners__grid t-partners__grid--small">
+                    <div class="t-partner-logo t-partner-logo--small">
+                        <img src="images/partners/icon.png" alt="Информационный партнёр">
                     </div>
-                    <div class="t-partner-logo">
+                    <div class="t-partner-logo t-partner-logo--small">
                         <img src="images/partners/info-partner.jpg" alt="Информационный партнёр">
                     </div>
                 </div>
