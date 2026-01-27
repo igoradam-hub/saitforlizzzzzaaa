@@ -205,7 +205,12 @@ const defaultContent = {
             { name: "ВШЭ", logo: "images/logos/HSE.webp" },
             { name: "МГУ", logo: "images/logos/MSU.webp" },
             { name: "МГЮА", logo: "images/logos/MGUA.webp" },
-            { name: "УрГЮУ", logo: "images/logos/URGU.webp" }
+            { name: "УрГЮУ", logo: "images/logos/URGU.webp" },
+            { name: "СПбГУ", logo: "images/logos/спбгу.png" },
+            { name: "РГУП", logo: "images/logos/ргуп.jpg" },
+            { name: "РАНХиГС", logo: "images/logos/logo-ranhigs.png" },
+            { name: "МИИГАиК", logo: "images/logos/Логотип_МИИГАиК.png" },
+            { name: "КемГУ", logo: "images/logos/Логотип_КемГУ.png" }
         ]
     }
 };
