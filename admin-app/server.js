@@ -7,6 +7,10 @@ const multer = require('multer');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Persistent storage paths (Railway Volume support)
+const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, 'data');
+const UPLOADS_DIR = process.env.UPLOADS_DIR || path.join(__dirname, 'uploads');
+
 // CORS - разрешаем запросы с основного сайта
 app.use(cors({
     origin: '*',
@@ -19,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serve static files (admin panel and uploaded images)
 app.use(express.static('public'));
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static(UPLOADS_DIR));
 
 // Auth
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'msu2025admin';
@@ -35,11 +39,7 @@ const authMiddleware = (req, res, next) => {
 // Multer for image uploads
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const uploadDir = path.join(__dirname, 'uploads');
-        if (!fs.existsSync(uploadDir)) {
-            fs.mkdirSync(uploadDir, { recursive: true });
-        }
-        cb(null, uploadDir);
+        cb(null, UPLOADS_DIR);
     },
     filename: (req, file, cb) => {
         const uniqueName = Date.now() + '-' + file.originalname.replace(/\s/g, '_');
@@ -62,12 +62,15 @@ const upload = multer({
     }
 });
 
-// Content file
-const CONTENT_FILE = path.join(__dirname, 'data', 'content.json');
+// Content file path
+const CONTENT_FILE = path.join(DATA_DIR, 'content.json');
 
-// Ensure data directory exists
-if (!fs.existsSync(path.join(__dirname, 'data'))) {
-    fs.mkdirSync(path.join(__dirname, 'data'), { recursive: true });
+// Ensure directories exist
+if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+if (!fs.existsSync(UPLOADS_DIR)) {
+    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 }
 
 // Default content
@@ -173,14 +176,13 @@ app.post('/api/upload', authMiddleware, upload.single('image'), (req, res) => {
 // Get images list
 app.get('/api/images', (req, res) => {
     try {
-        const uploadsDir = path.join(__dirname, 'uploads');
-        if (!fs.existsSync(uploadsDir)) {
+        if (!fs.existsSync(UPLOADS_DIR)) {
             return res.json([]);
         }
         const baseUrl = process.env.RAILWAY_PUBLIC_DOMAIN
             ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`
             : `http://localhost:${PORT}`;
-        const images = fs.readdirSync(uploadsDir)
+        const images = fs.readdirSync(UPLOADS_DIR)
             .filter(f => /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(f))
             .map(f => ({
                 name: f,
@@ -225,5 +227,7 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Admin server running on port ${PORT}`);
+    console.log(`Data directory: ${DATA_DIR}`);
+    console.log(`Uploads directory: ${UPLOADS_DIR}`);
     console.log(`Open http://localhost:${PORT} to access admin panel`);
 });
