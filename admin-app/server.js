@@ -15,6 +15,15 @@ const UPLOADS_DIR = process.env.UPLOADS_DIR || path.join(__dirname, 'uploads');
 const CONTENT_FILE = path.join(DATA_DIR, 'content.json');
 const SUBMISSIONS_FILE = path.join(DATA_DIR, 'submissions.json');
 
+// Debug logging for deployment issues
+console.log('=== STORAGE CONFIG ===');
+console.log('DATA_DIR:', DATA_DIR);
+console.log('UPLOADS_DIR:', UPLOADS_DIR);
+console.log('CONTENT_FILE:', CONTENT_FILE);
+console.log('SUBMISSIONS_FILE:', SUBMISSIONS_FILE);
+console.log('DATA_DIR exists:', fs.existsSync(DATA_DIR));
+console.log('======================');
+
 // CORS
 app.use(cors({
     origin: '*',
@@ -61,8 +70,22 @@ const upload = multer({
 });
 
 // Ensure directories exist
-if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+if (!fs.existsSync(DATA_DIR)) {
+    console.log('Creating DATA_DIR:', DATA_DIR);
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+if (!fs.existsSync(UPLOADS_DIR)) {
+    console.log('Creating UPLOADS_DIR:', UPLOADS_DIR);
+    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+}
+
+// Log existing files in DATA_DIR
+try {
+    const files = fs.readdirSync(DATA_DIR);
+    console.log('Files in DATA_DIR:', files);
+} catch (e) {
+    console.log('Cannot read DATA_DIR:', e.message);
+}
 
 // Complete default content for ALL site sections
 const defaultContent = {
@@ -235,7 +258,9 @@ function getContent() {
 }
 
 function saveContent(data) {
+    console.log('Saving content to:', CONTENT_FILE);
     fs.writeFileSync(CONTENT_FILE, JSON.stringify(data, null, 2), 'utf8');
+    console.log('Content saved successfully');
 }
 
 function getSubmissions() {
