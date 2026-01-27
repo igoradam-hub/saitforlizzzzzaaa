@@ -11,17 +11,21 @@ const PORT = process.env.PORT || 3000;
 const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, 'data');
 const UPLOADS_DIR = process.env.UPLOADS_DIR || path.join(__dirname, 'uploads');
 
+// File paths
+const CONTENT_FILE = path.join(DATA_DIR, 'content.json');
+const SUBMISSIONS_FILE = path.join(DATA_DIR, 'submissions.json');
+
 // CORS - разрешаем запросы с основного сайта
 app.use(cors({
     origin: '*',
-    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files (admin panel and uploaded images)
+// Serve static files
 app.use(express.static('public'));
 app.use('/uploads', express.static(UPLOADS_DIR));
 
@@ -62,9 +66,6 @@ const upload = multer({
     }
 });
 
-// Content file path
-const CONTENT_FILE = path.join(DATA_DIR, 'content.json');
-
 // Ensure directories exist
 if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -76,67 +77,45 @@ if (!fs.existsSync(UPLOADS_DIR)) {
 // Default content
 const defaultContent = {
     hero: {
-        badge: "II Открытый студенческий конкурс 2025",
-        title: "Кубок МГУ по <span>земельному</span> и <span>градостроительному</span> праву",
-        subtitle: "Командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства",
+        badge: "II Открытый студенческий конкурс 2026",
+        title: "Кубок МГУ по земельному и градостроительному праву",
+        subtitle: "Командное соревнование студентов по разработке решений спорных правовых ситуаций",
         name: "имени О.И. Крассова",
-        date: "12 апреля 2025",
+        date: "18 апреля 2026",
         location: "МГУ им. М.В. Ломоносова"
     },
-    about: {
-        title: "О конкурсе",
-        text1: "<strong>Кубок МГУ по земельному и градостроительному праву</strong> — это командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства.",
-        text2: "Конкурс проводится при поддержке Юридического факультета МГУ имени М.В. Ломоносова и Коллегии адвокатов «Регионсервис»."
-    },
-    goals: [
-        { icon: "trophy", title: "Практический опыт", text: "Решение реальных кейсов из судебной практики" },
-        { icon: "users", title: "Командная работа", text: "Развитие навыков работы в команде юристов" },
-        { icon: "star", title: "Экспертная оценка", text: "Обратная связь от ведущих практиков" },
-        { icon: "award", title: "Карьерные возможности", text: "Стажировки в ведущих юридических компаниях" }
-    ],
-    winners: [
-        { place: "1", team: "Команда «Правовой навигатор»", university: "МГУ имени М.В. Ломоносова" },
-        { place: "2", team: "Команда «Lex Urbana»", university: "СПбГУ" },
-        { place: "3", team: "Команда «Территория права»", university: "МГЮА" }
-    ],
     stats: [
         { number: "14", label: "Регионов России" },
         { number: "170+", label: "Участников" },
         { number: "58", label: "Команд" },
         { number: "22", label: "Вуза" }
-    ],
-    quote: {
-        text: "Конкурс даёт студентам уникальную возможность погрузиться в реальную юридическую практику.",
-        author: "Профессор О.И. Крассов",
-        position: "Основатель конкурса"
-    },
-    finals: {
-        date: "12 апреля 2025 года",
-        location: "Юридический факультет МГУ им. М.В. Ломоносова, г. Москва",
-        format: "Очное командное соревнование с решением практических кейсов",
-        jury: "Экспертное жюри из ведущих практикующих юристов и преподавателей"
-    },
-    contacts: {
-        address: "г. Москва, Ленинские горы, д. 1, стр. 13\nЮридический факультет МГУ",
-        email: "urbanlawcup@law.msu.ru",
-        phone: "+7 (495) 939-10-00",
-        telegram: "https://t.me/urbanlawcup",
-        vk: "https://vk.com/urbanlawcup"
-    },
-    cta: {
-        title: "Готовы принять участие?",
-        text: "Присоединяйтесь к лучшим студентам-юристам России"
-    }
+    ]
 };
 
-// Initialize content file
+// Initialize files
 if (!fs.existsSync(CONTENT_FILE)) {
     fs.writeFileSync(CONTENT_FILE, JSON.stringify(defaultContent, null, 2), 'utf8');
+}
+if (!fs.existsSync(SUBMISSIONS_FILE)) {
+    fs.writeFileSync(SUBMISSIONS_FILE, JSON.stringify([], null, 2), 'utf8');
+}
+
+// Helper functions
+function getSubmissions() {
+    try {
+        return JSON.parse(fs.readFileSync(SUBMISSIONS_FILE, 'utf8'));
+    } catch {
+        return [];
+    }
+}
+
+function saveSubmissions(data) {
+    fs.writeFileSync(SUBMISSIONS_FILE, JSON.stringify(data, null, 2), 'utf8');
 }
 
 // ============ API Routes ============
 
-// Get content (public - для основного сайта)
+// Get content (public)
 app.get('/api/content', (req, res) => {
     try {
         const content = JSON.parse(fs.readFileSync(CONTENT_FILE, 'utf8'));
@@ -156,13 +135,119 @@ app.post('/api/content', authMiddleware, (req, res) => {
     }
 });
 
+// ============ SUBMISSIONS API ============
+
+// Submit registration (public - from main site)
+app.post('/api/submissions', (req, res) => {
+    try {
+        const submissions = getSubmissions();
+        const newSubmission = {
+            id: Date.now().toString(),
+            ...req.body,
+            status: 'new',
+            createdAt: new Date().toISOString(),
+            notes: ''
+        };
+        submissions.unshift(newSubmission);
+        saveSubmissions(submissions);
+        res.json({ success: true, message: 'Заявка отправлена!', id: newSubmission.id });
+    } catch (error) {
+        res.status(500).json({ error: 'Ошибка сохранения заявки' });
+    }
+});
+
+// Get all submissions (protected)
+app.get('/api/submissions', authMiddleware, (req, res) => {
+    try {
+        const submissions = getSubmissions();
+        res.json(submissions);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to load submissions' });
+    }
+});
+
+// Update submission status (protected)
+app.patch('/api/submissions/:id', authMiddleware, (req, res) => {
+    try {
+        const submissions = getSubmissions();
+        const index = submissions.findIndex(s => s.id === req.params.id);
+        if (index === -1) {
+            return res.status(404).json({ error: 'Submission not found' });
+        }
+        submissions[index] = { ...submissions[index], ...req.body };
+        saveSubmissions(submissions);
+        res.json({ success: true, submission: submissions[index] });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to update' });
+    }
+});
+
+// Delete submission (protected)
+app.delete('/api/submissions/:id', authMiddleware, (req, res) => {
+    try {
+        let submissions = getSubmissions();
+        submissions = submissions.filter(s => s.id !== req.params.id);
+        saveSubmissions(submissions);
+        res.json({ success: true });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to delete' });
+    }
+});
+
+// Get submissions stats (protected)
+app.get('/api/submissions/stats', authMiddleware, (req, res) => {
+    try {
+        const submissions = getSubmissions();
+        const stats = {
+            total: submissions.length,
+            new: submissions.filter(s => s.status === 'new').length,
+            reviewed: submissions.filter(s => s.status === 'reviewed').length,
+            approved: submissions.filter(s => s.status === 'approved').length,
+            rejected: submissions.filter(s => s.status === 'rejected').length
+        };
+        res.json(stats);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to get stats' });
+    }
+});
+
+// Export submissions as CSV (protected)
+app.get('/api/submissions/export', authMiddleware, (req, res) => {
+    try {
+        const submissions = getSubmissions();
+        const headers = ['ID', 'Дата', 'Команда', 'Email', 'Телефон', 'Вуз', 'Капитан', 'Участник 2', 'Участник 3', 'Участник 4', 'Тренер', 'Статус'];
+        const rows = submissions.map(s => [
+            s.id,
+            new Date(s.createdAt).toLocaleString('ru-RU'),
+            s.teamName || '',
+            s.email || '',
+            s.phone || '',
+            s.university || '',
+            s.captain || '',
+            s.member2 || '',
+            s.member3 || '',
+            s.member4 || '',
+            s.coach || '',
+            s.status
+        ]);
+
+        const csv = [headers.join(';'), ...rows.map(r => r.join(';'))].join('\n');
+        res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+        res.setHeader('Content-Disposition', 'attachment; filename=submissions.csv');
+        res.send('\uFEFF' + csv); // BOM for Excel
+    } catch (error) {
+        res.status(500).json({ error: 'Export failed' });
+    }
+});
+
+// ============ IMAGES API ============
+
 // Upload image (protected)
 app.post('/api/upload', authMiddleware, upload.single('image'), (req, res) => {
     try {
         if (!req.file) {
             return res.status(400).json({ error: 'No file' });
         }
-        // Return full URL for the uploaded image
         const baseUrl = process.env.RAILWAY_PUBLIC_DOMAIN
             ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`
             : `http://localhost:${PORT}`;
@@ -195,7 +280,8 @@ app.get('/api/images', (req, res) => {
     }
 });
 
-// Auth check
+// ============ AUTH API ============
+
 app.post('/api/auth', (req, res) => {
     const { password } = req.body;
     if (password === ADMIN_PASSWORD) {
@@ -205,22 +291,17 @@ app.post('/api/auth', (req, res) => {
     }
 });
 
-// Reset to default content (protected)
+// Reset content (protected)
 app.post('/api/reset', authMiddleware, (req, res) => {
     try {
         fs.writeFileSync(CONTENT_FILE, JSON.stringify(defaultContent, null, 2), 'utf8');
-        res.json({ success: true, message: 'Content reset to default', content: defaultContent });
+        res.json({ success: true, message: 'Content reset', content: defaultContent });
     } catch (error) {
-        res.status(500).json({ error: 'Failed to reset content' });
+        res.status(500).json({ error: 'Failed to reset' });
     }
 });
 
-// Get default content (for comparison)
-app.get('/api/default', (req, res) => {
-    res.json(defaultContent);
-});
-
-// Serve admin panel (redirect root to admin)
+// Serve admin panel
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
@@ -229,5 +310,4 @@ app.listen(PORT, () => {
     console.log(`Admin server running on port ${PORT}`);
     console.log(`Data directory: ${DATA_DIR}`);
     console.log(`Uploads directory: ${UPLOADS_DIR}`);
-    console.log(`Open http://localhost:${PORT} to access admin panel`);
 });

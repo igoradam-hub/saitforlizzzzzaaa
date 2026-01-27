@@ -3072,15 +3072,15 @@
             <h2 class="t-registration__title">Примите участие в конкурсе!</h2>
             <p class="t-registration__subtitle">Зарегистрируйте свою команду и вступите в борьбу за главный приз!</p>
             <form class="t-registration__form" id="registrationForm">
-                <input type="text" class="t-registration__input" placeholder="Название команды" required>
-                <input type="email" class="t-registration__input" placeholder="Электронная почта" required>
-                <input type="tel" class="t-registration__input" placeholder="Телефон для связи">
-                <textarea class="t-registration__input t-registration__textarea" placeholder="Название вуза"></textarea>
-                <input type="text" class="t-registration__input" placeholder="ФИО капитана команды" required>
-                <input type="text" class="t-registration__input" placeholder="ФИО участника команды №2">
-                <input type="text" class="t-registration__input" placeholder="ФИО участника команды №3">
-                <input type="text" class="t-registration__input" placeholder="ФИО участника команды №4">
-                <input type="text" class="t-registration__input" placeholder="ФИО тренера (если есть)">
+                <input type="text" name="teamName" class="t-registration__input" placeholder="Название команды" required>
+                <input type="email" name="email" class="t-registration__input" placeholder="Электронная почта" required>
+                <input type="tel" name="phone" class="t-registration__input" placeholder="Телефон для связи">
+                <textarea name="university" class="t-registration__input t-registration__textarea" placeholder="Название вуза"></textarea>
+                <input type="text" name="captain" class="t-registration__input" placeholder="ФИО капитана команды" required>
+                <input type="text" name="member2" class="t-registration__input" placeholder="ФИО участника команды №2">
+                <input type="text" name="member3" class="t-registration__input" placeholder="ФИО участника команды №3">
+                <input type="text" name="member4" class="t-registration__input" placeholder="ФИО участника команды №4">
+                <input type="text" name="coach" class="t-registration__input" placeholder="ФИО тренера (если есть)">
                 <button type="submit" class="t-registration__btn">Зарегистрироваться</button>
             </form>
             <p class="t-registration__note">Нажимая кнопку "Зарегистрироваться" вы даете согласие на обработку персональных данных</p>
@@ -3554,6 +3554,52 @@
                 galleryBtn.classList.add('t-gallery__btn--expanded');
                 galleryBtnText.textContent = 'Скрыть';
             }
+        }
+
+        // Registration form submission
+        const registrationForm = document.getElementById('registrationForm');
+        if (registrationForm) {
+            registrationForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const btn = this.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.textContent = 'Отправка...';
+                btn.disabled = true;
+
+                const formData = {
+                    teamName: this.querySelector('[name="teamName"]').value,
+                    email: this.querySelector('[name="email"]').value,
+                    phone: this.querySelector('[name="phone"]').value,
+                    university: this.querySelector('[name="university"]').value,
+                    captain: this.querySelector('[name="captain"]').value,
+                    member2: this.querySelector('[name="member2"]').value,
+                    member3: this.querySelector('[name="member3"]').value,
+                    member4: this.querySelector('[name="member4"]').value,
+                    coach: this.querySelector('[name="coach"]').value
+                };
+
+                try {
+                    const res = await fetch('https://superb-mindfulness-production.up.railway.app/api/submissions', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (res.ok) {
+                        alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+                        this.reset();
+                    } else {
+                        alert('Ошибка при отправке заявки. Попробуйте позже.');
+                    }
+                } catch (error) {
+                    console.error('Submit error:', error);
+                    alert('Ошибка при отправке заявки. Проверьте подключение к интернету.');
+                }
+
+                btn.textContent = originalText;
+                btn.disabled = false;
+            });
         }
     </script>
 
