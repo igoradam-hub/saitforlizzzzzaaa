@@ -996,6 +996,106 @@
         }
 
         /* ===========================================
+           SECTION: ГРАФИК КОНКУРСА / TIMELINE
+           =========================================== */
+        .t-timeline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 50px;
+        }
+
+        .t-timeline__stage {
+            position: relative;
+        }
+
+        .t-timeline__stage-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-green);
+        }
+
+        .t-timeline__stage-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #8B6B5B;
+            margin-bottom: 5px;
+        }
+
+        .t-timeline__stage--final .t-timeline__stage-title {
+            color: var(--dark-green);
+        }
+
+        .t-timeline__stage-subtitle {
+            font-size: 16px;
+            color: var(--text-gray);
+        }
+
+        .t-timeline__stage-date {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-green);
+            margin-top: 10px;
+        }
+
+        .t-timeline__content {
+            position: relative;
+        }
+
+        .t-timeline__content-header {
+            font-size: 18px;
+            font-weight: 600;
+            color: #4A6B8A;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .t-timeline__items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .t-timeline__item {
+            position: relative;
+            padding-left: 0;
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 3px solid var(--primary-green);
+        }
+
+        .t-timeline__item-date {
+            font-size: 14px;
+            font-weight: 700;
+            color: #4A6B8A;
+            margin-bottom: 5px;
+        }
+
+        .t-timeline__item-text {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .t-timeline__item--location {
+            background: rgba(178, 194, 172, 0.15);
+            border-left-color: var(--dark-green);
+        }
+
+        .t-timeline__item--location .t-timeline__item-date {
+            color: var(--dark-green);
+        }
+
+        @media (max-width: 992px) {
+            .t-timeline {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+
+        /* ===========================================
            SECTION: ОРГАНИЗАТОРЫ
            Tilda Block: PT01
            =========================================== */
@@ -1807,7 +1907,7 @@
             <nav>
                 <ul class="t-header__nav">
                     <li><a href="#results">Результаты</a></li>
-                    <li><a href="#finals">О Финале</a></li>
+                    <li><a href="#schedule">График 2026</a></li>
                     <li><a href="#jury">Жюри</a></li>
                     <li><a href="#organizers">Оргкомитет</a></li>
                     <li><a href="#contacts">Контакты</a></li>
@@ -1822,7 +1922,7 @@
             <div class="t-mobile-nav">
                 <ul class="t-mobile-nav__list">
                     <li><a href="#results">Результаты</a></li>
-                    <li><a href="#finals">О Финале</a></li>
+                    <li><a href="#schedule">График 2026</a></li>
                     <li><a href="#jury">Жюри</a></li>
                     <li><a href="#organizers">Оргкомитет</a></li>
                     <li><a href="#contacts">Контакты</a></li>
@@ -2061,56 +2161,70 @@
     </section>
 
     <!-- ============================================
-         О ФИНАЛЕ
-         Tilda: Используйте блок FT101 или AB104
+         ГРАФИК КОНКУРСА 2026
          ============================================ -->
-    <section id="finals" class="t-section">
+    <section id="schedule" class="t-section">
         <div class="t-container">
             <div class="t-section__header">
-                <div class="t-section__label">Информация</div>
-                <h2 class="t-section__title">О финале конкурса</h2>
+                <div class="t-section__label">Этапы конкурса</div>
+                <h2 class="t-section__title">График конкурса 2026</h2>
             </div>
-            <div class="t-finals__grid">
-                <div class="t-finals__info">
-                    <div class="t-finals__item">
-                        <div class="t-finals__item-icon">
-                            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
-                        </div>
-                        <div class="t-finals__item-content">
-                            <h4>Дата проведения</h4>
-                            <p>12 апреля 2025 года</p>
-                        </div>
+
+            <div class="t-timeline">
+                <!-- Отборочный этап -->
+                <div class="t-timeline__stage">
+                    <div class="t-timeline__stage-header">
+                        <div class="t-timeline__stage-title">Отборочный</div>
+                        <div class="t-timeline__stage-subtitle">(формат онлайн)</div>
                     </div>
-                    <div class="t-finals__item">
-                        <div class="t-finals__item-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        </div>
-                        <div class="t-finals__item-content">
-                            <h4>Место проведения</h4>
-                            <p>Юридический факультет МГУ им. М.В. Ломоносова, г. Москва</p>
-                        </div>
-                    </div>
-                    <div class="t-finals__item">
-                        <div class="t-finals__item-icon">
-                            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                        </div>
-                        <div class="t-finals__item-content">
-                            <h4>Формат</h4>
-                            <p>Очное командное соревнование с решением практических кейсов</p>
-                        </div>
-                    </div>
-                    <div class="t-finals__item">
-                        <div class="t-finals__item-icon">
-                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
-                        </div>
-                        <div class="t-finals__item-content">
-                            <h4>Оценка</h4>
-                            <p>Экспертное жюри из ведущих практикующих юристов и преподавателей</p>
+                    <div class="t-timeline__content">
+                        <div class="t-timeline__content-header">Структура</div>
+                        <div class="t-timeline__items">
+                            <div class="t-timeline__item">
+                                <div class="t-timeline__item-date">2 – 22 февраля:</div>
+                                <div class="t-timeline__item-text">Старт конкурса, регистрация команд</div>
+                            </div>
+                            <div class="t-timeline__item">
+                                <div class="t-timeline__item-date">24 февраля – 17 марта:</div>
+                                <div class="t-timeline__item-text">Команды решают комплект заданий, выложенный в открытый доступ на сайте мероприятия</div>
+                            </div>
+                            <div class="t-timeline__item">
+                                <div class="t-timeline__item-date">18 – 27 марта:</div>
+                                <div class="t-timeline__item-text">Проверка членами Жюри предоставленных работ и отбор пяти финалистов. В течение этого периода возможно проведение интерактива с участниками (вебинар или подкаст)</div>
+                            </div>
+                            <div class="t-timeline__item">
+                                <div class="t-timeline__item-date">30 марта:</div>
+                                <div class="t-timeline__item-text">Объявление результатов первого этапа, анонс финала конкурса</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="t-finals__image">
-                    <img src="images/photos/0D3A6970.jpg" alt="Финал конкурса">
+
+                <!-- Заключительный этап -->
+                <div class="t-timeline__stage t-timeline__stage--final">
+                    <div class="t-timeline__stage-header">
+                        <div class="t-timeline__stage-title">Заключительный</div>
+                        <div class="t-timeline__stage-subtitle">(очный формат)</div>
+                        <div class="t-timeline__stage-date">18 апреля</div>
+                    </div>
+                    <div class="t-timeline__content">
+                        <div class="t-timeline__content-header">Структура</div>
+                        <div class="t-timeline__items">
+                            <div class="t-timeline__item t-timeline__item--location">
+                                <div class="t-timeline__item-date">Место проведения:</div>
+                                <div class="t-timeline__item-text">МГУ имени М.В. Ломоносова</div>
+                            </div>
+                            <div class="t-timeline__item">
+                                <div class="t-timeline__item-text">Команда получает задание и готовится к устному выступлению непосредственно на финале в течение 3 часов. После подготовки объявляется небольшой перерыв и жеребьевка выступления команд.</div>
+                            </div>
+                            <div class="t-timeline__item">
+                                <div class="t-timeline__item-text">Команды выступают с подготовленной позицией перед членами Жюри в течение 15 минут. По окончании выступления Жюри может задать дополнительные/уточняющие вопросы и переходит к оценке команды.</div>
+                            </div>
+                            <div class="t-timeline__item">
+                                <div class="t-timeline__item-text">Объявление результатов заключительного этапа, награждение победителей и призёров конкурса.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2351,7 +2465,7 @@
                     <ul class="t-footer__links">
                         <li><a href="#about">О конкурсе</a></li>
                         <li><a href="#results">Результаты</a></li>
-                        <li><a href="#finals">О финале</a></li>
+                        <li><a href="#schedule">График 2026</a></li>
                         <li><a href="#gallery">Галерея</a></li>
                     </ul>
                 </div>
