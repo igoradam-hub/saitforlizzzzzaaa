@@ -999,27 +999,31 @@
            SECTION: ГРАФИК КОНКУРСА / TIMELINE
            =========================================== */
         .t-timeline {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
             margin-top: 50px;
+            max-width: 900px;
         }
 
         .t-timeline__stage {
-            position: relative;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+            align-items: start;
         }
 
         .t-timeline__stage-header {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid var(--primary-green);
+            position: sticky;
+            top: 100px;
         }
 
         .t-timeline__stage-title {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
             color: #8B6B5B;
-            margin-bottom: 5px;
+            line-height: 1.2;
+            margin-bottom: 8px;
         }
 
         .t-timeline__stage--final .t-timeline__stage-title {
@@ -1027,15 +1031,15 @@
         }
 
         .t-timeline__stage-subtitle {
-            font-size: 16px;
+            font-size: 18px;
             color: var(--text-gray);
         }
 
         .t-timeline__stage-date {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
             color: var(--dark-green);
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .t-timeline__content {
@@ -1054,33 +1058,32 @@
         .t-timeline__items {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 16px;
         }
 
         .t-timeline__item {
             position: relative;
-            padding-left: 0;
-            padding: 15px 20px;
+            padding: 18px 24px;
             background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 3px solid var(--primary-green);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-green);
         }
 
         .t-timeline__item-date {
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
             color: #4A6B8A;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .t-timeline__item-text {
             font-size: 15px;
             color: var(--text-gray);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .t-timeline__item--location {
-            background: rgba(178, 194, 172, 0.15);
+            background: rgba(178, 194, 172, 0.2);
             border-left-color: var(--dark-green);
         }
 
@@ -1088,10 +1091,17 @@
             color: var(--dark-green);
         }
 
-        @media (max-width: 992px) {
-            .t-timeline {
+        @media (max-width: 768px) {
+            .t-timeline__stage {
                 grid-template-columns: 1fr;
-                gap: 50px;
+                gap: 25px;
+            }
+
+            .t-timeline__stage-header {
+                position: relative;
+                top: 0;
+                padding-bottom: 20px;
+                border-bottom: 3px solid var(--primary-green);
             }
         }
 
