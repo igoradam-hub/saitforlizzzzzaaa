@@ -321,6 +321,17 @@
             font-style: italic;
         }
 
+        /* Mobile/Desktop hero visibility */
+        .t-cover__title--mobile,
+        .t-cover__name--mobile {
+            display: none;
+        }
+
+        .t-cover__title--desktop,
+        .t-cover__name--desktop {
+            display: block;
+        }
+
         .t-cover__date {
             display: flex;
             align-items: center;
@@ -2004,13 +2015,39 @@
                 padding: 10px 18px;
             }
 
-            .t-cover__title {
-                font-size: 36px;
-                line-height: 1.2;
+            /* Mobile hero - show mobile, hide desktop */
+            .t-cover__title--mobile,
+            .t-cover__name--mobile {
+                display: block;
+            }
+
+            .t-cover__title--desktop,
+            .t-cover__name--desktop {
+                display: none;
+            }
+
+            .t-cover__title--mobile {
+                font-size: 42px;
+                line-height: 1.1;
+                font-weight: 800;
+                margin-bottom: 20px;
+            }
+
+            .t-cover__name--mobile {
+                font-size: 14px;
+                line-height: 1.5;
+                color: rgba(255, 255, 255, 0.85);
+                margin-bottom: 20px;
+                font-weight: 400;
+            }
+
+            .t-cover__name--mobile em {
+                font-style: italic;
             }
 
             .t-cover__subtitle {
-                font-size: 15px;
+                font-size: 14px;
+                margin-bottom: 25px;
             }
 
             .t-section {
@@ -2164,12 +2201,16 @@
         }
 
         @media (max-width: 480px) {
-            .t-cover__title {
-                font-size: 26px;
+            .t-cover__title--mobile {
+                font-size: 36px;
+            }
+
+            .t-cover__name--mobile {
+                font-size: 13px;
             }
 
             .t-cover__subtitle {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .t-cover__badge {
@@ -2344,8 +2385,12 @@
 
         /* Extra small devices */
         @media (max-width: 360px) {
-            .t-cover__title {
-                font-size: 22px;
+            .t-cover__title--mobile {
+                font-size: 30px;
+            }
+
+            .t-cover__name--mobile {
+                font-size: 12px;
             }
 
             .t-section__title {
@@ -2665,10 +2710,25 @@
         <div class="t-cover__overlay"></div>
         <div class="t-cover__content">
             <div class="t-cover__badge">II ОТКРЫТЫЙ СТУДЕНЧЕСКИЙ КОНКУРС 2026</div>
-            <h1 class="t-cover__title">
+
+            <!-- Mobile-only: English title -->
+            <h1 class="t-cover__title t-cover__title--mobile">
+                MSU<br>Open Urban<br>Law Cup
+            </h1>
+
+            <!-- Desktop: Full Russian title -->
+            <h1 class="t-cover__title t-cover__title--desktop">
                 Второй открытый студенческий конкурс по <span>земельному законодательству</span> и <span>законодательству о градостроительной деятельности</span>
             </h1>
-            <p class="t-cover__name">имени О.И. Крассова.</p>
+
+            <!-- Mobile-only: Russian name as italic subtitle -->
+            <p class="t-cover__name t-cover__name--mobile">
+                <em>Второй открытый студенческий конкурс по земельному законодательству и законодательству о градостроительной деятельности имени О.И. Крассова</em>
+            </p>
+
+            <!-- Desktop: Short name -->
+            <p class="t-cover__name t-cover__name--desktop">имени О.И. Крассова.</p>
+
             <p class="t-cover__subtitle">
                 Командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства
             </p>
