@@ -314,22 +314,12 @@
         }
 
         .t-cover__name {
-            font-size: 18px;
+            font-size: clamp(16px, 2.5vw, 22px);
             color: var(--primary-green);
-            margin-bottom: 40px;
-            font-weight: 500;
+            margin-bottom: 25px;
+            font-weight: 400;
             font-style: italic;
-        }
-
-        /* Mobile/Desktop hero visibility */
-        .t-cover__title--mobile,
-        .t-cover__name--mobile {
-            display: none;
-        }
-
-        .t-cover__title--desktop,
-        .t-cover__name--desktop {
-            display: block;
+            max-width: 600px;
         }
 
         .t-cover__date {
@@ -2015,39 +2005,26 @@
                 padding: 10px 18px;
             }
 
-            /* Mobile hero - show mobile, hide desktop */
-            .t-cover__title--mobile,
-            .t-cover__name--mobile {
-                display: block;
+            .t-cover__title {
+                font-size: 38px;
             }
 
-            .t-cover__title--desktop,
-            .t-cover__name--desktop {
-                display: none;
-            }
-
-            .t-cover__title--mobile {
-                font-size: 42px;
-                line-height: 1.1;
-                font-weight: 800;
+            .t-cover__name {
+                font-size: 15px;
                 margin-bottom: 20px;
-            }
-
-            .t-cover__name--mobile {
-                font-size: 14px;
-                line-height: 1.5;
-                color: rgba(255, 255, 255, 0.85);
-                margin-bottom: 20px;
-                font-weight: 400;
-            }
-
-            .t-cover__name--mobile em {
-                font-style: italic;
             }
 
             .t-cover__subtitle {
                 font-size: 14px;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
+            }
+
+            .t-cover__highlight h2 {
+                font-size: 18px;
+            }
+
+            .t-cover__highlight p {
+                font-size: 13px;
             }
 
             .t-section {
@@ -2201,12 +2178,12 @@
         }
 
         @media (max-width: 480px) {
-            .t-cover__title--mobile {
-                font-size: 36px;
+            .t-cover__title {
+                font-size: 32px;
             }
 
-            .t-cover__name--mobile {
-                font-size: 13px;
+            .t-cover__name {
+                font-size: 14px;
             }
 
             .t-cover__subtitle {
@@ -2385,12 +2362,12 @@
 
         /* Extra small devices */
         @media (max-width: 360px) {
-            .t-cover__title--mobile {
-                font-size: 30px;
+            .t-cover__title {
+                font-size: 28px;
             }
 
-            .t-cover__name--mobile {
-                font-size: 12px;
+            .t-cover__name {
+                font-size: 13px;
             }
 
             .t-section__title {
@@ -2711,34 +2688,19 @@
         <div class="t-cover__content">
             <div class="t-cover__badge">II ОТКРЫТЫЙ СТУДЕНЧЕСКИЙ КОНКУРС 2026</div>
 
-            <!-- Mobile-only: English title -->
-            <h1 class="t-cover__title t-cover__title--mobile">
-                MSU<br>Open Urban<br>Law Cup
-            </h1>
+            <h1 class="t-cover__title">MSU Open Urban Law Cup</h1>
 
-            <!-- Desktop: Full Russian title -->
-            <h1 class="t-cover__title t-cover__title--desktop">
-                Второй открытый студенческий конкурс по <span>земельному законодательству</span> и <span>законодательству о градостроительной деятельности</span>
-            </h1>
+            <p class="t-cover__name">Кубок МГУ по земельному и градостроительному праву имени О.И. Крассова</p>
 
-            <!-- Mobile-only: Russian name as italic subtitle -->
-            <p class="t-cover__name t-cover__name--mobile">
-                <em>Второй открытый студенческий конкурс по земельному законодательству и законодательству о градостроительной деятельности имени О.И. Крассова</em>
-            </p>
+            <p class="t-cover__subtitle">Командное соревнование студентов по разработке решений спорных правовых ситуаций</p>
 
-            <!-- Desktop: Short name -->
-            <p class="t-cover__name t-cover__name--desktop">имени О.И. Крассова.</p>
-
-            <p class="t-cover__subtitle">
-                Командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства
-            </p>
             <div class="t-cover__highlight">
-                <h2>Чествуем победителей II конкурса!</h2>
-                <p>12 апреля 2025 в МГУ имени М.В. Ломоносова состоялся торжественный финал</p>
+                <h2>Победители II конкурса!</h2>
+                <p>12 апреля 2025 — торжественный финал в МГУ</p>
             </div>
             <div class="t-cover__buttons">
-                <a href="https://pravo.ru/company_news/252596/" target="_blank" class="t-btn t-btn--primary">Пресс-релиз на Право.ru</a>
-                <a href="#results" class="t-btn t-btn--outline">Результаты 2025</a>
+                <a href="https://pravo.ru/company_news/252596/" target="_blank" class="t-btn t-btn--primary">Пресс-релиз</a>
+                <a href="#results" class="t-btn t-btn--outline">Результаты</a>
             </div>
         </div>
     </section>
