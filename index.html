@@ -3834,16 +3834,40 @@
                 // Hero section
                 if (content.hero) {
                     const badge = document.querySelector('.t-cover__badge');
-                    const title = document.querySelector('.t-cover__title');
-                    const subtitle = document.querySelector('.t-cover__subtitle');
-                    const name = document.querySelector('.t-cover__name');
                     const bg = document.querySelector('.t-cover__bg');
 
                     if (badge && content.hero.badge) badge.textContent = content.hero.badge;
-                    if (title && content.hero.title) title.innerHTML = content.hero.title;
-                    if (subtitle && content.hero.description) subtitle.textContent = content.hero.description;
-                    if (name && content.hero.subtitle) name.textContent = content.hero.subtitle;
                     if (bg && content.hero.backgroundImage) bg.style.backgroundImage = `url('${content.hero.backgroundImage}')`;
+
+                    // Mobile hero version
+                    if (content.hero.mobile) {
+                        const mobileContainer = document.querySelector('.t-cover__mobile-only');
+                        if (mobileContainer) {
+                            const mobileTitle = mobileContainer.querySelector('.t-cover__title');
+                            const mobileSubtitle = mobileContainer.querySelector('.t-cover__subtitle');
+                            if (mobileTitle && content.hero.mobile.title) mobileTitle.innerHTML = content.hero.mobile.title;
+                            if (mobileSubtitle && content.hero.mobile.subtitle) mobileSubtitle.textContent = content.hero.mobile.subtitle;
+                        }
+                    }
+
+                    // Desktop hero version
+                    if (content.hero.desktop) {
+                        const desktopContainer = document.querySelector('.t-cover__desktop-only');
+                        if (desktopContainer) {
+                            const desktopTitle = desktopContainer.querySelector('.t-cover__title');
+                            const desktopSubtitle = desktopContainer.querySelector('.t-cover__subtitle');
+                            if (desktopTitle && content.hero.desktop.title) desktopTitle.innerHTML = content.hero.desktop.title;
+                            if (desktopSubtitle && content.hero.desktop.subtitle) desktopSubtitle.textContent = content.hero.desktop.subtitle;
+                        }
+                    }
+
+                    // Fallback for old structure (title/description without mobile/desktop)
+                    if (!content.hero.mobile && !content.hero.desktop) {
+                        const title = document.querySelector('.t-cover__title');
+                        const subtitle = document.querySelector('.t-cover__subtitle');
+                        if (title && content.hero.title) title.innerHTML = content.hero.title;
+                        if (subtitle && content.hero.description) subtitle.textContent = content.hero.description;
+                    }
                 }
 
                 // About section
