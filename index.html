@@ -3865,7 +3865,10 @@
                             const mobileTitle = mobileContainer.querySelector('.t-cover__title');
                             const mobileSubtitle = mobileContainer.querySelector('.t-cover__subtitle');
                             const mobileDescription = mobileContainer.querySelector('.t-cover__description');
-                            if (mobileTitle && content.hero.mobile.title) mobileTitle.innerHTML = content.hero.mobile.title;
+                            // Only update title if it contains <br> tags (proper multiline format)
+                            if (mobileTitle && content.hero.mobile.title && content.hero.mobile.title.includes('<br>')) {
+                                mobileTitle.innerHTML = content.hero.mobile.title;
+                            }
                             if (mobileSubtitle && content.hero.mobile.subtitle) mobileSubtitle.textContent = content.hero.mobile.subtitle;
                             if (mobileDescription && content.hero.mobile.description) mobileDescription.textContent = content.hero.mobile.description;
                         }
