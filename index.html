@@ -322,6 +322,15 @@
             max-width: 600px;
         }
 
+        /* Mobile/Desktop версии hero контента */
+        .t-cover__mobile-only {
+            display: none;
+        }
+
+        .t-cover__desktop-only {
+            display: block;
+        }
+
         .t-cover__date {
             display: flex;
             align-items: center;
@@ -2019,6 +2028,15 @@
                 margin-bottom: 20px;
             }
 
+            /* Переключение mobile/desktop версий */
+            .t-cover__mobile-only {
+                display: block;
+            }
+
+            .t-cover__desktop-only {
+                display: none;
+            }
+
             .t-cover__highlight h2 {
                 font-size: 18px;
             }
@@ -2688,11 +2706,18 @@
         <div class="t-cover__content">
             <div class="t-cover__badge">II ОТКРЫТЫЙ СТУДЕНЧЕСКИЙ КОНКУРС 2026</div>
 
-            <h1 class="t-cover__title">MSU Open Urban Law Cup</h1>
+            <!-- Мобильная версия текста -->
+            <div class="t-cover__mobile-only">
+                <h1 class="t-cover__title">MSU Open Urban Law Cup</h1>
+                <p class="t-cover__subtitle">Второй открытый студенческий конкурс по земельному законодательству и законодательству о градостроительной деятельности имени О.И. Крассова</p>
+            </div>
 
-            <p class="t-cover__name">Кубок МГУ по земельному и градостроительному праву имени О.И. Крассова</p>
-
-            <p class="t-cover__subtitle">Командное соревнование студентов по разработке решений спорных правовых ситуаций</p>
+            <!-- Десктопная версия текста -->
+            <div class="t-cover__desktop-only">
+                <h1 class="t-cover__title">Второй открытый<br>студенческий<br>конкурс по<br>земельному<br>законодательству и<br>законодательству о<br>градостроительной<br>деятельности имени<br>О.И. Крассова</h1>
+                <p class="t-cover__subtitle">Командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства</p>
+                <p class="t-cover__name">Командное соревнование студентов по разработке решений спорных правовых ситуаций</p>
+            </div>
 
             <div class="t-cover__highlight">
                 <h2>Победители II конкурса!</h2>

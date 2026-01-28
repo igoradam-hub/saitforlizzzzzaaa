@@ -205,12 +205,23 @@
                     <div class="panel-header"><h2 class="panel-title">Hero-блок</h2><button class="btn btn-primary" onclick="save()">Сохранить</button></div>
                     <div class="card">
                         <div class="field"><label>Бейдж (верхняя надпись)</label><input type="text" data-path="hero.badge"></div>
-                        <div class="field"><label>Заголовок</label><input type="text" data-path="hero.title"></div>
-                        <div class="field"><label>Подзаголовок</label><input type="text" data-path="hero.subtitle"></div>
-                        <div class="field"><label>Описание</label><textarea data-path="hero.description"></textarea></div>
+                        <div class="field"><label>Фоновое изображение (путь)</label><input type="text" data-path="hero.backgroundImage"><p class="field-hint">Например: images/photos/0430.jpg</p></div>
+                    </div>
+                    <div class="card">
+                        <h3>📱 Мобильная версия</h3>
+                        <div class="field"><label>Заголовок (мобильная)</label><input type="text" data-path="hero.mobile.title"></div>
+                        <div class="field"><label>Подзаголовок (мобильная)</label><textarea data-path="hero.mobile.subtitle"></textarea></div>
+                    </div>
+                    <div class="card">
+                        <h3>🖥️ Десктопная версия</h3>
+                        <div class="field"><label>Заголовок (десктоп)</label><textarea data-path="hero.desktop.title"></textarea><p class="field-hint">Можно использовать &lt;br&gt; для переносов строк</p></div>
+                        <div class="field"><label>Подзаголовок (десктоп)</label><textarea data-path="hero.desktop.subtitle"></textarea></div>
+                        <div class="field"><label>Подподзаголовок (десктоп)</label><textarea data-path="hero.desktop.description"></textarea></div>
+                    </div>
+                    <div class="card">
+                        <h3>Дополнительно</h3>
                         <div class="field"><label>Дата финала</label><input type="text" data-path="hero.finalsDate"></div>
                         <div class="field"><label>Место проведения</label><input type="text" data-path="hero.finalsLocation"></div>
-                        <div class="field"><label>Фоновое изображение (путь)</label><input type="text" data-path="hero.backgroundImage"><p class="field-hint">Например: images/photos/0430.jpg</p></div>
                     </div>
                 </div>
 
