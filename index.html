@@ -352,6 +352,24 @@
             max-width: 550px;
         }
 
+        /* Стили для мобильной версии hero */
+        .t-cover__title-green {
+            color: #8B9A7C;
+        }
+
+        .t-cover__subtitle--italic-green {
+            font-style: italic;
+            color: #8B9A7C;
+        }
+
+        .t-cover__description {
+            font-size: clamp(13px, 1.5vw, 16px);
+            color: rgba(255, 255, 255, 0.85);
+            margin-top: 15px;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
         .t-cover__date {
             display: flex;
             align-items: center;
@@ -2729,8 +2747,9 @@
 
             <!-- Мобильная версия текста -->
             <div class="t-cover__mobile-only">
-                <h1 class="t-cover__title">MSU<br>Open Urban<br>Law Cup</h1>
-                <p class="t-cover__subtitle">Второй открытый студенческий конкурс по земельному законодательству и законодательству о градостроительной деятельности имени О.И. Крассова</p>
+                <h1 class="t-cover__title">MSU<br>Open Urban<br><span class="t-cover__title-green">Law Cup</span></h1>
+                <p class="t-cover__subtitle t-cover__subtitle--italic-green">Второй открытый студенческий конкурс по земельному законодательству и законодательству о градостроительной деятельности имени О.И. Крассова</p>
+                <p class="t-cover__description">Командное соревнование студентов по разработке решений спорных правовых ситуаций</p>
             </div>
 
             <!-- Десктопная версия текста -->
@@ -3845,8 +3864,10 @@
                         if (mobileContainer) {
                             const mobileTitle = mobileContainer.querySelector('.t-cover__title');
                             const mobileSubtitle = mobileContainer.querySelector('.t-cover__subtitle');
+                            const mobileDescription = mobileContainer.querySelector('.t-cover__description');
                             if (mobileTitle && content.hero.mobile.title) mobileTitle.innerHTML = content.hero.mobile.title;
                             if (mobileSubtitle && content.hero.mobile.subtitle) mobileSubtitle.textContent = content.hero.mobile.subtitle;
+                            if (mobileDescription && content.hero.mobile.description) mobileDescription.textContent = content.hero.mobile.description;
                         }
                     }
 
