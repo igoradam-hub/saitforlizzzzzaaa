@@ -2695,6 +2695,87 @@
         .t-cover__bg {
             transition: transform 0.1s ease-out;
         }
+
+        /* ============================================
+           СКРЫТЫЕ СЕКЦИИ (временно скрыты)
+           ============================================ */
+        #results,
+        #gallery,
+        #jury,
+        #contacts {
+            display: none !important;
+        }
+
+        /* ============================================
+           ПАРТНЁРЫ: ч/б с цветом при наведении
+           ============================================ */
+        .t-partner__logo img,
+        .t-organizer__logo img {
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .t-partner__logo:hover img,
+        .t-organizer__logo:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* ============================================
+           КНОПКА РЕГИСТРАЦИИ (отдельный блок)
+           ============================================ */
+        .t-cta-button {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        .t-cta-button .t-btn {
+            font-size: 18px;
+            padding: 20px 60px;
+        }
+
+        /* ============================================
+           БЛОК "НАПИШИТЕ НАМ В ТГ"
+           ============================================ */
+        .t-telegram-cta {
+            padding: 80px 20px;
+            text-align: center;
+            background: var(--primary-green);
+        }
+
+        .t-telegram-cta__title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .t-telegram-cta__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .t-telegram-cta__btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .t-telegram-cta__btn svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
     </style>
 </head>
 <body>
@@ -2707,12 +2788,12 @@
             <a href="#hero" class="t-header__logo">MSU <span>Open Urban Law Cup</span></a>
             <nav>
                 <ul class="t-header__nav">
-                    <li><a href="#results">Результаты</a></li>
                     <li><a href="#schedule">График 2026</a></li>
-                    <li><a href="#jury">Жюри</a></li>
                     <li><a href="#organizers">Оргкомитет</a></li>
                     <li><a href="#registration">Регистрация</a></li>
+                    <li><a href="#position">Положение</a></li>
                     <li><a href="#contacts">Контакты</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                 </ul>
             </nav>
             <button class="t-header__mobile" aria-label="Открыть меню">
@@ -2723,12 +2804,12 @@
             <!-- Мобильное меню -->
             <div class="t-mobile-nav">
                 <ul class="t-mobile-nav__list">
-                    <li><a href="#results">Результаты</a></li>
                     <li><a href="#schedule">График 2026</a></li>
-                    <li><a href="#jury">Жюри</a></li>
                     <li><a href="#organizers">Оргкомитет</a></li>
                     <li><a href="#registration">Регистрация</a></li>
+                    <li><a href="#position">Положение</a></li>
                     <li><a href="#contacts">Контакты</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                 </ul>
                 <a href="#registration" class="t-btn t-btn--primary t-mobile-nav__btn">Регистрация</a>
             </div>
@@ -2754,7 +2835,7 @@
 
             <!-- Десктопная версия текста -->
             <div class="t-cover__desktop-only">
-                <h1 class="t-cover__title">Второй открытый студенческий конкурс по земельному законодательству и законодательству о градостроительной деятельности имени О.И. Крассова</h1>
+                <h1 class="t-cover__title">Второй открытый студенческий конкурс по земельному законодательству и законодательству о градостроительной деятельности<br>имени О.И. Крассова</h1>
                 <p class="t-cover__subtitle">Командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства</p>
             </div>
 
@@ -2823,9 +2904,9 @@
     </section>
 
     <!-- ============================================
-         ДОКУМЕНТЫ О КОНКУРСЕ
+         ДОКУМЕНТЫ О КОНКУРСЕ (ПОЛОЖЕНИЯ)
          ============================================ -->
-    <section class="t-documents">
+    <section id="position" class="t-documents">
         <div class="t-container">
             <div class="t-documents__grid">
                 <a href="https://disk.yandex.ru/i/7K_tD0mIpfgGXw" target="_blank" class="t-documents__link">
@@ -2989,6 +3070,13 @@
                 <img src="images/logos/Логотип_КемГУ.png" alt="КемГУ" class="t-universities__logo">
             </div>
         </div>
+    </section>
+
+    <!-- ============================================
+         КНОПКА РЕГИСТРАЦИИ
+         ============================================ -->
+    <section class="t-cta-button">
+        <a href="#registration" class="t-btn t-btn--primary">Зарегистрироваться на конкурс</a>
     </section>
 
     <!-- ============================================
@@ -3210,7 +3298,7 @@
     <!-- ============================================
          ВОПРОСЫ И ОТВЕТЫ (FAQ)
          ============================================ -->
-    <section class="t-faq">
+    <section id="faq" class="t-faq">
         <div class="t-container">
             <div class="t-section__header">
                 <div class="t-section__label">FAQ</div>
@@ -3518,6 +3606,17 @@
     </section>
 
     <!-- ============================================
+         НАПИШИТЕ НАМ В TELEGRAM
+         ============================================ -->
+    <section class="t-telegram-cta">
+        <h2 class="t-telegram-cta__title">Есть вопросы? Напишите нам в Telegram</h2>
+        <a href="https://t.me/alexandra_regionservice" target="_blank" class="t-telegram-cta__btn">
+            <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            Написать Александре
+        </a>
+    </section>
+
+    <!-- ============================================
          LIGHTBOX / ПРОСМОТР ФОТО
          ============================================ -->
     <div class="t-lightbox" id="lightbox">
@@ -3550,26 +3649,26 @@
                     <div class="t-footer__title">Навигация</div>
                     <ul class="t-footer__links">
                         <li><a href="#about">О конкурсе</a></li>
-                        <li><a href="#results">Результаты</a></li>
                         <li><a href="#schedule">График 2026</a></li>
-                        <li><a href="#gallery">Галерея</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <div class="t-footer__title">Информация</div>
-                    <ul class="t-footer__links">
-                        <li><a href="https://urbanlawcup-msu.ru/" target="_blank" rel="noopener">Регламент</a></li>
-                        <li><a href="#organizers">Жюри</a></li>
                         <li><a href="#organizers">Оргкомитет</a></li>
-                        <li><a href="https://urbanlawcup-msu.ru/" target="_blank" rel="noopener">Вебинар</a></li>
+                        <li><a href="#registration">Регистрация</a></li>
+                        <li><a href="#faq">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
+                    <div class="t-footer__title">Положения</div>
+                    <ul class="t-footer__links">
+                        <li><a href="https://disk.yandex.ru/i/7K_tD0mIpfgGXw" target="_blank" rel="noopener">Положение о Конкурсе</a></li>
+                        <li><a href="https://disk.yandex.ru/i/ztpNNRaV6HWR-Q" target="_blank" rel="noopener">Положение об Оргкомитете</a></li>
+                        <li><a href="https://disk.yandex.ru/i/UiwqZeksiVzF1w" target="_blank" rel="noopener">Положение о Жюри</a></li>
+                        <li><a href="https://disk.yandex.ru/i/Sw4wOXbQA8uGNA" target="_blank" rel="noopener">Справка о Конкурсе</a></li>
+                    </ul>
+                </div>
+                <div id="contacts">
                     <div class="t-footer__title">Контакты</div>
                     <ul class="t-footer__links">
                         <li><a href="mailto:openurbanlawcup@yandex.ru">openurbanlawcup@yandex.ru</a></li>
-                        <li><a href="tel:+74959391000">+7 (495) 939-10-00</a></li>
-                        <li><a href="https://t.me/urbanlawcup" target="_blank" rel="noopener">Telegram</a></li>
+                        <li><a href="https://t.me/alexandra_regionservice" target="_blank" rel="noopener">Telegram: Александра</a></li>
                     </ul>
                 </div>
             </div>
