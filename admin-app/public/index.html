@@ -364,7 +364,20 @@
             if (token) { showAdmin(); loadAll(); }
             document.getElementById('loginForm').onsubmit = login;
             document.querySelectorAll('.nav-item').forEach(el => el.onclick = () => switchPanel(el.dataset.panel));
-            document.getElementById('exportBtn').onclick = e => { e.preventDefault(); window.location.href = '/api/submissions/export'; };
+            document.getElementById('exportBtn').onclick = async e => {
+                e.preventDefault();
+                try {
+                    const res = await fetch('/api/submissions/export', { headers: { 'Authorization': 'Bearer ' + token } });
+                    if (!res.ok) throw new Error('Export failed');
+                    const blob = await res.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'submissions.csv';
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                } catch (err) { alert('Ошибка экспорта: ' + err.message); }
+            };
         });
 
         async function login(e) {
