@@ -102,7 +102,7 @@ const defaultContent = {
         },
         finalsDate: "18 апреля 2026",
         finalsLocation: "МГУ им. М.В. Ломоносова",
-        backgroundImage: "images/photos/0430.jpg"
+        backgroundImage: "images/photos/90922-moskovskij_gosudarstvennyj_universi-dostoprimechatelnost-spiral-neboskreb-stolica-3840x2160.jpg"
     },
     about: {
         label: "О мероприятии",

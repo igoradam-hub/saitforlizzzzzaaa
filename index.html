@@ -7,7 +7,7 @@
     <meta name="description" content="Командное соревнование студентов по разработке решений спорных правовых ситуаций в области земельного и градостроительного права">
     <meta property="og:title" content="MSU Urban Law Cup 2026">
     <meta property="og:description" content="III Открытый студенческий Кубок МГУ по земельному и градостроительному праву имени О.И. Крассова">
-    <meta property="og:image" content="images/photos/0430.jpg">
+    <meta property="og:image" content="images/photos/90922-moskovskij_gosudarstvennyj_universi-dostoprimechatelnost-spiral-neboskreb-stolica-3840x2160.jpg">
     <link rel="shortcut icon" href="images/logos/msu-law-logo.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -255,7 +255,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('images/photos/0430.jpg');
+            background-image: url('images/photos/90922-moskovskij_gosudarstvennyj_universi-dostoprimechatelnost-spiral-neboskreb-stolica-3840x2160.jpg');
             background-size: cover;
             background-position: center;
             opacity: 0.35;
@@ -1603,11 +1603,12 @@
         }
 
         /* ===========================================
-           SECTION: ВУЗЫ-УЧАСТНИКИ
+           SECTION: ВУЗЫ-УЧАСТНИКИ (СЛАЙДЕР)
            =========================================== */
         .t-universities {
             padding: 60px 0;
             background: #fff;
+            overflow: hidden;
         }
 
         .t-universities__title {
@@ -1620,25 +1621,66 @@
             letter-spacing: 2px;
         }
 
-        .t-universities__grid {
+        .t-universities__slider {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .t-universities__slider::before,
+        .t-universities__slider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .t-universities__slider::before {
+            left: 0;
+            background: linear-gradient(to right, #fff 0%, transparent 100%);
+        }
+
+        .t-universities__slider::after {
+            right: 0;
+            background: linear-gradient(to left, #fff 0%, transparent 100%);
+        }
+
+        .t-universities__track {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
             align-items: center;
-            gap: 40px;
+            gap: 60px;
+            animation: scrollLogos 25s linear infinite;
+            width: max-content;
+        }
+
+        .t-universities__track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollLogos {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .t-universities__logo {
-            height: 90px;
-            max-width: 180px;
+            height: 80px;
+            max-width: 160px;
             object-fit: contain;
-            filter: grayscale(0);
             opacity: 0.8;
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
         .t-universities__logo:hover {
             opacity: 1;
+            transform: scale(1.1);
         }
 
         /* ===========================================
@@ -1753,6 +1795,32 @@
 
         .t-requirements__subtitle a:hover {
             text-decoration: underline;
+        }
+
+        .t-requirements__docs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .t-requirements__doc-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: var(--primary-green);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .t-requirements__doc-link:hover {
+            background: var(--dark-green);
+            transform: translateY(-2px);
         }
 
         .t-requirements__grid {
@@ -2707,19 +2775,16 @@
         }
 
         /* ============================================
-           ПАРТНЁРЫ: ч/б с цветом при наведении
+           ПАРТНЁРЫ: цветные логотипы
            ============================================ */
         .t-partner-logo img,
         .t-organizers__logos img {
-            filter: grayscale(100%);
-            opacity: 0.7;
             transition: all 0.3s ease;
         }
 
         .t-partner-logo:hover img,
         .t-organizers__logos img:hover {
-            filter: grayscale(0%);
-            opacity: 1;
+            transform: scale(1.05);
         }
 
         /* ============================================
@@ -2922,27 +2987,53 @@
     </section>
 
     <!-- ============================================
-         ДОКУМЕНТЫ О КОНКУРСЕ (ПОЛОЖЕНИЯ)
+         ГАЛЕРЕЯ (вместо положений)
+         Tilda: Используйте блок GL01 или GL03
          ============================================ -->
-    <section id="position" class="t-documents">
+    <section id="gallery" class="t-section t-section--gray">
         <div class="t-container">
-            <div class="t-documents__grid">
-                <a href="https://disk.yandex.ru/i/7K_tD0mIpfgGXw" target="_blank" class="t-documents__link">
-                    <span>Положение о Конкурсе</span>
-                    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                </a>
-                <a href="https://disk.yandex.ru/i/ztpNNRaV6HWR-Q" target="_blank" class="t-documents__link">
-                    <span>Положение об Оргкомитете</span>
-                    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                </a>
-                <a href="https://disk.yandex.ru/i/UiwqZeksiVzF1w" target="_blank" class="t-documents__link">
-                    <span>Положение о Жюри Конкурса</span>
-                    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                </a>
-                <a href="https://disk.yandex.ru/i/Sw4wOXbQA8uGNA" target="_blank" class="t-documents__link">
-                    <span>Справка о Конкурсе</span>
-                    <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                </a>
+            <div class="t-section__header">
+                <div class="t-section__label">Фотоотчёт</div>
+                <h2 class="t-section__title">Галерея</h2>
+            </div>
+            <div class="t-gallery__grid" id="galleryGrid">
+                <div class="t-gallery__item">
+                    <img src="images/photos/0450.jpg" alt="Финал конкурса MSU Urban Law Cup">
+                </div>
+                <div class="t-gallery__item">
+                    <img src="images/photos/0440.jpg" alt="Награждение победителей">
+                </div>
+                <div class="t-gallery__item">
+                    <img src="images/photos/0069.jpg" alt="Участники конкурса">
+                </div>
+                <div class="t-gallery__item">
+                    <img src="images/photos/0195.jpg" alt="Жюри конкурса">
+                </div>
+                <div class="t-gallery__item">
+                    <img src="images/photos/0066.jpg" alt="Выступление участников">
+                </div>
+                <!-- Дополнительные фото (скрыты по умолчанию) -->
+                <div class="t-gallery__item t-gallery__more-item">
+                    <img src="images/photos/0424.jpg" alt="Мероприятие конкурса">
+                </div>
+                <div class="t-gallery__item t-gallery__more-item">
+                    <img src="images/photos/0430.jpg" alt="Участники финала">
+                </div>
+                <div class="t-gallery__item t-gallery__more-item">
+                    <img src="images/photos/0432.jpg" alt="Работа жюри">
+                </div>
+                <div class="t-gallery__item t-gallery__more-item">
+                    <img src="images/photos/0433.jpg" alt="Презентация решений">
+                </div>
+                <div class="t-gallery__item t-gallery__more-item">
+                    <img src="images/photos/0D3A6970.jpg" alt="Церемония награждения">
+                </div>
+            </div>
+            <div class="t-gallery__btn-wrapper">
+                <button class="t-gallery__btn" id="galleryBtn" onclick="toggleGallery()">
+                    <span id="galleryBtnText">Больше фото</span>
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </button>
             </div>
         </div>
     </section>
@@ -3071,12 +3162,25 @@
     </section>
 
     <!-- ============================================
-         ВУЗЫ-УЧАСТНИКИ
+         ВУЗЫ-УЧАСТНИКИ (СЛАЙДЕР)
          ============================================ -->
     <section class="t-universities">
         <div class="t-container">
             <div class="t-universities__title">Среди вузов-участников</div>
-            <div class="t-universities__grid">
+        </div>
+        <div class="t-universities__slider">
+            <div class="t-universities__track">
+                <!-- Первый набор логотипов -->
+                <img src="images/logos/HSE.webp" alt="ВШЭ" class="t-universities__logo">
+                <img src="images/logos/MSU.webp" alt="МГУ" class="t-universities__logo">
+                <img src="images/logos/MGUA.webp" alt="МГЮА" class="t-universities__logo">
+                <img src="images/logos/URGU.webp" alt="УрГЮУ" class="t-universities__logo">
+                <img src="images/logos/спбгу.png" alt="СПбГУ" class="t-universities__logo">
+                <img src="images/logos/ргуп.jpg" alt="РГУП" class="t-universities__logo">
+                <img src="images/logos/logo-ranhigs.png" alt="РАНХиГС" class="t-universities__logo">
+                <img src="images/logos/Логотип_МИИГАиК.png" alt="МИИГАиК" class="t-universities__logo">
+                <img src="images/logos/Логотип_КемГУ.png" alt="КемГУ" class="t-universities__logo">
+                <!-- Дублируем для бесконечной прокрутки -->
                 <img src="images/logos/HSE.webp" alt="ВШЭ" class="t-universities__logo">
                 <img src="images/logos/MSU.webp" alt="МГУ" class="t-universities__logo">
                 <img src="images/logos/MGUA.webp" alt="МГЮА" class="t-universities__logo">
@@ -3095,58 +3199,6 @@
          ============================================ -->
     <section class="t-cta-button">
         <a href="#registration" class="t-btn t-btn--primary">Зарегистрироваться на конкурс</a>
-    </section>
-
-    <!-- ============================================
-         ГАЛЕРЕЯ
-         Tilda: Используйте блок GL01 или GL03
-         ============================================ -->
-    <section id="gallery" class="t-section t-section--gray">
-        <div class="t-container">
-            <div class="t-section__header">
-                <div class="t-section__label">Фотоотчёт</div>
-                <h2 class="t-section__title">Галерея</h2>
-            </div>
-            <div class="t-gallery__grid" id="galleryGrid">
-                <div class="t-gallery__item">
-                    <img src="images/photos/0450.jpg" alt="Финал конкурса MSU Urban Law Cup">
-                </div>
-                <div class="t-gallery__item">
-                    <img src="images/photos/0440.jpg" alt="Награждение победителей">
-                </div>
-                <div class="t-gallery__item">
-                    <img src="images/photos/0069.jpg" alt="Участники конкурса">
-                </div>
-                <div class="t-gallery__item">
-                    <img src="images/photos/0195.jpg" alt="Жюри конкурса">
-                </div>
-                <div class="t-gallery__item">
-                    <img src="images/photos/0066.jpg" alt="Выступление участников">
-                </div>
-                <!-- Дополнительные фото (скрыты по умолчанию) -->
-                <div class="t-gallery__item t-gallery__more-item">
-                    <img src="images/photos/0424.jpg" alt="Мероприятие конкурса">
-                </div>
-                <div class="t-gallery__item t-gallery__more-item">
-                    <img src="images/photos/0430.jpg" alt="Участники финала">
-                </div>
-                <div class="t-gallery__item t-gallery__more-item">
-                    <img src="images/photos/0432.jpg" alt="Работа жюри">
-                </div>
-                <div class="t-gallery__item t-gallery__more-item">
-                    <img src="images/photos/0433.jpg" alt="Презентация решений">
-                </div>
-                <div class="t-gallery__item t-gallery__more-item">
-                    <img src="images/photos/0D3A6970.jpg" alt="Церемония награждения">
-                </div>
-            </div>
-            <div class="t-gallery__btn-wrapper">
-                <button class="t-gallery__btn" id="galleryBtn" onclick="toggleGallery()">
-                    <span id="galleryBtnText">Больше фото</span>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                </button>
-            </div>
-        </div>
     </section>
 
     <!-- ============================================
@@ -3220,13 +3272,184 @@
     </section>
 
     <!-- ============================================
+         ЖЮРИ
+         ============================================ -->
+    <section id="jury" class="t-section">
+        <div class="t-container">
+            <div class="t-section__header">
+                <div class="t-section__label">Эксперты</div>
+                <h2 class="t-section__title">Члены Жюри</h2>
+                <p class="t-section__desc">Ведущие эксперты в области земельного права и законодательства о градостроительной деятельности</p>
+            </div>
+            <div class="t-jury__grid">
+                <div class="t-jury-card">
+                    <h4>Максим Галь</h4>
+                    <p>Заместитель директора департамента комплексного развития территорий Минстроя России</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Анна Жолобова</h4>
+                    <p>Управляющий партнер московского офиса КА «Регионсервис», член Комитета НОСТРОЙ, LL.M.</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Алексей Бутовецкий</h4>
+                    <p>Статс-секретарь — заместитель руководителя Росреестра</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Михаил Губин</h4>
+                    <p>Директор по развитию ГК «Малышева 73»</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Павел Мельников</h4>
+                    <p>Директор по развитию московского подразделения ПАО «Группа ЛСР»</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Мария Сафарова</h4>
+                    <p>Доцент Высшей школы урбанистики НИУ ВШЭ, к.э.н.</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Максим Попов</h4>
+                    <p>Советник ALUMNI Partners, к.ю.н.</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Сергей Григорьев</h4>
+                    <p>Директор по развитию «Группы Голос», депутат Челябинской городской думы</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Илья Рябов</h4>
+                    <p>Директор департамента имущества ГК «Галс-Девелопмент»</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Алексей Башарин</h4>
+                    <p>Референт Образовательного Фонда «Талант и успех», лектор СПбГУ, НИУ ВШЭ</p>
+                </div>
+            </div>
+
+            <div class="t-section__header" style="margin-top: 60px;">
+                <h3 class="t-section__title" style="font-size: 28px;">Научные руководители</h3>
+            </div>
+            <div class="t-jury__grid t-jury__grid--small">
+                <div class="t-jury-card">
+                    <h4>Леонид Бандорин</h4>
+                    <p>Доцент кафедры экологического и земельного права Юридического факультета МГУ, к.ю.н.</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Надежда Заславская</h4>
+                    <p>Профессор кафедры экологического и земельного права Юридического факультета МГУ, д.ю.н.</p>
+                </div>
+                <div class="t-jury-card">
+                    <h4>Андрей Переладов</h4>
+                    <p>Сопредседатель КА «Регионсервис», управляющий партнер офиса в г. Кемерово</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ОРГАНИЗАТОРЫ
+         Tilda: Используйте блок PT01 или PT02
+         ============================================ -->
+    <section id="organizers" class="t-section">
+        <div class="t-container">
+            <!-- Организаторы -->
+            <div class="t-partners__label">Организаторы</div>
+            <div class="t-organizers__logos">
+                <div class="t-organizer-logo">
+                    <img src="images/partners/юридический факультет.webp" alt="Юридический факультет МГУ">
+                </div>
+                <div class="t-organizer-logo">
+                    <img src="images/partners/регионсервис.webp" alt="Регионсервис">
+                </div>
+            </div>
+
+            <!-- При поддержке -->
+            <div class="t-partners__section">
+                <div class="t-partners__label">При поддержке</div>
+                <div class="t-partners__grid">
+                    <div class="t-partner-logo t-partner-logo--large">
+                        <img src="images/partners/правительство.webp" alt="Правительство Российской Федерации">
+                    </div>
+                    <div class="t-partner-logo t-partner-logo--large">
+                        <img src="images/partners/минстрой.webp" alt="Минстрой России">
+                    </div>
+                    <div class="t-partner-logo t-partner-logo--large">
+                        <img src="images/partners/росреестр.webp" alt="Росреестр">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Партнёры конкурса -->
+            <div class="t-partners__section">
+                <div class="t-partners__label">Партнеры конкурса</div>
+                <div class="t-partners__grid">
+                    <div class="t-partner-logo">
+                        <img src="images/partners/галс.svg" alt="ГАЛС">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/гринвич.webp" alt="Гринвич">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/голос.webp" alt="ГОЛОС">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/лср.webp" alt="ЛСР - Лидеры строительной России">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/малышева.webp" alt="Общество Малышева 73">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/сбер.webp" alt="Сбер">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/лето.webp" alt="ЛЕТО впереди">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Генеральный информационный партнёр -->
+            <div class="t-partners__section">
+                <div class="t-partners__label t-partners__label--main">Генеральный информационный партнер</div>
+                <div class="t-partners__grid">
+                    <div class="t-partner-logo t-partner-logo--large">
+                        <img src="images/partners/право.webp" alt="Право.ru">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Информационные партнёры -->
+            <div class="t-partners__section">
+                <div class="t-partners__label">Информационные партнеры</div>
+                <div class="t-partners__grid">
+                    <div class="t-partner-logo">
+                        <img src="images/partners/3k.webp" alt="3К">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/legal business forum.webp" alt="Legal Business Forum">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/РАСО.webp" alt="РАСО">
+                    </div>
+                    <div class="t-partner-logo">
+                        <img src="images/partners/ПРАВОВАЯ БЕСЕДА.webp" alt="Правовая беседа">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
          ОСНОВНЫЕ ТРЕБОВАНИЯ К ВЫПОЛНЕНИЮ ЗАДАНИЯ
          ============================================ -->
-    <section class="t-requirements">
+    <section id="requirements" class="t-requirements">
         <div class="t-container">
             <div class="t-requirements__header">
                 <h2 class="t-requirements__title">Основные требования к выполнению задания</h2>
-                <p class="t-requirements__subtitle">Полная информация о правилах и требованиях отражена в <a href="https://disk.yandex.ru/i/7K_tD0mIpfgGXw" target="_blank">Положении о конкурсе</a></p>
+                <p class="t-requirements__subtitle">Полная информация о правилах и требованиях отражена в положениях конкурса</p>
+                <div class="t-requirements__docs">
+                    <a href="https://disk.yandex.ru/i/7K_tD0mIpfgGXw" target="_blank" class="t-requirements__doc-link">Положение о Конкурсе</a>
+                    <a href="https://disk.yandex.ru/i/ztpNNRaV6HWR-Q" target="_blank" class="t-requirements__doc-link">Положение об Оргкомитете</a>
+                    <a href="https://disk.yandex.ru/i/UiwqZeksiVzF1w" target="_blank" class="t-requirements__doc-link">Положение о Жюри</a>
+                    <a href="https://disk.yandex.ru/i/Sw4wOXbQA8uGNA" target="_blank" class="t-requirements__doc-link">Справка о Конкурсе</a>
+                </div>
             </div>
             <div class="t-requirements__grid">
                 <div class="t-requirement-card">
@@ -3400,171 +3623,6 @@
                 <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
                 Написать в Telegram
             </a>
-        </div>
-    </section>
-
-    <!-- ============================================
-         ЖЮРИ
-         ============================================ -->
-    <section id="jury" class="t-section">
-        <div class="t-container">
-            <div class="t-section__header">
-                <div class="t-section__label">Эксперты</div>
-                <h2 class="t-section__title">Члены Жюри</h2>
-                <p class="t-section__desc">Ведущие эксперты в области земельного права и законодательства о градостроительной деятельности</p>
-            </div>
-            <div class="t-jury__grid">
-                <div class="t-jury-card">
-                    <h4>Максим Галь</h4>
-                    <p>Заместитель директора департамента комплексного развития территорий Минстроя России</p>
-                </div>
-                <div class="t-jury-card">
-                    <h4>Анна Жолобова</h4>
-                    <p>Управляющий партнер московского офиса КА «Регионсервис», член Комитета НОСТРОЙ, LL.M.</p>
-                </div>
-                <div class="t-jury-card">
-                    <h4>Алексей Бутовецкий</h4>
-                    <p>Статс-секретарь — заместитель руководителя Росреестра</p>
-                </div>
-                <div class="t-jury-card">
-                    <h4>Михаил Губин</h4>
-                    <p>Директор по развитию ГК «Малышева 73»</p>
-                </div>
-                <div class="t-jury-card">
-                    <h4>Павел Мельников</h4>
-                    <p>Директор по развитию московского подразделения ПАО «Группа ЛСР»</p>
-                </div>
-                <div class="t-jury-card">
-                    <h4>Мария Сафарова</h4>
-                    <p>Доцент Высшей школы урбанистики НИУ ВШЭ, к.э.н.</p>
-                </div>
-                <div class="t-jury-card">
-                    <h4>Максим Попов</h4>
-                    <p>Советник ALUMNI Partners, к.ю.н.</p>
-                </div>
-                <div class="t-jury-card">
-                    <h4>Сергей Григорьев</h4>
-                    <p>Директор по развитию «Группы Голос», депутат Челябинской городской думы</p>
-                </div>
-                <div class="t-jury-card">
-                    <h4>Илья Рябов</h4>
-                    <p>Директор департамента имущества ГК «Галс-Девелопмент»</p>
-                </div>
-                <div class="t-jury-card">
-                    <h4>Алексей Башарин</h4>
-                    <p>Референт Образовательного Фонда «Талант и успех», лектор СПбГУ, НИУ ВШЭ</p>
-                </div>
-            </div>
-
-            <div class="t-section__header" style="margin-top: 60px;">
-                <h3 class="t-section__title" style="font-size: 28px;">Научные руководители</h3>
-            </div>
-            <div class="t-jury__grid t-jury__grid--small">
-                <div class="t-jury-card">
-                    <h4>Леонид Бандорин</h4>
-                    <p>Доцент кафедры экологического и земельного права Юридического факультета МГУ, к.ю.н.</p>
-                </div>
-                <div class="t-jury-card">
-                    <h4>Надежда Заславская</h4>
-                    <p>Профессор кафедры экологического и земельного права Юридического факультета МГУ, д.ю.н.</p>
-                </div>
-                <div class="t-jury-card">
-                    <h4>Андрей Переладов</h4>
-                    <p>Сопредседатель КА «Регионсервис», управляющий партнер офиса в г. Кемерово</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         ОРГАНИЗАТОРЫ
-         Tilda: Используйте блок PT01 или PT02
-         ============================================ -->
-    <section id="organizers" class="t-section">
-        <div class="t-container">
-            <!-- Организаторы -->
-            <div class="t-partners__label">Организаторы</div>
-            <div class="t-organizers__logos">
-                <div class="t-organizer-logo">
-                    <img src="images/partners/юридический факультет.webp" alt="Юридический факультет МГУ">
-                </div>
-                <div class="t-organizer-logo">
-                    <img src="images/partners/регионсервис.webp" alt="Регионсервис">
-                </div>
-            </div>
-
-            <!-- При поддержке -->
-            <div class="t-partners__section">
-                <div class="t-partners__label">При поддержке</div>
-                <div class="t-partners__grid">
-                    <div class="t-partner-logo t-partner-logo--large">
-                        <img src="images/partners/правительство.webp" alt="Правительство Российской Федерации">
-                    </div>
-                    <div class="t-partner-logo t-partner-logo--large">
-                        <img src="images/partners/минстрой.webp" alt="Минстрой России">
-                    </div>
-                    <div class="t-partner-logo t-partner-logo--large">
-                        <img src="images/partners/росреестр.webp" alt="Росреестр">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Партнёры конкурса -->
-            <div class="t-partners__section">
-                <div class="t-partners__label">Партнеры конкурса</div>
-                <div class="t-partners__grid">
-                    <div class="t-partner-logo">
-                        <img src="images/partners/галс.svg" alt="ГАЛС">
-                    </div>
-                    <div class="t-partner-logo">
-                        <img src="images/partners/гринвич.webp" alt="Гринвич">
-                    </div>
-                    <div class="t-partner-logo">
-                        <img src="images/partners/голос.webp" alt="ГОЛОС">
-                    </div>
-                    <div class="t-partner-logo">
-                        <img src="images/partners/лср.webp" alt="ЛСР - Лидеры строительной России">
-                    </div>
-                    <div class="t-partner-logo">
-                        <img src="images/partners/малышева.webp" alt="Общество Малышева 73">
-                    </div>
-                    <div class="t-partner-logo">
-                        <img src="images/partners/сбер.webp" alt="Сбер">
-                    </div>
-                    <div class="t-partner-logo">
-                        <img src="images/partners/лето.webp" alt="ЛЕТО впереди">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Генеральный информационный партнёр -->
-            <div class="t-partners__section">
-                <div class="t-partners__label t-partners__label--main">Генеральный информационный партнер</div>
-                <div class="t-partners__grid">
-                    <div class="t-partner-logo t-partner-logo--large">
-                        <img src="images/partners/право.webp" alt="Право.ru">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Информационные партнёры -->
-            <div class="t-partners__section">
-                <div class="t-partners__label">Информационные партнеры</div>
-                <div class="t-partners__grid">
-                    <div class="t-partner-logo">
-                        <img src="images/partners/3k.webp" alt="3К">
-                    </div>
-                    <div class="t-partner-logo">
-                        <img src="images/partners/legal business forum.webp" alt="Legal Business Forum">
-                    </div>
-                    <div class="t-partner-logo">
-                        <img src="images/partners/РАСО.webp" alt="РАСО">
-                    </div>
-                    <div class="t-partner-logo">
-                        <img src="images/partners/ПРАВОВАЯ БЕСЕДА.webp" alt="Правовая беседа">
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
