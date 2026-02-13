@@ -4011,8 +4011,7 @@
         });
 
         // Функция загрузки контента
-        // URL админки - измените на ваш домен Railway после деплоя
-        const ADMIN_API_URL = 'https://superb-mindfulness-production.up.railway.app';
+        const ADMIN_API_URL = '';
 
         async function loadDynamicContent() {
             try {
@@ -4361,7 +4360,7 @@
                 };
 
                 try {
-                    const res = await fetch('https://superb-mindfulness-production.up.railway.app/api/submissions', {
+                    const res = await fetch('/api/submissions', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(formData)

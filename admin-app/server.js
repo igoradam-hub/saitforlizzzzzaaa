@@ -34,8 +34,13 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files
-app.use(express.static('public'));
+// Serve admin panel at /admin
+app.use('/admin', express.static(path.join(__dirname, 'public')));
+
+// Serve main site static files
+app.use(express.static(path.join(__dirname, '..')));
+
+// Serve uploaded files
 app.use('/uploads', express.static(UPLOADS_DIR));
 
 // Auth
@@ -407,7 +412,7 @@ app.post('/api/auth', (req, res) => {
     }
 });
 
-app.get('/', (req, res) => {
+app.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
