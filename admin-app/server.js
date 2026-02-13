@@ -346,6 +346,9 @@ function deepMerge(defaults, overrides) {
         } else if (overrides[key] === '' && defaults[key] && defaults[key] !== '') {
             // Don't let empty saved strings overwrite non-empty defaults
             result[key] = defaults[key];
+        } else if (Array.isArray(overrides[key]) && overrides[key].length === 0 && Array.isArray(defaults[key]) && defaults[key].length > 0) {
+            // Don't let empty saved arrays overwrite non-empty default arrays
+            result[key] = defaults[key];
         } else {
             result[key] = overrides[key];
         }
