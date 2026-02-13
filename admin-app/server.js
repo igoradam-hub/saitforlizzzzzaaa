@@ -343,6 +343,9 @@ function deepMerge(defaults, overrides) {
             defaults[key] && typeof defaults[key] === 'object' && !Array.isArray(defaults[key])
         ) {
             result[key] = deepMerge(defaults[key], overrides[key]);
+        } else if (overrides[key] === '' && defaults[key] && defaults[key] !== '') {
+            // Don't let empty saved strings overwrite non-empty defaults
+            result[key] = defaults[key];
         } else {
             result[key] = overrides[key];
         }
