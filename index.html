@@ -4011,7 +4011,7 @@
         });
 
         // Функция загрузки контента
-        const ADMIN_API_URL = '';
+        const ADMIN_API_URL = 'https://superb-mindfulness-production.up.railway.app';
 
         async function loadDynamicContent() {
             try {
@@ -4360,7 +4360,7 @@
                 };
 
                 try {
-                    const res = await fetch('/api/submissions', {
+                    const res = await fetch('https://superb-mindfulness-production.up.railway.app/api/submissions', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(formData)
