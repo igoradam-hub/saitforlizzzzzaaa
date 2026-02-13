@@ -167,7 +167,9 @@
                     <a class="nav-item" data-panel="results">Результаты</a>
                     <a class="nav-item" data-panel="schedule">График</a>
                     <a class="nav-item" data-panel="countdown">Таймер</a>
+                    <a class="nav-item" data-panel="requirements">Требования</a>
                     <a class="nav-item" data-panel="documents">Документы</a>
+                    <a class="nav-item" data-panel="faq">FAQ</a>
                 </div>
                 <div class="nav-group">
                     <div class="nav-title">Команда</div>
@@ -177,6 +179,7 @@
                 <div class="nav-group">
                     <div class="nav-title">Прочее</div>
                     <a class="nav-item" data-panel="universities">Вузы</a>
+                    <a class="nav-item" data-panel="gallery">Галерея</a>
                     <a class="nav-item" data-panel="partners">Партнёры</a>
                     <a class="nav-item" data-panel="contacts">Контакты</a>
                     <a class="nav-item" data-panel="registration">Регистрация</a>
@@ -235,6 +238,7 @@
                         <div class="field"><label>Заголовок</label><input type="text" data-path="about.title"></div>
                         <div class="field"><label>Первый абзац (HTML)</label><textarea data-path="about.text1"></textarea></div>
                         <div class="field"><label>Второй абзац</label><textarea data-path="about.text2"></textarea></div>
+                        <div class="field"><label>Третий абзац</label><textarea data-path="about.text3"></textarea></div>
                         <div class="field"><label>Изображение (путь)</label><input type="text" data-path="about.image"></div>
                     </div>
                 </div>
@@ -316,10 +320,41 @@
                     <div class="card"><h3>Логотипы вузов</h3><div id="universities-items"></div><button class="add-item-btn" onclick="addUniversity()">+ Добавить вуз</button></div>
                 </div>
 
+                <!-- Gallery -->
+                <div class="panel" id="panel-gallery">
+                    <div class="panel-header"><h2 class="panel-title">Галерея</h2><button class="btn btn-primary" onclick="save()">Сохранить</button></div>
+                    <div class="card">
+                        <div class="field"><label>Метка раздела</label><input type="text" data-path="gallery.label"></div>
+                        <div class="field"><label>Заголовок</label><input type="text" data-path="gallery.title"></div>
+                    </div>
+                    <div class="card"><h3>Фотографии</h3><div id="gallery-items"></div><button class="add-item-btn" onclick="addPhoto()">+ Добавить фото</button></div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="panel" id="panel-faq">
+                    <div class="panel-header"><h2 class="panel-title">FAQ</h2><button class="btn btn-primary" onclick="save()">Сохранить</button></div>
+                    <div class="card">
+                        <div class="field"><label>Метка раздела</label><input type="text" data-path="faq.label"></div>
+                        <div class="field"><label>Заголовок</label><input type="text" data-path="faq.title"></div>
+                    </div>
+                    <div class="card"><h3>Вопросы и ответы</h3><div id="faq-items"></div><button class="add-item-btn" onclick="addFaq()">+ Добавить вопрос</button></div>
+                </div>
+
+                <!-- Requirements -->
+                <div class="panel" id="panel-requirements">
+                    <div class="panel-header"><h2 class="panel-title">Требования</h2><button class="btn btn-primary" onclick="save()">Сохранить</button></div>
+                    <div class="card">
+                        <div class="field"><label>Заголовок</label><input type="text" data-path="requirements.title"></div>
+                        <div class="field"><label>Подзаголовок</label><textarea data-path="requirements.subtitle"></textarea></div>
+                    </div>
+                    <div class="card"><h3>Документы (ссылки на PDF)</h3><div id="req-docs-items"></div><button class="add-item-btn" onclick="addReqDoc()">+ Добавить документ</button></div>
+                    <div class="card"><h3>Карточки требований</h3><div id="req-items"></div><button class="add-item-btn" onclick="addReqItem()">+ Добавить требование</button></div>
+                </div>
+
                 <!-- Partners -->
                 <div class="panel" id="panel-partners">
                     <div class="panel-header"><h2 class="panel-title">Партнёры</h2><button class="btn btn-primary" onclick="save()">Сохранить</button></div>
-                    <p style="color: var(--gray); margin-bottom: 16px;">Редактирование партнёров требует изменения структуры. Обратитесь к разработчику.</p>
+                    <div id="partners-sections"></div>
                 </div>
 
                 <!-- Contacts -->
@@ -471,6 +506,11 @@
             renderAdvisors();
             renderOrganizers();
             renderUniversities();
+            renderGallery();
+            renderFaq();
+            renderReqDocs();
+            renderReqItems();
+            renderPartners();
         }
 
         function renderGoals() {
@@ -591,6 +631,97 @@
         }
         function addUniversity() { content.universities.logos.push({ name: '', logo: '' }); renderUniversities(); }
         function removeUniversity(i) { content.universities.logos.splice(i, 1); renderUniversities(); }
+
+        // Gallery
+        function renderGallery() {
+            const c = document.getElementById('gallery-items');
+            if (!content.gallery) content.gallery = { label: '', title: '', photos: [] };
+            if (!content.gallery.photos) content.gallery.photos = [];
+            c.innerHTML = content.gallery.photos.map((p, i) => `
+                <div class="array-item">
+                    <div class="array-item-header"><span class="array-item-title">${esc(p.alt || 'Фото ' + (i+1))}</span><button class="btn btn-danger btn-sm" onclick="removePhoto(${i})">Удалить</button></div>
+                    <div class="field"><label>Путь к файлу</label><input type="text" value="${esc(p.src)}" onchange="content.gallery.photos[${i}].src=this.value"></div>
+                    <div class="field"><label>Описание (alt)</label><input type="text" value="${esc(p.alt)}" onchange="content.gallery.photos[${i}].alt=this.value"></div>
+                </div>
+            `).join('');
+        }
+        function addPhoto() { content.gallery.photos.push({ src: '', alt: '' }); renderGallery(); }
+        function removePhoto(i) { content.gallery.photos.splice(i, 1); renderGallery(); }
+
+        // FAQ
+        function renderFaq() {
+            const c = document.getElementById('faq-items');
+            if (!content.faq) content.faq = { label: '', title: '', items: [] };
+            if (!content.faq.items) content.faq.items = [];
+            c.innerHTML = content.faq.items.map((f, i) => `
+                <div class="array-item">
+                    <div class="array-item-header"><span class="array-item-title">Вопрос ${i+1}</span><button class="btn btn-danger btn-sm" onclick="removeFaq(${i})">Удалить</button></div>
+                    <div class="field"><label>Вопрос</label><textarea onchange="content.faq.items[${i}].question=this.value">${esc(f.question)}</textarea></div>
+                    <div class="field"><label>Ответ (HTML)</label><textarea onchange="content.faq.items[${i}].answer=this.value">${esc(f.answer)}</textarea></div>
+                </div>
+            `).join('');
+        }
+        function addFaq() { content.faq.items.push({ question: '', answer: '' }); renderFaq(); }
+        function removeFaq(i) { content.faq.items.splice(i, 1); renderFaq(); }
+
+        // Requirements - docs
+        function renderReqDocs() {
+            const c = document.getElementById('req-docs-items');
+            if (!content.requirements) content.requirements = { title: '', subtitle: '', docs: [], items: [] };
+            if (!content.requirements.docs) content.requirements.docs = [];
+            c.innerHTML = content.requirements.docs.map((d, i) => `
+                <div class="array-item">
+                    <div class="array-item-header"><span class="array-item-title">${esc(d.title)}</span><button class="btn btn-danger btn-sm" onclick="removeReqDoc(${i})">Удалить</button></div>
+                    <div class="field"><label>Название</label><input type="text" value="${esc(d.title)}" onchange="content.requirements.docs[${i}].title=this.value"></div>
+                    <div class="field"><label>Ссылка/путь к файлу</label><input type="text" value="${esc(d.url)}" onchange="content.requirements.docs[${i}].url=this.value"></div>
+                </div>
+            `).join('');
+        }
+        function addReqDoc() { content.requirements.docs.push({ title: '', url: '' }); renderReqDocs(); }
+        function removeReqDoc(i) { content.requirements.docs.splice(i, 1); renderReqDocs(); }
+
+        // Requirements - items
+        function renderReqItems() {
+            const c = document.getElementById('req-items');
+            if (!content.requirements.items) content.requirements.items = [];
+            c.innerHTML = content.requirements.items.map((r, i) => `
+                <div class="array-item">
+                    <div class="array-item-header"><span class="array-item-title">${esc(r.title)}</span><button class="btn btn-danger btn-sm" onclick="removeReqItem(${i})">Удалить</button></div>
+                    <div class="field"><label>Заголовок</label><input type="text" value="${esc(r.title)}" onchange="content.requirements.items[${i}].title=this.value"></div>
+                    <div class="field"><label>Текст (HTML)</label><textarea onchange="content.requirements.items[${i}].text=this.value">${esc(r.text)}</textarea></div>
+                </div>
+            `).join('');
+        }
+        function addReqItem() { content.requirements.items.push({ title: '', text: '' }); renderReqItems(); }
+        function removeReqItem(i) { content.requirements.items.splice(i, 1); renderReqItems(); }
+
+        // Partners
+        function renderPartners() {
+            const c = document.getElementById('partners-sections');
+            if (!content.partners) return;
+            const sections = ['organizators', 'support', 'partners', 'infoPartnerMain', 'infoPartners'];
+            c.innerHTML = sections.map(key => {
+                const sec = content.partners[key];
+                if (!sec) return '';
+                if (!sec.items) sec.items = [];
+                return `
+                    <div class="card">
+                        <h3>${esc(sec.title)}</h3>
+                        <div class="field"><label>Название категории</label><input type="text" value="${esc(sec.title)}" onchange="content.partners['${key}'].title=this.value"></div>
+                        ${sec.items.map((item, i) => `
+                            <div class="array-item">
+                                <div class="array-item-header"><span class="array-item-title">${esc(item.name)}</span><button class="btn btn-danger btn-sm" onclick="removePartner('${key}',${i})">Удалить</button></div>
+                                <div class="field"><label>Название</label><input type="text" value="${esc(item.name)}" onchange="content.partners['${key}'].items[${i}].name=this.value"></div>
+                                <div class="field"><label>Логотип (путь)</label><input type="text" value="${esc(item.logo)}" onchange="content.partners['${key}'].items[${i}].logo=this.value"></div>
+                            </div>
+                        `).join('')}
+                        <button class="add-item-btn" onclick="addPartner('${key}')">+ Добавить</button>
+                    </div>
+                `;
+            }).join('');
+        }
+        function addPartner(key) { content.partners[key].items.push({ name: '', logo: '' }); renderPartners(); }
+        function removePartner(key, i) { content.partners[key].items.splice(i, 1); renderPartners(); }
 
         // Submissions
         function renderSubmissions() {

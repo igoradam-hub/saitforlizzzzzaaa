@@ -4086,6 +4086,7 @@
                     if (aboutTitle && content.about.title) aboutTitle.textContent = content.about.title;
                     if (aboutTexts[0] && content.about.text1) aboutTexts[0].innerHTML = content.about.text1;
                     if (aboutTexts[1] && content.about.text2) aboutTexts[1].textContent = content.about.text2;
+                    if (aboutTexts[2] && content.about.text3) aboutTexts[2].textContent = content.about.text3;
                     if (aboutImg && content.about.image) aboutImg.src = content.about.image;
                 }
 
@@ -4268,6 +4269,129 @@
                         if (link) {
                             link.href = content.contacts.telegram2.url;
                             link.textContent = content.contacts.telegram2.name;
+                        }
+                    }
+                }
+
+                // Gallery section
+                if (content.gallery) {
+                    const gallerySection = document.querySelector('#gallery');
+                    if (gallerySection) {
+                        const gLabel = gallerySection.querySelector('.t-section__label');
+                        const gTitle = gallerySection.querySelector('.t-section__title');
+                        if (gLabel && content.gallery.label) gLabel.textContent = content.gallery.label;
+                        if (gTitle && content.gallery.title) gTitle.textContent = content.gallery.title;
+
+                        if (content.gallery.photos && content.gallery.photos.length > 0) {
+                            const grid = gallerySection.querySelector('.t-gallery__grid');
+                            if (grid) {
+                                const visibleCount = 5;
+                                grid.innerHTML = content.gallery.photos.map((p, i) =>
+                                    `<div class="t-gallery__item${i >= visibleCount ? ' t-gallery__more-item' : ''}">
+                                        <img src="${p.src}" alt="${p.alt}">
+                                    </div>`
+                                ).join('');
+                            }
+                        }
+                    }
+                }
+
+                // FAQ section
+                if (content.faq) {
+                    const faqSection = document.querySelector('#faq');
+                    if (faqSection) {
+                        const fLabel = faqSection.querySelector('.t-section__label');
+                        const fTitle = faqSection.querySelector('.t-section__title');
+                        if (fLabel && content.faq.label) fLabel.textContent = content.faq.label;
+                        if (fTitle && content.faq.title) fTitle.textContent = content.faq.title;
+
+                        if (content.faq.items && content.faq.items.length > 0) {
+                            const faqList = faqSection.querySelector('.t-faq__list');
+                            if (faqList) {
+                                faqList.innerHTML = content.faq.items.map(f =>
+                                    `<div class="t-faq__item">
+                                        <div class="t-faq__question">
+                                            <div class="t-faq__question-label">Участник:</div>
+                                            <div class="t-faq__question-text">${f.question}</div>
+                                        </div>
+                                        <div class="t-faq__answer">
+                                            <div class="t-faq__answer-label">Оргкомитет:</div>
+                                            <div class="t-faq__answer-text">${f.answer}</div>
+                                        </div>
+                                    </div>`
+                                ).join('');
+                            }
+                        }
+                    }
+                }
+
+                // Requirements section
+                if (content.requirements) {
+                    const reqSection = document.querySelector('#requirements');
+                    if (reqSection) {
+                        const reqTitle = reqSection.querySelector('.t-requirements__title');
+                        const reqSubtitle = reqSection.querySelector('.t-requirements__subtitle');
+                        if (reqTitle && content.requirements.title) reqTitle.textContent = content.requirements.title;
+                        if (reqSubtitle && content.requirements.subtitle) reqSubtitle.textContent = content.requirements.subtitle;
+
+                        // Requirement docs (PDF links)
+                        if (content.requirements.docs && content.requirements.docs.length > 0) {
+                            const docsContainer = reqSection.querySelector('.t-requirements__docs');
+                            if (docsContainer) {
+                                docsContainer.innerHTML = content.requirements.docs.map(d =>
+                                    `<a href="${d.url}" target="_blank" class="t-requirements__doc-link">${d.title}</a>`
+                                ).join('');
+                            }
+                        }
+
+                        // Requirement cards
+                        if (content.requirements.items && content.requirements.items.length > 0) {
+                            const reqGrid = reqSection.querySelector('.t-requirements__grid');
+                            if (reqGrid) {
+                                reqGrid.innerHTML = content.requirements.items.map(r =>
+                                    `<div class="t-requirement-card">
+                                        <h3 class="t-requirement-card__title">${r.title}</h3>
+                                        <div class="t-requirement-card__text">${r.text}</div>
+                                    </div>`
+                                ).join('');
+                            }
+                        }
+                    }
+                }
+
+                // Partners section
+                if (content.partners) {
+                    const partnersSection = document.querySelector('#organizers');
+                    if (partnersSection) {
+                        const container = partnersSection.querySelector('.t-container');
+                        if (container) {
+                            let html = '';
+                            const sections = [
+                                { key: 'organizators', gridClass: 't-organizers__logos', itemClass: 't-organizer-logo' },
+                                { key: 'support', gridClass: 't-partners__grid', itemClass: 't-partner-logo t-partner-logo--large' },
+                                { key: 'partners', gridClass: 't-partners__grid', itemClass: 't-partner-logo' },
+                                { key: 'infoPartnerMain', gridClass: 't-partners__grid', itemClass: 't-partner-logo t-partner-logo--large', labelClass: 't-partners__label--main' },
+                                { key: 'infoPartners', gridClass: 't-partners__grid', itemClass: 't-partner-logo' }
+                            ];
+                            sections.forEach(sec => {
+                                const data = content.partners[sec.key];
+                                if (data && data.items && data.items.length > 0) {
+                                    const labelCls = sec.labelClass ? 't-partners__label ' + sec.labelClass : 't-partners__label';
+                                    if (sec.key === 'organizators') {
+                                        html += `<div class="${labelCls}">${data.title}</div>`;
+                                        html += `<div class="${sec.gridClass}">`;
+                                    } else {
+                                        html += `<div class="t-partners__section"><div class="${labelCls}">${data.title}</div>`;
+                                        html += `<div class="${sec.gridClass}">`;
+                                    }
+                                    data.items.forEach(item => {
+                                        html += `<div class="${sec.itemClass}"><img src="${item.logo}" alt="${item.name}"></div>`;
+                                    });
+                                    html += '</div>';
+                                    if (sec.key !== 'organizators') html += '</div>';
+                                }
+                            });
+                            container.innerHTML = html;
                         }
                     }
                 }
