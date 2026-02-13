@@ -211,6 +211,7 @@
                         <h3>📱 Мобильная версия</h3>
                         <div class="field"><label>Заголовок (мобильная)</label><input type="text" data-path="hero.mobile.title"></div>
                         <div class="field"><label>Подзаголовок (мобильная)</label><textarea data-path="hero.mobile.subtitle"></textarea></div>
+                        <div class="field"><label>Описание (мобильная)</label><textarea data-path="hero.mobile.description"></textarea></div>
                     </div>
                     <div class="card">
                         <h3>🖥️ Десктопная версия</h3>
@@ -219,9 +220,10 @@
                         <div class="field"><label>Подподзаголовок (десктоп)</label><textarea data-path="hero.desktop.description"></textarea></div>
                     </div>
                     <div class="card">
-                        <h3>Дополнительно</h3>
-                        <div class="field"><label>Дата финала</label><input type="text" data-path="hero.finalsDate"></div>
-                        <div class="field"><label>Место проведения</label><input type="text" data-path="hero.finalsLocation"></div>
+                        <h3>Плашка-акцент (Highlight)</h3>
+                        <div class="field"><label>Заголовок плашки</label><input type="text" data-path="hero.highlightTitle"><p class="field-hint">Например: Победители II конкурса!</p></div>
+                        <div class="field"><label>Дата финала</label><input type="text" data-path="hero.finalsDate"><p class="field-hint">Например: 18 апреля 2026</p></div>
+                        <div class="field"><label>Место проведения</label><input type="text" data-path="hero.finalsLocation"><p class="field-hint">Например: МГУ им. М.В. Ломоносова</p></div>
                     </div>
                 </div>
 
@@ -291,8 +293,10 @@
                     <div class="card">
                         <div class="field"><label>Метка раздела</label><input type="text" data-path="jury.label"></div>
                         <div class="field"><label>Заголовок</label><input type="text" data-path="jury.title"></div>
+                        <div class="field"><label>Описание</label><textarea data-path="jury.description"></textarea></div>
                     </div>
                     <div class="card"><h3>Члены жюри</h3><div id="jury-items"></div><button class="add-item-btn" onclick="addJury()">+ Добавить члена жюри</button></div>
+                    <div class="card"><h3>Научные руководители</h3><div id="advisors-items"></div><button class="add-item-btn" onclick="addAdvisor()">+ Добавить научного руководителя</button></div>
                 </div>
 
                 <!-- Organizers -->
@@ -464,6 +468,7 @@
             renderSchedule();
             renderDocuments();
             renderJury();
+            renderAdvisors();
             renderOrganizers();
             renderUniversities();
         }
@@ -543,6 +548,22 @@
         }
         function addJury() { content.jury.members.push({ name: '', position: '', photo: '' }); renderJury(); }
         function removeJury(i) { content.jury.members.splice(i, 1); renderJury(); }
+
+        function renderAdvisors() {
+            const c = document.getElementById('advisors-items');
+            if (!content.jury) content.jury = {};
+            if (!content.jury.scientificAdvisors) content.jury.scientificAdvisors = [];
+            c.innerHTML = content.jury.scientificAdvisors.map((m, i) => `
+                <div class="array-item">
+                    <div class="array-item-header"><span class="array-item-title">${esc(m.name)}</span><button class="btn btn-danger btn-sm" onclick="removeAdvisor(${i})">Удалить</button></div>
+                    <div class="field"><label>ФИО</label><input type="text" value="${esc(m.name)}" onchange="content.jury.scientificAdvisors[${i}].name=this.value"></div>
+                    <div class="field"><label>Должность</label><input type="text" value="${esc(m.position)}" onchange="content.jury.scientificAdvisors[${i}].position=this.value"></div>
+                    <div class="field"><label>Фото (путь)</label><input type="text" value="${esc(m.photo || '')}" onchange="content.jury.scientificAdvisors[${i}].photo=this.value"></div>
+                </div>
+            `).join('');
+        }
+        function addAdvisor() { content.jury.scientificAdvisors.push({ name: '', position: '', photo: '' }); renderAdvisors(); }
+        function removeAdvisor(i) { content.jury.scientificAdvisors.splice(i, 1); renderAdvisors(); }
 
         function renderOrganizers() {
             const c = document.getElementById('organizers-items');

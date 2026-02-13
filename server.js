@@ -103,8 +103,10 @@ const defaultContent = {
         },
         desktop: {
             title: "Третий открытый студенческий конкурс по земельному законодательству и законодательству о градостроительной деятельности имени О.И. Крассова",
-            subtitle: "Командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства"
+            subtitle: "Командное соревнование студентов по разработке решений спорных правовых ситуаций, связанных с актуальными проблемами применения земельного и градостроительного законодательства",
+            description: ""
         },
+        highlightTitle: "Победители II конкурса!",
         finalsDate: "18 апреля 2026",
         finalsLocation: "МГУ им. М.В. Ломоносова",
         backgroundImage: "images/photos/90922-moskovskij_gosudarstvennyj_universi-dostoprimechatelnost-spiral-neboskreb-stolica-3840x2160.jpg"
@@ -170,10 +172,24 @@ const defaultContent = {
     },
     jury: {
         label: "Эксперты",
-        title: "Жюри конкурса",
+        title: "Члены Жюри",
+        description: "Ведущие эксперты в области земельного права и законодательства о градостроительной деятельности",
         members: [
-            { name: "Иванов Иван Иванович", position: "Профессор МГУ", photo: "" },
-            { name: "Петров Пётр Петрович", position: "Партнёр Регионсервис", photo: "" }
+            { name: "Максим Галь", position: "Заместитель директора департамента комплексного развития территорий Минстроя России", photo: "" },
+            { name: "Анна Жолобова", position: "Управляющий партнер московского офиса КА «Регионсервис», член Комитета НОСТРОЙ, LL.M.", photo: "" },
+            { name: "Алексей Бутовецкий", position: "Статс-секретарь — заместитель руководителя Росреестра", photo: "" },
+            { name: "Михаил Губин", position: "Директор по развитию ГК «Малышева 73»", photo: "" },
+            { name: "Павел Мельников", position: "Директор по развитию московского подразделения ПАО «Группа ЛСР»", photo: "" },
+            { name: "Мария Сафарова", position: "Доцент Высшей школы урбанистики НИУ ВШЭ, к.э.н.", photo: "" },
+            { name: "Максим Попов", position: "Советник ALUMNI Partners, к.ю.н.", photo: "" },
+            { name: "Сергей Григорьев", position: "Директор по развитию «Группы Голос», депутат Челябинской городской думы", photo: "" },
+            { name: "Илья Рябов", position: "Директор департамента имущества ГК «Галс-Девелопмент»", photo: "" },
+            { name: "Алексей Башарин", position: "Референт Образовательного Фонда «Талант и успех», лектор СПбГУ, НИУ ВШЭ", photo: "" }
+        ],
+        scientificAdvisors: [
+            { name: "Леонид Бандорин", position: "Доцент кафедры экологического и земельного права Юридического факультета МГУ, к.ю.н.", photo: "" },
+            { name: "Надежда Заславская", position: "Профессор кафедры экологического и земельного права Юридического факультета МГУ, д.ю.н.", photo: "" },
+            { name: "Андрей Переладов", position: "Сопредседатель КА «Регионсервис», управляющий партнер офиса в г. Кемерово", photo: "" }
         ]
     },
     organizers: {
@@ -257,12 +273,28 @@ if (!fs.existsSync(SUBMISSIONS_FILE)) {
     fs.writeFileSync(SUBMISSIONS_FILE, JSON.stringify([], null, 2), 'utf8');
 }
 
+// Deep merge: ensures nested objects (hero.desktop, hero.mobile, etc.) are preserved
+function deepMerge(defaults, overrides) {
+    const result = { ...defaults };
+    for (const key of Object.keys(overrides)) {
+        if (
+            overrides[key] && typeof overrides[key] === 'object' && !Array.isArray(overrides[key]) &&
+            defaults[key] && typeof defaults[key] === 'object' && !Array.isArray(defaults[key])
+        ) {
+            result[key] = deepMerge(defaults[key], overrides[key]);
+        } else {
+            result[key] = overrides[key];
+        }
+    }
+    return result;
+}
+
 // Helper functions
 function getContent() {
     try {
         const content = JSON.parse(fs.readFileSync(CONTENT_FILE, 'utf8'));
-        // Merge with defaults to ensure all fields exist
-        return { ...defaultContent, ...content };
+        // Deep merge with defaults to ensure ALL nested fields exist
+        return deepMerge(defaultContent, content);
     } catch {
         return defaultContent;
     }

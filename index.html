@@ -4050,8 +4050,21 @@
                         if (desktopContainer) {
                             const desktopTitle = desktopContainer.querySelector('.t-cover__title');
                             const desktopSubtitle = desktopContainer.querySelector('.t-cover__subtitle');
+                            const desktopDescription = desktopContainer.querySelector('.t-cover__description');
                             if (desktopTitle && content.hero.desktop.title) desktopTitle.innerHTML = content.hero.desktop.title;
                             if (desktopSubtitle && content.hero.desktop.subtitle) desktopSubtitle.textContent = content.hero.desktop.subtitle;
+                            if (desktopDescription && content.hero.desktop.description) desktopDescription.textContent = content.hero.desktop.description;
+                        }
+                    }
+
+                    // Highlight section (finalsDate, finalsLocation)
+                    const highlight = document.querySelector('.t-cover__highlight');
+                    if (highlight) {
+                        const highlightTitle = highlight.querySelector('h2');
+                        const highlightText = highlight.querySelector('p');
+                        if (highlightTitle && content.hero.highlightTitle) highlightTitle.textContent = content.hero.highlightTitle;
+                        if (highlightText && content.hero.finalsDate) {
+                            highlightText.textContent = content.hero.finalsDate + (content.hero.finalsLocation ? ' — ' + content.hero.finalsLocation : '');
                         }
                     }
 
@@ -4137,6 +4150,29 @@
                     if (scheduleSection) {
                         const title = scheduleSection.querySelector('.t-section__title');
                         if (title && content.schedule.title) title.textContent = content.schedule.title;
+
+                        // Dynamically render schedule stages
+                        if (content.schedule.stages && content.schedule.stages.length > 0) {
+                            const timeline = scheduleSection.querySelector('.t-timeline');
+                            if (timeline) {
+                                timeline.innerHTML = content.schedule.stages.map((stage, idx) =>
+                                    `<div class="t-timeline__stage${idx === content.schedule.stages.length - 1 ? ' t-timeline__stage--final' : ''}">
+                                        <div class="t-timeline__stage-header">
+                                            <div class="t-timeline__stage-title">${stage.name}</div>
+                                            <div class="t-timeline__stage-subtitle">${stage.period || ''}</div>
+                                        </div>
+                                        <div class="t-timeline__content">
+                                            <div class="t-timeline__content-header">Структура</div>
+                                            <div class="t-timeline__items">
+                                                ${(stage.items || []).map(item =>
+                                                    `<div class="t-timeline__item"><div class="t-timeline__item-text">${item}</div></div>`
+                                                ).join('')}
+                                            </div>
+                                        </div>
+                                    </div>`
+                                ).join('');
+                            }
+                        }
                     }
                 }
 
@@ -4175,13 +4211,35 @@
                 }
 
                 // Jury section
-                if (content.jury && content.jury.members) {
+                if (content.jury) {
                     const jurySection = document.querySelector('#jury');
                     if (jurySection) {
                         const label = jurySection.querySelector('.t-section__label');
                         const title = jurySection.querySelector('.t-section__title');
+                        const desc = jurySection.querySelector('.t-section__desc');
                         if (label && content.jury.label) label.textContent = content.jury.label;
                         if (title && content.jury.title) title.textContent = content.jury.title;
+                        if (desc && content.jury.description) desc.textContent = content.jury.description;
+
+                        // Dynamically render jury members
+                        if (content.jury.members && content.jury.members.length > 0) {
+                            const juryGrid = jurySection.querySelector('.t-jury__grid');
+                            if (juryGrid) {
+                                juryGrid.innerHTML = content.jury.members.map(m =>
+                                    `<div class="t-jury-card"><h4>${m.name}</h4><p>${m.position}</p></div>`
+                                ).join('');
+                            }
+                        }
+
+                        // Dynamically render scientific advisors
+                        if (content.jury.scientificAdvisors && content.jury.scientificAdvisors.length > 0) {
+                            const advisorGrid = jurySection.querySelector('.t-jury__grid--small');
+                            if (advisorGrid) {
+                                advisorGrid.innerHTML = content.jury.scientificAdvisors.map(m =>
+                                    `<div class="t-jury-card"><h4>${m.name}</h4><p>${m.position}</p></div>`
+                                ).join('');
+                            }
+                        }
                     }
                 }
 
