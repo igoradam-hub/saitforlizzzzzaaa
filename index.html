@@ -4363,44 +4363,7 @@
                     }
                 }
 
-                // Partners section
-                if (content.partners) {
-                    const partnersSection = document.querySelector('#organizers');
-                    if (partnersSection) {
-                        const container = partnersSection.querySelector('.t-container');
-                        if (container) {
-                            let html = '';
-                            const sections = [
-                                { key: 'organizators', gridClass: 't-organizers__logos', itemClass: 't-organizer-logo' },
-                                { key: 'support', gridClass: 't-partners__grid', itemClass: 't-partner-logo t-partner-logo--large' },
-                                { key: 'partners', gridClass: 't-partners__grid', itemClass: 't-partner-logo' },
-                                { key: 'infoPartnerMain', gridClass: 't-partners__grid', itemClass: 't-partner-logo t-partner-logo--large', labelClass: 't-partners__label--main' },
-                                { key: 'infoPartners', gridClass: 't-partners__grid', itemClass: 't-partner-logo' }
-                            ];
-                            sections.forEach(sec => {
-                                const data = content.partners[sec.key];
-                                const validItems = (data && data.items) ? data.items.filter(item => item.logo) : [];
-                                if (validItems.length > 0) {
-                                    const labelCls = sec.labelClass ? 't-partners__label ' + sec.labelClass : 't-partners__label';
-                                    if (sec.key === 'organizators') {
-                                        html += `<div class="${labelCls}">${data.title}</div>`;
-                                        html += `<div class="${sec.gridClass}">`;
-                                    } else {
-                                        html += `<div class="t-partners__section"><div class="${labelCls}">${data.title}</div>`;
-                                        html += `<div class="${sec.gridClass}">`;
-                                    }
-                                    validItems.forEach(item => {
-                                        html += `<div class="${sec.itemClass}"><img src="${item.logo}" alt="${item.name}"></div>`;
-                                    });
-                                    html += '</div>';
-                                    if (sec.key !== 'organizators') html += '</div>';
-                                }
-                            });
-                            // Only replace static HTML if we have actual logos to show
-                            if (html) container.innerHTML = html;
-                        }
-                    }
-                }
+                // Partners section — logos are served from static HTML, no dynamic replacement needed
 
                 console.log('Dynamic content loaded successfully');
             } catch (error) {
