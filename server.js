@@ -204,43 +204,43 @@ const defaultContent = {
         organizators: {
             title: "Организаторы",
             items: [
-                { name: "Юридический факультет МГУ", logo: "images/partners/юридический факультет.webp" },
-                { name: "Регионсервис", logo: "images/partners/регионсервис.webp" }
+                { name: "Юридический факультет МГУ", logo: "images/partners/yuridicheskiy-fakultet.webp" },
+                { name: "Регионсервис", logo: "images/partners/regionservis.webp" }
             ]
         },
         support: {
             title: "При поддержке",
             items: [
-                { name: "Правительство Москвы", logo: "images/partners/правительство.webp" },
-                { name: "Минстрой", logo: "images/partners/минстрой.webp" },
-                { name: "Росреестр", logo: "images/partners/росреестр.webp" }
+                { name: "Правительство Москвы", logo: "images/partners/pravitelstvo.webp" },
+                { name: "Минстрой", logo: "images/partners/minstroy.webp" },
+                { name: "Росреестр", logo: "images/partners/rosreestr.webp" }
             ]
         },
         partners: {
             title: "Партнеры конкурса",
             items: [
-                { name: "ГАЛС", logo: "images/partners/галс.svg" },
-                { name: "Гринвич", logo: "images/partners/гринвич.webp" },
-                { name: "ГОЛОС", logo: "images/partners/голос.webp" },
-                { name: "ЛСР", logo: "images/partners/лср.webp" },
-                { name: "Малышева 73", logo: "images/partners/малышева.webp" },
-                { name: "Сбер", logo: "images/partners/сбер.webp" },
-                { name: "ЛЕТО впереди", logo: "images/partners/лето.webp" }
+                { name: "ГАЛС", logo: "images/partners/gals.svg" },
+                { name: "Гринвич", logo: "images/partners/grinvich.webp" },
+                { name: "ГОЛОС", logo: "images/partners/golos.webp" },
+                { name: "ЛСР", logo: "images/partners/lsr.webp" },
+                { name: "Малышева 73", logo: "images/partners/malysheva.webp" },
+                { name: "Сбер", logo: "images/partners/sber.webp" },
+                { name: "ЛЕТО впереди", logo: "images/partners/leto.webp" }
             ]
         },
         infoPartnerMain: {
             title: "Генеральный информационный партнер",
             items: [
-                { name: "Право.ru", logo: "images/partners/право.webp" }
+                { name: "Право.ru", logo: "images/partners/pravo.webp" }
             ]
         },
         infoPartners: {
             title: "Информационные партнеры",
             items: [
                 { name: "3К", logo: "images/partners/3k.webp" },
-                { name: "Legal Business Forum", logo: "images/partners/legal business forum.webp" },
-                { name: "РАСО", logo: "images/partners/РАСО.webp" },
-                { name: "Правовая беседа", logo: "images/partners/ПРАВОВАЯ БЕСЕДА.webp" }
+                { name: "Legal Business Forum", logo: "images/partners/legal-business-forum.webp" },
+                { name: "РАСО", logo: "images/partners/raso.webp" },
+                { name: "Правовая беседа", logo: "images/partners/pravovaya-beseda.webp" }
             ]
         }
     },
