@@ -361,7 +361,10 @@ function getContent() {
     try {
         const content = JSON.parse(fs.readFileSync(CONTENT_FILE, 'utf8'));
         // Deep merge with defaults to ensure ALL nested fields exist
-        return deepMerge(defaultContent, content);
+        const result = deepMerge(defaultContent, content);
+        // Always use default partners (logos are bundled with the code, not editable via admin)
+        result.partners = defaultContent.partners;
+        return result;
     } catch {
         return defaultContent;
     }

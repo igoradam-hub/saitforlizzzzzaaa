@@ -4379,7 +4379,8 @@
                             ];
                             sections.forEach(sec => {
                                 const data = content.partners[sec.key];
-                                if (data && data.items && data.items.length > 0) {
+                                const validItems = (data && data.items) ? data.items.filter(item => item.logo) : [];
+                                if (validItems.length > 0) {
                                     const labelCls = sec.labelClass ? 't-partners__label ' + sec.labelClass : 't-partners__label';
                                     if (sec.key === 'organizators') {
                                         html += `<div class="${labelCls}">${data.title}</div>`;
@@ -4388,14 +4389,15 @@
                                         html += `<div class="t-partners__section"><div class="${labelCls}">${data.title}</div>`;
                                         html += `<div class="${sec.gridClass}">`;
                                     }
-                                    data.items.forEach(item => {
+                                    validItems.forEach(item => {
                                         html += `<div class="${sec.itemClass}"><img src="${item.logo}" alt="${item.name}"></div>`;
                                     });
                                     html += '</div>';
                                     if (sec.key !== 'organizators') html += '</div>';
                                 }
                             });
-                            container.innerHTML = html;
+                            // Only replace static HTML if we have actual logos to show
+                            if (html) container.innerHTML = html;
                         }
                     }
                 }
