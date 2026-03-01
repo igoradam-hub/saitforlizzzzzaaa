@@ -3793,10 +3793,10 @@
                 });
             }
 
-            // Countdown timer - до 23 февраля 2026 00:00 по московскому времени
+            // Countdown timer - до 2 марта 2026 00:00 по московскому времени
             function updateCountdown() {
                 // Use dynamic date from API or default
-                const endDateStr = window.countdownEndDate || '2026-02-23T00:00:00+03:00';
+                const endDateStr = window.countdownEndDate || '2026-03-02T00:00:00+03:00';
                 const targetDate = new Date(endDateStr);
                 const now = new Date();
                 const diff = targetDate - now;

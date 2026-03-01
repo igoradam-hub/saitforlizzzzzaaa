@@ -255,7 +255,7 @@ const defaultContent = {
     },
     countdown: {
         title: "До конца регистрации осталось",
-        endDate: "2026-02-23T00:00:00+03:00"
+        endDate: "2026-03-02T00:00:00+03:00"
     },
     documents: [
         { title: "Положение о Конкурсе", url: "https://disk.yandex.ru/i/7K_tD0mIpfgGXw" },
