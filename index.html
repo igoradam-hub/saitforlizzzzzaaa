@@ -3802,10 +3802,21 @@
                 const diff = targetDate - now;
 
                 if (diff <= 0) {
-                    document.getElementById('countdown-days').textContent = '00';
-                    document.getElementById('countdown-hours').textContent = '00';
-                    document.getElementById('countdown-minutes').textContent = '00';
-                    document.getElementById('countdown-seconds').textContent = '00';
+                    // Таймер истёк — показать "Регистрация завершена"
+                    const countdownTitle = document.querySelector('.t-countdown__title');
+                    const countdownEl = document.getElementById('countdown');
+                    if (countdownTitle) countdownTitle.textContent = 'Регистрация завершена';
+                    if (countdownEl) countdownEl.style.display = 'none';
+
+                    // Скрыть форму регистрации
+                    const regSection = document.getElementById('registration');
+                    if (regSection) regSection.style.display = 'none';
+
+                    // Скрыть кнопки "Зарегистрироваться" / "Регистрация"
+                    document.querySelectorAll('a[href="#registration"]').forEach(function(link) {
+                        link.style.display = 'none';
+                    });
+
                     return;
                 }
 
