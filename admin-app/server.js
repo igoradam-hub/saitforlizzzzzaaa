@@ -281,7 +281,7 @@ const defaultContent = {
         label: "Фотоотчёт",
         title: "Галерея",
         photos: [
-            { src: "images/photos/0450.jpg", alt: "Финал конкурса MSU Urban Law Cup" },
+            { src: "images/photos/0450.jpg", alt: "Финал конкурса MSU Open Urban Law Cup" },
             { src: "images/photos/0440.jpg", alt: "Награждение победителей" },
             { src: "images/photos/0069.jpg", alt: "Участники конкурса" },
             { src: "images/photos/0195.jpg", alt: "Жюри конкурса" },
