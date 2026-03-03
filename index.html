@@ -3802,10 +3802,12 @@
                 const diff = targetDate - now;
 
                 if (diff <= 0) {
-                    // Таймер истёк — показать "Регистрация завершена"
+                    // Таймер истёк — показать ссылку на задания
                     const countdownTitle = document.querySelector('.t-countdown__title');
                     const countdownEl = document.getElementById('countdown');
-                    if (countdownTitle) countdownTitle.textContent = 'Регистрация завершена';
+                    if (countdownTitle) {
+                        countdownTitle.innerHTML = '<a href="https://disk.yandex.ru/i/EQ4lG8Ru1uI7LQ" target="_blank" rel="noopener" style="color: #fff; text-decoration: underline;">Скачать задания отборочного этапа</a>';
+                    }
                     if (countdownEl) countdownEl.style.display = 'none';
 
                     // Скрыть форму регистрации
