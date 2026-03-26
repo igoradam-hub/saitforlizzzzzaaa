@@ -4191,7 +4191,7 @@
                             const juryGrid = jurySection.querySelector('.t-jury__grid');
                             if (juryGrid) {
                                 juryGrid.innerHTML = content.jury.members.map(m =>
-                                    `<div class="t-jury-card"><h4>${m.name}</h4><p>${m.position}</p></div>`
+                                    `<div class="t-jury-card">${m.photo ? `<img src="${m.photo}" alt="${m.name}" class="t-jury-card__photo">` : ''}<h4>${m.name}</h4><p>${m.position}</p></div>`
                                 ).join('');
                             }
                         }
@@ -4201,7 +4201,7 @@
                             const advisorGrid = jurySection.querySelector('.t-jury__grid--small');
                             if (advisorGrid) {
                                 advisorGrid.innerHTML = content.jury.scientificAdvisors.map(m =>
-                                    `<div class="t-jury-card"><h4>${m.name}</h4><p>${m.position}</p></div>`
+                                    `<div class="t-jury-card">${m.photo ? `<img src="${m.photo}" alt="${m.name}" class="t-jury-card__photo">` : ''}<h4>${m.name}</h4><p>${m.position}</p></div>`
                                 ).join('');
                             }
                         }
