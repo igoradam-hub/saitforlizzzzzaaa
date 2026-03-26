@@ -4175,38 +4175,7 @@
                     }
                 }
 
-                // Jury section
-                if (content.jury) {
-                    const jurySection = document.querySelector('#jury');
-                    if (jurySection) {
-                        const label = jurySection.querySelector('.t-section__label');
-                        const title = jurySection.querySelector('.t-section__title');
-                        const desc = jurySection.querySelector('.t-section__desc');
-                        if (label && content.jury.label) label.textContent = content.jury.label;
-                        if (title && content.jury.title) title.textContent = content.jury.title;
-                        if (desc && content.jury.description) desc.textContent = content.jury.description;
-
-                        // Dynamically render jury members
-                        if (content.jury.members && content.jury.members.length > 0) {
-                            const juryGrid = jurySection.querySelector('.t-jury__grid');
-                            if (juryGrid) {
-                                juryGrid.innerHTML = content.jury.members.map(m =>
-                                    `<div class="t-jury-card">${m.photo ? `<img src="${m.photo}" alt="${m.name}" class="t-jury-card__photo">` : ''}<h4>${m.name}</h4><p>${m.position}</p></div>`
-                                ).join('');
-                            }
-                        }
-
-                        // Dynamically render scientific advisors
-                        if (content.jury.scientificAdvisors && content.jury.scientificAdvisors.length > 0) {
-                            const advisorGrid = jurySection.querySelector('.t-jury__grid--small');
-                            if (advisorGrid) {
-                                advisorGrid.innerHTML = content.jury.scientificAdvisors.map(m =>
-                                    `<div class="t-jury-card">${m.photo ? `<img src="${m.photo}" alt="${m.name}" class="t-jury-card__photo">` : ''}<h4>${m.name}</h4><p>${m.position}</p></div>`
-                                ).join('');
-                            }
-                        }
-                    }
-                }
+                // Jury section — rendered statically in HTML, no dynamic override
 
                 // Registration section
                 if (content.registration) {
